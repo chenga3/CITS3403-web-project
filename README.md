@@ -17,7 +17,7 @@ Example comp programming website https://pcs.org.au/
 
 |         | Week 1                  | Week 2                    | Week 3 | Week 4 | Week 5 | Week 6 |
 |---------|-------------------------|---------------------------|--------|--------|--------|--------|
-| Guohuan | Make page               |                           |        |        |        |        |
+| Guohuan | Make page               | Make register and homepage|        |        |        |        |
 | Jeremy  | Make html for each page | Add in CSS and javascript |        |        |        |        |
 | Alan    | Learn Flask             |                           |        |        |        |        |
 | Brandon | Learn Back end          |                           |        |        |        |        |
