@@ -1,0 +1,31 @@
+﻿<!-- This file is for designing the register page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up</title>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;display=swap'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='auth/Register1.css') }}">
+</head>
+<body>
+    <!-- creating the information input part -->
+    <form method="post">
+        <div class="segment header">
+            <h1>Sign up</h1>
+        </div>
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+        <div class="label">
+            <input type="text" name="username" placeholder="User Name">
+        </div>
+        <div class="label">
+            <input type="text" name="email" placeholder="Email Address">
+        </div>
+        <div class="label">
+            <input type="password" name="password" placeholder="Password">
+        </div>
+        <button type="submit"> Register</button>
+    </form>
+</body>
+</html>

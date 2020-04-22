@@ -1,0 +1,88 @@
+/* this file is for styling the register page */
+
+/* define the background color of the page */
+body, html {
+  background-color: lightgray;
+}
+
+/* define the letter style*/
+body, input, button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+
+/* define the style of the header */
+.header {
+  color: #BABECC;
+  text-shadow: 1px 1px 1px #FFF;
+}
+
+/* define the main information part */
+form {
+  position: relative;
+  padding: 16px;
+  width: 320px;
+  margin: 0 auto;
+  margin-top: 100px;
+  background-color: #EBECF0;
+}
+
+ /* define as one segment */
+.segment {
+  padding: 32px 0;
+  text-align: center;
+} 
+
+/* define the button and input part */
+button, input {
+  border: 0;
+  outline: 0;
+  font-size: 16px;
+  border-radius: 320px;
+  padding: 16px;
+  background-color: #EBECF0;
+  text-shadow: 1px 1px 0 #FFF;
+}
+
+/* separate the input and button part */
+.label {
+  display: block;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+/* style the input */
+input {
+  margin-right: 8px;
+  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+
+/* style the input when click */
+input:focus {
+  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+
+/* define the button */
+button {
+  display: block;
+  width: 100%;
+  color: #61677C;
+  font-weight: bold;
+  box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+/* style the button when mouse hovering */
+button:hover {
+  box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+}
+
+/* style the button when click */
+button:active {
+  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+

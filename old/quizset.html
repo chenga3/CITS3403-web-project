@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Quiz Sets</title>
+    <link rel="stylesheet" type="text/css" href="quizset.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="quizset.js" async></script>
+</head>
+<body>
+    <h2>CITS3403 Quiz</h2>
+    <div class="navbar">
+        <a class="navlink" id="navlink-home"></a>
+        <a class="navlink" id="navlink-quizset"></a>
+        <a class="navlink" id="navlink-results"></a>
+        <a class="navlink" id="navlink-admin-edit"></a>
+        <a class="navlink" id="navlink-admin-assess"></a>
+    </div>
+    <h1>Quiz Sets</h1>
+    <table class="quizsets">
+        <tr>
+            <th>Quiz Level</th>
+            <th>Recent Attempt</th>
+            <th>Best Attempt</th>
+        </tr>
+        <tr>
+            <td><a href="quiz-beginner.html">Beginner</a></td>
+            <td>0/20</td>
+            <td>0/20</td>
+        </tr>
+        <tr id="quizset-inter">
+            <td><a href="#">Intermediate</a></td>
+            <td>0/20</td>
+            <td>0/20</td>
+        </tr>
+        <tr id="quizset-adv">
+            <td><a href="#">Advanced</a></td>
+            <td>0/20</td>
+            <td>0/20</td>
+        </tr>
+    </table>
+    <div class="footer">
+        <p id="authorship"></p>
+    </div>
+</body>
+</html>
