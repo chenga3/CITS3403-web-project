@@ -4,7 +4,7 @@
     <head>
         <title>Log In</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="{{ url_for('static', filename='auth/Login1.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='auth/Login2.css') }}">
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;display=swap'>
     </head>
     <body>
@@ -18,21 +18,25 @@
             {% for message in get_flashed_messages() %}
                 <div class="flash">{{ message }}</div>
             {% endfor %}
-            <form action="#" method="post">
+            <form name="form1" action="#" method="post">
                 <!-- get the username and password-->
                 <div class="label">
-                <input type="text" name="username" placeholder="username">
+                    <input id="email" type="text" name="email" placeholder="email">
                 </div>
                 <div class="label">
-                <input type="password" name="password" placeholder="password">
+                    <input id="user" type="text" name="username" placeholder="username">
                 </div>
                 <div class="label">
-                <input style="margin-left: 2px;" type="submit" value="Login" >
+                    <input id="p1" type="password" name="password" placeholder="password">
+                </div>
+                <div class="label">
+                    <input style="margin-left: 2px;" type="submit" onclick="return isempty()" value="Login" name="submit">
                 </div>
                 <div class="label">
                     <a style="margin-right: 3px;" href="{{ url_for('auth.register') }}">Register</a>
                 </div>
             </form>
         </div>
+        <script src="{{ url_for('static', filename='auth/JS.js') }}"></script>
     </body>
 </html>

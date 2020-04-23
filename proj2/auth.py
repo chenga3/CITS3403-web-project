@@ -17,26 +17,31 @@ def register():
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
+        confirm = request.form['confirm']
         db = get_db()
         error = None
 
         # Error processing
         if not username:
             error = 'Username required.'
-        elif not email:
-            error = 'Email required.'
-        elif not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", email):
-            error = 'Invalid email format.'
-        elif not password:
-            error = "Password required."
         elif db.execute(
             'SELECT * FROM user WHERE username = ?', (username,)
         ).fetchone() is not None:
             error = 'The username {} has already been taken'.format(username)
+        elif not email:
+            error = 'Email required.'
+        elif not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", email):
+            error = 'Invalid email format.'
         elif db.execute(
             'SELECT * FROM user WHERE email = ?', (email,)
         ).fetchone() is not None:
             error = 'The email {} has already been used'.format(email)
+        elif not password:
+            error = "Password required."
+        elif not confirm:
+            error = "Please confirm password."
+        elif password != confirm:
+            error = "Passwords did not match."
 
         if error is None:
             # make insertion into database and redirect to login page
@@ -48,8 +53,9 @@ def register():
             return redirect(url_for('auth.login'))
         
         flash(error)
+        return render_template('auth/Register2.html', username=username, email=email)
 
-    return render_template('auth/Register1.html')
+    return render_template('auth/Register2.html')
 
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
@@ -74,7 +80,7 @@ def login():
 
         flash(error)
 
-    return render_template('auth/Login1.html')
+    return render_template('auth/Login2.html')
 
 # load in user for each page visited if logged in
 @bp.before_app_request
