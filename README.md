@@ -31,7 +31,7 @@ Install sqlite
 ### Files needed
 Copy 'app' folder into your CITS3403-web-project folder.  
 
-Copy 'test' folder into your CITS3403-web-project folder.
+Copy 'tests' folder into your CITS3403-web-project folder (currently empty).
 
 ### Running the app
 Navigate to CITS3403-web-project folder containing app folder.  
