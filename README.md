@@ -22,3 +22,20 @@ Example comp programming website https://pcs.org.au/
 | Alan    | Learn Flask             |                           |        |        |        |        |
 | Brandon | Learn Back end          |                           |        |        |        |        |
 
+## Getting Started
+### Installing
+Install flask: `pip install flask`
+Install sqlite
+
+### Files needed
+Copy 'app' folder into your CITS3403-web-project folder.
+Copy 'test' folder into your CITS3403-web-project folder.
+
+### Running the app
+Navigate to CITS3403-web-project folder containing app folder
+Set flask variables:
+- On Windows `set FLASK_APP=app` and `set FLASK_ENV=development`
+- On Linux/Mac `export FLASK_APP=app` and `export FLASK_ENV=development`
+Initialise database: `flask init-db`
+Run the application (ensure you are in /CITS3403-web-project not /CITS3403-web-project/app): `flask run`
+Navigate to login page: http://localhost:5000/auth/login
