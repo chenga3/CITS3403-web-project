@@ -1,0 +1,36 @@
+﻿<!-- This file is for designing the register page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up</title>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;display=swap'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='auth/register.css') }}">
+</head>
+<body>
+    <!-- creating the information input part -->
+    <form id="sub" onsubmit="return validate()" name="form2" method="POST">
+        <div class="segment header">
+            <h1>Sign up</h1>
+        </div>
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+        <div class="label">
+            <input id="user" type="text" name="username" value="{{ username }}" placeholder="User Name">
+        </div>
+        <div class="label">
+            <input id="email" type="text" name="email" value="{{ email }}" placeholder="Email Address">
+        </div>
+        <div class="label">
+            <input id="p1" type="password" name="password" placeholder="Password">
+        </div>
+        <div class="label">
+            <input id="p2" type="password" name="confirm" placeholder="Confirm Password">
+        </div>
+        <input class="button" type="submit" name="submit" value="Register"></input>
+        <button class="button" type="button" style="margin-top: 10px;" onclick= "location.href = &quot;{{ url_for('auth.login') }}&quot;" name="Back"> Back to Login</button>
+    </form>
+    <script src="{{ url_for('static', filename='auth/JS.js') }}"></script>
+</body>
+</html>

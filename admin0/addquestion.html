@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./admin.css">
+        <script src="https://kit.fontawesome.com/2b4df1b305.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <p>Admin Panel</p>
+            <i class="fas fa-angle-double-down menu"></i>
+            <ul class="nav">
+                <li><a href="#">Homepage</a></li>
+                <li><a href="#">Questionpage</a></li>
+                <li>
+                    <a href="#">
+                        <i class="far fa-id-badge"></i>
+                        Jake
+                        <i class="fas fa-chevron-circle-down" style="font-size: 16px;"></i>
+                    </a>
+                    <ul>
+                        <li><a href="./Login.html" class="logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+
+        <div class="admin-box">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="./user.html">Manage Users</a></li>
+                    <li><a href="./question.html">Manage Questions</a></li>
+                    <li><a href="./assess.html">Assess Responses</a></li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <div class="button-group">
+                    <a href="./question.html" class="button1">Manage Page</a>
+                </div>
+
+                <div>
+                    <h2 class="pagetitle">Add Questions</h2>
+                    <div class="addform">
+                        <form action="./question.html" onsubmit="return addQuestion()" method="POST">
+                            <div>
+                                <label>Topic</label><br>
+                                <select name="topic" id="topic">
+                                    <option value="Python">Python</option>
+                                    <option value="C++">C++</option>
+                                    <option value="Python&C++">Python&C++</option>
+                                    <option value="Other">Other</option>
+                                </select><br>
+                            </div>
+                            <div>
+                                <label>Title</label><br>
+                                <input id="titlename" type="text" name="titlename"><br>
+                            </div>
+                            <div>
+                                <label>Difficulty</label><br>
+                                <select name="difficulty" id="difficulty">
+                                    <option value="Easy">Easy</option>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Difficult">Difficult</option>
+                                    <option value="Expert">Expert</option>
+                                </select><br>
+                            </div>
+                            <div>
+                                <label>Content</label><br>
+                                <textarea name="content" id="content"></textarea>
+                            </div>
+                            <button type="submit" class="button2" name="addquestion">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js"></script>
+        <script src="./admin.js"></script>
+    </body>
+</html>
