@@ -34,7 +34,7 @@ form {
 } 
 
 /* define the button and input part */
-button, input {
+.button, input {
   border: 0;
   outline: 0;
   font-size: 16px;
@@ -66,7 +66,7 @@ input:focus {
 }
 
 /* define the button */
-button {
+.button {
   display: block;
   width: 100%;
   color: #61677C;
@@ -77,12 +77,12 @@ button {
 }
 
 /* style the button when mouse hovering */
-button:hover {
+.button:hover {
   box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
 }
 
 /* style the button when click */
-button:active {
+.button:active {
   box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
 }
 

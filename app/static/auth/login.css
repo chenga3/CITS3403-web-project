@@ -34,7 +34,7 @@ body {
     position: relative;
     width: 200px;
     height: 200px;
-    padding: 60px 200px 60px 170px;
+    padding: 60px 170px 10px 170px;
     margin-top: 150px;
     cursor: default;
     /* background-color:lightcoral; */

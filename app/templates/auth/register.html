@@ -5,11 +5,11 @@
     <title>Sign Up</title>
     <meta charset="UTF-8">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;display=swap'>
-    <link rel="stylesheet" href="{{ url_for('static', filename='auth/Register2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='auth/register.css') }}">
 </head>
 <body>
     <!-- creating the information input part -->
-    <form method="post">
+    <form id="sub" onsubmit="return validate()" name="form2" method="POST">
         <div class="segment header">
             <h1>Sign up</h1>
         </div>
@@ -28,7 +28,8 @@
         <div class="label">
             <input id="p2" type="password" name="confirm" placeholder="Confirm Password">
         </div>
-        <button id="sub" type="submit" name="submit"> Register</button>
+        <input class="button" type="submit" name="submit" value="Register"></input>
+        <button class="button" type="button" style="margin-top: 10px;" onclick= "location.href = &quot;{{ url_for('auth.login') }}&quot;" name="Back"> Back to Login</button>
     </form>
     <script src="{{ url_for('static', filename='auth/JS.js') }}"></script>
 </body>

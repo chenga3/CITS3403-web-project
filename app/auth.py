@@ -1,4 +1,4 @@
-#### TO ADD: Referencing, Login via email
+#### TO ADD: Referencing
 
 import functools, re
 
@@ -53,23 +53,31 @@ def register():
             return redirect(url_for('auth.login'))
         
         flash(error)
-        return render_template('auth/Register2.html', username=username, email=email)
+        return render_template('auth/register.html', username=username, email=email)
 
-    return render_template('auth/Register2.html')
+    return render_template('auth/register.html')
 
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
     if request.method == 'POST':
-        username = request.form['username']
+        login = request.form['email/username']
         password = request.form['password']
         db = get_db()
         error = None
+
+        # check if login identification provided was a username
         user = db.execute(
-            'SELECT * FROM user WHERE username = ?', (username,)
+            'SELECT * FROM user WHERE username = ?', (login,)
         ).fetchone()
+        if user is None:
+            # check if a correct email was provided
+            user = db.execute(
+                'SELECT * FROM user WHERE email = ?', (login,)
+            ).fetchone()
+
 
         if user is None:
-            error = 'Incorrect username.'
+            error = 'Incorrect username/email.'
         elif not check_password_hash(user['password'], password):
             error = 'Incorrect password.'
         
@@ -80,7 +88,7 @@ def login():
 
         flash(error)
 
-    return render_template('auth/Login2.html')
+    return render_template('auth/login.html')
 
 # load in user for each page visited if logged in
 @bp.before_app_request
