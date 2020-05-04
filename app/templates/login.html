@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 
+{% block linkedfiles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;display=swap'>
+{% endblock %}
+
 {% block content %}
-    <h1>Sign In</h1>
-    <form action="" method="post" novalidate>
+    <!--
+    <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}
+            {{ form.username_email.label }}<br>
+            {{ form.username_email(size=32) }}
         </p>
         <p>
             {{ form.password.label }}<br>
@@ -15,5 +20,29 @@
         <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
         <p>{{ form.submit() }}</p>
     </form>
-    <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
+    -->
+    <div class="login-form">
+        <h1>Welcome</h1>
+        <!-- Jump to the test page -->
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+        <form onsubmit="return isempty()" action="" method="POST">
+            {{ form.hidden_tag() }}
+            <!-- get the username and password-->
+            <div class="label">
+                {{ form.username_email(size=32, id="user", placeholder="Username/Email") }}
+            </div>
+            <div class="label">
+                {{ form.password(size=32, id="p0", placeholder="Password")}}
+            </div>
+            <div class="label">
+                {{ form.submit() }}
+            </div>
+            <div class="label">
+                <a style="margin-right: 3px;" href="{{ url_for('register') }}">Register</a>
+            </div>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/login-register.js') }}"></script>
 {% endblock %}

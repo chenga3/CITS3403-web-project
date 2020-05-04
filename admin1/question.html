@@ -1,0 +1,97 @@
+<!-- this is question list page -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Question List</title>
+        <link rel="stylesheet" href="./admin.css">
+        <script src="https://kit.fontawesome.com/2b4df1b305.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <!-- header part -->
+        <header>
+            <p>Admin Panel</p>
+            <i class="fas fa-angle-double-right menu"></i>
+            <ul class="nav">
+                <li><a href="#">Homepage</a></li>
+                <li><a href="#">Questionpage</a></li>
+                <li>
+                    <a href="#">
+                        <i class="far fa-id-badge"></i>
+                        Jake
+                        <i class="fas fa-chevron-circle-down" style="font-size: 16px;"></i>
+                    </a>
+                    <ul>
+                        <li><a href="./Login.html" class="logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+
+        <!-- side nav part -->
+        <div class="admin-box">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="./user.html">Manage Users</a></li>
+                    <li><a href="./question.html">Manage Questions</a></li>
+                    <li><a href="./assess.html">Assess Responses</a></li>
+                </ul>
+            </div>
+
+            <!-- main body -->
+            <div class="content">
+                <div class="button-group">
+                    <a href="./addquestion.html" class="button1">Add Questions</a>
+                </div>
+                <div>
+                    <h2 class="pagetitle">Manage Questions</h2>
+                    <table id="questiontable">
+                        <thead>
+                            <th>Topic</th>
+                            <th>Title</th>
+                            <th>Added Time</th>
+                            <th>Difficulty</th>
+                            <th>Author</th>
+                            <th colspan="3">Action</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Python</td>
+                                <td>Python list</td>
+                                <td>02/02/2018</td>
+                                <td>Easy</td>
+                                <td>John</td>
+                                <td><button type="submit" name="edituser" class="edit" onclick="location.href='./editquestion.html'">edit</button></td>
+                                <td><button type="submit" name="deletequestion" class="delete">delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>C++</td>
+                                <td>C++ array</td>
+                                <td>08/03/2020</td>
+                                <td>Hard</td>
+                                <td>Mike</td>
+                                <td><button type="submit" name="edituser" class="edit" onclick="location.href='./editquestion.html'">edit</button></td>
+                                <td><button type="submit" name="deletequestion" class="delete">delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- js to delete row -->
+        <script>
+            var index, table = document.getElementById('questiontable');
+            for(var i =1;i < table.rows.length;i++)
+            {   
+                table.rows[i].cells[6].onclick = function()
+                {
+                    //'this' refers to the button which is the child of a table row
+                    index = this.parentElement.rowIndex;
+                    table.deleteRow(index);
+                };
+            }
+        </script>
+    </body>
+</html>

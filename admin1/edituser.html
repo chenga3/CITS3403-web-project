@@ -1,0 +1,82 @@
+<!-- This is the edit user page -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Edit User</title>
+        <link rel="stylesheet" href="./admin.css">
+        <script src="https://kit.fontawesome.com/2b4df1b305.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <!-- header part -->
+        <header>
+            <p>Admin Panel</p>
+            <i class="fas fa-angle-double-right menu"></i>
+            <ul class="nav">
+                <li><a href="#">Homepage</a></li>
+                <li><a href="#">Questionpage</a></li>
+                <li>
+                    <a href="#">
+                        <i class="far fa-id-badge"></i>
+                        Jake
+                        <i class="fas fa-chevron-circle-down" style="font-size: 16px;"></i>
+                    </a>
+                    <ul>
+                        <li><a href="./Login.html" class="logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+
+        <!-- side nav bar -->
+        <div class="admin-box">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="./user.html">Manage Users</a></li>
+                    <li><a href="./question.html">Manage Questions</a></li>
+                    <li><a href="./assess.html">Assess Responses</a></li>
+                </ul>
+            </div>
+
+            <!-- main body -->
+            <div class="content">
+                <div class="button-group">
+                    <a href="./user.html" class="button1">Manage Page</a>
+                </div>
+
+                <div>
+                    <h2 class="pagetitle">Edit User</h2>
+                    <div class="addform">
+                        <form action="./user.html" onsubmit="return editUser()" method="POST">
+                                <div>
+                                    <label>User Name</label><br>
+                                    <input id="username" type="text" name="username" placeholder="Original name"><br>
+                                </div>
+                                <div>
+                                    <label>Email</label><br>
+                                    <input id="email" type="text" name="Email" placeholder="Original email"><br>
+                                </div>
+                                <div>
+                                    <label>Password</label><br>
+                                    <input id="password" type="text" name="password" placeholder="Original pasword"><br>
+                                </div>
+                                <div>
+                                    <label>Role</label><br>
+                                    <select name="Role" id="Role">
+                                        <option value="user">User</option>
+                                        <option value="admin">Admin</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="button2" name="usereditsubmit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Using ckeditor to style the input textarea -->
+        <script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js"></script>
+        <script src="./admin.js"></script>
+    </body>
+</html>

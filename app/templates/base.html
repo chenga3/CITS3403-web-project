@@ -1,10 +1,19 @@
 <html>
     <head>
+      <meta charset="utf-8">
+
       {% if title %}
       <title>{{ title }} - Microblog</title>
       {% else %}
       <title>Welcome to Microblog</title>
       {% endif %}
+
+      <!-- common css/js files -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+      <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+      <!-- block for page-specific css/js files -->
+      {% block linkedfiles %}{% endblock %}
     </head>
     <body>
       <div>

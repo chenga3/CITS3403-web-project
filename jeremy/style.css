@@ -1,0 +1,119 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('./Lato/Lato-Bold.ttf') format('truetype')
+}
+
+body {
+    font-family: Lato, sans-serif;
+    margin: 0;
+}
+
+#header {
+    display: flex;
+    border-bottom-style: solid;
+    border-color: #e0e0e0;
+    height: 6em;
+}
+
+#title {
+    margin-left: 5em;
+    color:  #9b2929;
+} 
+
+#login {
+    margin-left: 40em;
+    margin-top: 1.5em;
+    color: white;
+    background-color: #9b2929;
+    padding: 0.5em;
+    height: 1.5em;
+    font-size: 1em;
+    border-radius: 8px;
+}
+
+#login:hover {
+    cursor: pointer;
+}
+
+#navigationbar {
+    height: 2em;
+    background-color: #9b2929;
+    display: flex;
+}
+
+#home {
+    margin-left: 12em;
+}
+
+.navielement {
+    color: white;
+    margin-top: 0.5em;
+    font-size: 0.9em;
+    margin-left: 1em;
+}
+
+.navielement:hover {
+    cursor: pointer;
+}
+
+#midsection {
+    display: inline-flex;
+    margin: 0;
+}
+
+#sidecolumn {
+    border-right-style: solid;
+    border-color: #e0e0e0;
+    box-shadow: 1px 0px 5px 0.1px #d5d5d5;
+    width: 17em;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color: #f9f9f9;
+}
+
+.link {
+    width: 16em;
+    height: 5em;
+    border-style: solid;
+    border-color: #dbdbdb;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.link:hover {
+    color: white;
+    background-color: #9b2929;
+    cursor: pointer;
+}
+
+.link:hover .linktitle {
+    color: white;
+}
+
+.selectedLink {
+    color: white;
+    background-color: #9b2929;
+
+}
+
+.selectedLink .linktitle {
+    color: white;
+}
+
+.linktitle {
+    margin: 0.8em;
+    margin-bottom: 0.8em;
+    font-size: 1.3em;
+    color: #9b2929;
+}
+
+.linkdescription {
+    margin: 0.5em;
+    margin-left: 5em;
+    margin-top: 1em;
+    font-size: 0.8em;
+}
+
