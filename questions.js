@@ -1,3 +1,6 @@
+const initial = document.querySelector("#link1");
+initial.classList.add("selectedLink");
+
 var links = document.querySelectorAll(".link");
 links.forEach(link => link.addEventListener("click", (e) => selectButton(e)));
 
