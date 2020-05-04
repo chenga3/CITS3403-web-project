@@ -1,14 +1,22 @@
 <html> 
     <head>
-        <p class=linkdescription>
         <title>Questions</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+	<div id=topsection>
         <div id=header>
-            <h1 id=title>
-                Put logo or something here
-            </h1>
+            <div id="titlebox">
+                <h1 id=title>
+                    C
+                </h1>
+                <h2 id="title2">
+                    P
+                </h2>
+                <h3 id="title3">
+                    PRACTICE
+                </h3>
+            </div>
             <h3 id=login>
                 LOG IN/REGISTER
             </h3>
@@ -27,14 +35,15 @@
                 ADMINISTRATION
             </h3>
         </div>
-        <div id=midsection>
+	</div>
+        <div id=midsectionquestions>
             <div id=sidecolumn>
                 <div id=link1 class=link>
                     <p class=linktitle>
-                        Question 1 description
+                        Q1: Two Sum
                     </p>
                     <p class=linkdescription>
-                        Put difficulty here
+                        Difficulty: Easy
                     </p>
                 </div>    
                 <div id=link2 class=link>
@@ -93,18 +102,69 @@
                         Put difficulty here
                     </p>
                 </div>
-
+        		<div id=link9 class=link>
+                    <p class=linktitle>
+                        Question 9 description
+                    </p>
+                    <p class=linkdescription>
+                        Put difficulty here
+                    </p>
+                </div>
+        		<div id=link10 class=link>
+                    <p class=linktitle>
+                        Question 10 description
+                    </p>
+                    <p class=linkdescription>
+                        Put difficulty here
+                    </p>
+                </div>
             </div>  
-            <div id=centercontent>
+            <div id=centercontentquestions>
+                <div id=quizheader>
+                    <h1 id=questiontitle>
+                        Two Sum
+                    </h1>   
+                    <h3 id=difficulty class=quizheader>
+                        Easy    
+                    </h3>
+                    <h3 class=quizheader>
+                        1631 Attempts
+                    </h3>
+                    <h3 class=quizheader>
+                        20% success rate
+                    </h3>
+                </div>
+                <p class=questiondescriptor>
+                    Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+                <br><br>
+                    You may assume that each input would have exactly one solution, and you may not use the same element twice.
+                </p>
+                <h3>
+                    Example:
+                </h3>
+                <code>
+                    Given nums = [2, 7, 11, 15], target = 9,
+                    <br><br>
+                    Because nums[0] + nums[1] = 2 + 7 = 9,
+                    <br><br>
+                    return [0, 1].
+                </code>
+                <div class=codebuttons>
+                    <button class=codebutton>
+                        Python
+                    </button>
+                    <button class=codebutton>
+                        C++
+                    </button>
+                </div>
+                <textarea id=codeinput>
+                </textarea>
+                <button id=submit>Submit</button>
             </div>    
         </div>
-        <div id=bottom>
-            <p id=copyrighttag>
-                Copyright &copy 2020 | Powered by CITS3403
-        </div>
-        <script src="index.js"></script>
-    </body>
-</html
 
-~                                                                               
-~              
+        <script src="questions.js"></script>
+    </body>
+</html>
+
+
