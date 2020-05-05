@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Need | safe to render the HTML (security feature) -->
+{{ body | safe }}
+
+<p>Time Limit: {{ problem.timeLimit }}s</p>
+<p>Memory Limit: {{ problem.memoryLimit }}MB</p>
+
+{% endblock %}
