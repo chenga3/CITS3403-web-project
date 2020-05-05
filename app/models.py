@@ -9,19 +9,11 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
 
     def __repr__(self):
-<<<<<<< HEAD
         return '<User {}>'.format(self.username)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 
-=======
-        return '<User {}>'.format(self.username)    
-
-    def set_password(self, password):
-        self.password_hash = generate_password_hash(password)
-    
->>>>>>> bbb3748bdf44c4ceebea7ffd06739ea2f3761231
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
@@ -29,7 +21,6 @@ class User(UserMixin, db.Model):
 def load_user(id):
     return User.query.get(int(id))
 
-<<<<<<< HEAD
 
 class Problem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -51,18 +42,3 @@ class ProblemTestCases(db.Model):
 
     def __repr__(self):
         return '<Problem {}>'.format(self.title)
-=======
-class Question(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), unique=True, index=True)
-    description = db.Column(db.String(9999))
-    inputSpec = db.Column(db.String(9999))
-    outputSpec = db.Column(db.String(9999))
-    sampleInput = db.Column(db.String(9999))
-    sampleOutput = db.Column(db.String(9999))
-    timeLimit = db.Column(db.Integer)
-    memoryLimit = db.Column(db.Integer)
-
-    def __repr__(self):
-        return '<Question {}>'.format(self.title)
->>>>>>> bbb3748bdf44c4ceebea7ffd06739ea2f3761231
