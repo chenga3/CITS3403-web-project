@@ -2,9 +2,15 @@
 # -*- coding: utf-8 -*-
 import re
 import sys
+<<<<<<< HEAD
 
 from dotenv.cli import cli
 
 if __name__ == '__main__':
     sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+=======
+from dotenv.cli import cli
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+>>>>>>> bbb3748bdf44c4ceebea7ffd06739ea2f3761231
     sys.exit(cli())

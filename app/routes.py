@@ -1,10 +1,18 @@
 from flask import render_template, flash, redirect, url_for, request
+<<<<<<< HEAD
 from app.forms import LoginForm, RegistrationForm, ProblemForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Problem, ProblemTestCases
 from werkzeug.urls import url_parse
 from app import app, db
 from app.helperFunctions import pandoc
+=======
+from app import app, db
+from app.forms import LoginForm, RegistrationForm
+from flask_login import current_user, login_user, logout_user, login_required
+from app.models import User
+from werkzeug.urls import url_parse
+>>>>>>> bbb3748bdf44c4ceebea7ffd06739ea2f3761231
 
 @app.route('/')
 @app.route('/index',)
@@ -13,6 +21,14 @@ def index():
     return render_template('index.html', title="Home Page")
 
 
+<<<<<<< HEAD
+=======
+@app.route('/addquestion', methods=['GET', 'POST'])
+def addQuestion():
+    return render_template('addquestion.html')
+
+
+>>>>>>> bbb3748bdf44c4ceebea7ffd06739ea2f3761231
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -50,6 +66,7 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+<<<<<<< HEAD
 
 
 @app.route('/addproblem', methods=['GET', 'POST'])
@@ -87,3 +104,5 @@ def problem(title):
     if problem is None:
         return redirect(url_for("problems"))
     return render_template('problem.html', title=problem.title, problem=problem, body=pandoc(problem.body))
+=======
+>>>>>>> bbb3748bdf44c4ceebea7ffd06739ea2f3761231
