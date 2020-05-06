@@ -12,11 +12,7 @@ def login():
         return redirect(url_for('index'))
     form =  LoginForm()
     if form.validate_on_submit():
-        # check if user has entered a valid username
         user = User.query.filter_by(username=form.username_email.data).first()
-        if user is None:
-            # check if user has entered a valid email
-            user = User.query.filter_by(email=form.username_email.data).first()
         if user is None or not user.check_password(form.password.data):
             flash('Invalid username/email or password')
             return redirect(url_for('auth.login'))

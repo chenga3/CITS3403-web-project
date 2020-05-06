@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <title>Edit User</title>
-        <link rel="stylesheet" href="./admin.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='admin/admin.css')}}">
         <script src="https://kit.fontawesome.com/2b4df1b305.js" crossorigin="anonymous"></script>
     </head>
 
@@ -33,7 +33,7 @@
         <div class="admin-box">
             <div class="sidebar">
                 <ul>
-                    <li><a href="./user.html">Manage Users</a></li>
+                    <li><a href="{{ url_for('admin.users')}}">Manage Users</a></li>
                     <li><a href="./question.html">Manage Questions</a></li>
                     <li><a href="./assess.html">Assess Responses</a></li>
                 </ul>
@@ -47,26 +47,29 @@
 
                 <div>
                     <h2 class="pagetitle">Edit User</h2>
+                    {% for message in get_flashed_messages() %}
+                        <span class="flash">{{ message }}</span>
+                    {% endfor %}
                     <div class="addform">
-                        <form action="./user.html" onsubmit="return editUser()" method="POST">
+                        <form action="" onsubmit="return editUser()" method="POST">
+                                {{ form.hidden_tag() }}
                                 <div>
-                                    <label>User Name</label><br>
-                                    <input id="username" type="text" name="username" placeholder="Original name"><br>
+                                    {{ form.username.label }}<br>
+                                    {{ form.username(size=32, value=user.username) }}<br>
+                                    {% for error in form.username.errors %}
+                                        <span class="form-error">[{{ error }}]</span>
+                                    {% endfor %}
                                 </div>
                                 <div>
-                                    <label>Email</label><br>
-                                    <input id="email" type="text" name="Email" placeholder="Original email"><br>
+                                    {{ form.email.label }}<br>
+                                    {{ form.email(size=64, value=user.email) }}<br>
+                                    {% for error in form.email.errors %}
+                                        <span class="form-error">[{{ error }}]</span>
+                                    {% endfor %}
                                 </div>
                                 <div>
-                                    <label>Password</label><br>
-                                    <input id="password" type="text" name="password" placeholder="Original pasword"><br>
-                                </div>
-                                <div>
-                                    <label>Role</label><br>
-                                    <select name="Role" id="Role">
-                                        <option value="user">User</option>
-                                        <option value="admin">Admin</option>
-                                    </select>
+                                    {{ form.role.label }}<br>
+                                    {{ form.role }}
                                 </div>
                                 <button type="submit" class="button2" name="usereditsubmit">Submit</button>
                         </form>

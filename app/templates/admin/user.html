@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <title>User List</title>
-        <link rel="stylesheet" href="./admin.css">
+        <link rel="stylesheet" href="{{  url_for('static', filename='admin/admin.css')}}">
         <script src="https://kit.fontawesome.com/2b4df1b305.js" crossorigin="anonymous"></script>
     </head>
     
@@ -42,10 +42,13 @@
             <!-- main body -->
             <div class="content">
                 <div class="button-group">
-                    <a href="./adduser.html" class="button1">Add User</a>
+                    <a href="{{ url_for('admin.adduser') }}" class="button1">Add User</a>
                 </div>
                 <div>
                     <h2 class="pagetitle">Manage Users</h2>
+                    {% for message in get_flashed_messages() %}
+                        <span class="flash">{{ message }}</span>
+                    {% endfor %}
                     <table id="usertable">
                         <thead>
                             <th>User Name</th>
@@ -54,20 +57,15 @@
                             <th colspan="3">Action</th>
                         </thead>
                         <tbody>
+                            {% for user in users %}
                             <tr>
-                                <td>John</td>
-                                <td>11111@qq.com</td>
-                                <td>User</td>
-                                <td><button type="submit" name="edituser" class="edit" onclick="location.href='./edituser.html'">edit</button></td>
+                                <td>{{ user.username }} </td>
+                                <td>{{ user.email }}</td>
+                                <td>{% if user.admin == True %} Admin {% else %} User {% endif %}</td>
+                                <td><button type="submit" name="edituser" class="edit" onclick="location.href=&quot;{{ url_for('admin.edituser', id=user.id)}}&quot;">edit</button></td>
                                 <td><button type="submit" name="deleteuser" class="delete">delete</button></td>
                             </tr>
-                            <tr>
-                                <td>Mike</td>
-                                <td>222@img.com</td>
-                                <td>Admin</td>
-                                <td><button type="submit" name="edituser" class="edit" onclick="location.href='./edituser.html'">edit</button></td>
-                                <td><button type="submit" name="deleteuser" class="delete">delete</button></td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

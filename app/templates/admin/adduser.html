@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <title>Add Users</title>
-        <link rel="stylesheet" href="./admin.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='admin/admin.css') }}">
         <script src="https://kit.fontawesome.com/2b4df1b305.js" crossorigin="anonymous"></script>
     </head>
 
@@ -33,7 +33,7 @@
         <div class="admin-box">
             <div class="sidebar">
                 <ul>
-                    <li><a href="./user.html">Manage Users</a></li>
+                    <li><a href="{{ url_for('admin.users') }}">Manage Users</a></li>
                     <li><a href="./question.html">Manage Questions</a></li>
                     <li><a href="./assess.html">Assess Responses</a></li>
                 </ul>
@@ -48,29 +48,39 @@
                 <div>
                     <h2 class="pagetitle">Add Users</h2>
                     <div class="addform">
-                        <form action="./user.html" onsubmit="return addUser()" method="POST">
+                        <form action="" onsubmit="return addUser()" method="POST">
+                            {{ form.hidden_tag() }}
                                 <div>
-                                    <label>User Name</label><br>
-                                    <input id="username" type="text" name="username"><br>
+                                    {{ form.username.label }}<br>
+                                    {{ form.username(size=32) }}<br>
+                                    {% for error in form.username.errors %}
+                                        <span class="form-error">[{{ error }}]</span>
+                                    {% endfor %}
                                 </div>
                                 <div>
-                                    <label>Email</label><br>
-                                    <input id="email" type="text" name="Email"><br>
+                                    {{ form.email.label }}<br>
+                                    {{ form.email(size=64) }}<br>
+                                    {% for error in form.email.errors %}
+                                        <span class="form-error">[{{ error }}]</span>
+                                    {% endfor %}
                                 </div>
                                 <div>
-                                    <label>Password</label><br>
-                                    <input id="password" type="password" name="password"><br>
+                                    {{ form.password.label }}<br>
+                                    {{ form.password(size=32)}}<br>
+                                    {% for error in form.password.errors %}
+                                        <span class="form-error">[{{ error }}]</span>
+                                    {% endfor %}
                                 </div>
                                 <div>
-                                    <label>Confirm Password</label><br>
-                                    <input id="confirmp" type="password" name="confirmp"><br> 
+                                    {{ form.password2.label }}<br>
+                                    {{ form.password2(size=32) }}<br>
+                                    {% for error in form.password2.errors %}
+                                        <span class="form-error">[{{ error }}]</span>
+                                    {% endfor %}
                                 </div>
                                 <div>
-                                    <label>Role</label><br>
-                                    <select name="Role" id="role">
-                                        <option value="User">User</option>
-                                        <option value="Admin">Admin</option>
-                                    </select>
+                                    {{ form.role.label }}<br>
+                                    {{ form.role }}
                                 </div>
                                 <button type="submit" class="button2" name="adduser">Add</button>
                         </form>
