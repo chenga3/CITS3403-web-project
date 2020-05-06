@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block linkedfiles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='auth/login.css')}}">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;display=swap'>
 {% endblock %}
 
@@ -40,9 +40,9 @@
                 {{ form.submit() }}
             </div>
             <div class="label">
-                <a style="margin-right: 3px;" href="{{ url_for('register') }}">Register</a>
+                <a style="margin-right: 3px;" href="{{ url_for('auth.register') }}">Register</a>
             </div>
         </form>
     </div>
-    <script src="{{ url_for('static', filename='js/login-register.js') }}"></script>
+    <script src="{{ url_for('static', filename='auth/login-register.js') }}"></script>
 {% endblock %}
