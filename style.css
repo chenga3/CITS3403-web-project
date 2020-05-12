@@ -11,7 +11,7 @@
 body {
     font-family: Lato, sans-serif;
     margin: 0;
-    overflow: auto;
+    overflow: scroll;
 }
 
 #topsection {
@@ -27,7 +27,7 @@ body {
     display: flex;
     border-bottom-style: solid;
     border-color: #e0e0e0;
-    height: 9.5%;
+    height: 5em;
     background-color: white;
 }
 #titlebox {
@@ -39,18 +39,18 @@ body {
 #title {
     margin-top: 1%;
     color: #9b2929;
-    font-size: 4em;
+    font-size: 4rem;
 }
 
 #title2 {
     margin-top: 1%;
     color: #cc1b1b;
-    font-size: 4em;
+    font-size: 4rem;
 }
 
 #title3 {
     color: #de1212;
-    font-size: 1.56em;
+    font-size: 1.56rem;
     margin-top: 19.5%;
 }
 
@@ -70,7 +70,7 @@ body {
 }
 
 #navigationbar {
-    height: 3.5%;
+    height: 1.9em;
     background-color: #9b2929;
     display: flex;
 }
@@ -82,7 +82,7 @@ body {
 .navielement {
     color: white;
     margin-top: 0.5em;
-    font-size: 0.9em;
+    font-size: 0.9rem;
     margin-left: 1em;
 }
 
@@ -106,7 +106,8 @@ body {
     overflow: scroll;
     position: fixed;
     height: 85%;
-    width: 18%;
+    width: 17.5em;
+    z-index: 2;
 }
 
 .link {
@@ -143,12 +144,12 @@ body {
 
 .linktitle {
     margin: 0.8em;
-    font-size: 1.3em;
+    font-size: 1.3rem;
     color: #9b2929;
 }
 
 .linkdescription {
-    margin: 0.5em;
+    margin: 0.5rem;
     margin-left: 5em;
     margin-top: 1em;
     font-size: 0.8em;
@@ -161,7 +162,7 @@ body {
 }
 
 #slideshowbox {
-    height: 40%;
+    height: 10em;
     padding: 0.5%;
     background-color: white;
     transition: all 0.3s ease;
@@ -178,7 +179,7 @@ body {
 }
 
 #slideshowheader {
-    font-size: 1.6em;
+    font-size: 1.6rem;
 }
 
 #slideshowdescription {
@@ -193,7 +194,7 @@ body {
 
 #centercontentquestions {
     position: absolute;
-    left: 20%;
+    left: 20em;
     width: 75%;
 }
 
