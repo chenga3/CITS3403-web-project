@@ -1,4 +1,3 @@
-
 function showFirstSlide() {
     //change the slides background picture
     const slideshow = document.querySelector("#slideshow");
