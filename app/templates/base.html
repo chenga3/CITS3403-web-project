@@ -9,24 +9,61 @@
       {% endif %}
 
       <!-- common css/js files -->
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-      <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+      <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+      <script src="{{ url_for('static', filename='main.js') }}"></script>
 
       <!-- block for page-specific css/js files -->
       {% block linkedfiles %}{% endblock %}
     </head>
     <body>
-      <div>
-        Microblog:
-        <a href="{{ url_for('index') }}">Home</a>
-        {% if current_user.is_anonymous %}
-        <a href="{{ url_for('auth.login') }}">Login</a>
-        {% else %}
-        <a href="{{ url_for('auth.logout') }}">Logout</a>
-        {% endif %}
+      <div id=topsection>
+        <div id=header>
+            <div id="titlebox">
+                <h1 id=title>
+                    C
+                </h1>
+                <h2 id="title2">
+                    P
+                </h2>
+                <h3 id="title3">
+                    PRACTICE
+                </h3>
+            </div>
+            <h3 id=login>
+                {% if current_user.is_authenticated %}
+                <a href="{{ url_for('auth.logout') }}">LOGOUT</a>
+                {% else %}
+                <a href="{{ url_for('auth.login') }}">LOG IN/REGISTER</a>
+                {% endif %}
+            </h3>
+            {% if current_user.is_authenticated %}
+              <p> Hello {{ current_user.username }}</p>
+            {% endif %}
+        </div>
+        <div id=navigationbar>
+            <h3 id=home class=navielement>
+                <a href="{{ url_for('homepage') }}"> HOME </a>
+            </h3>
+            <h3 id=questions class=navielement>
+                <a href=""> QUESTIONS </a>
+            </h3>
+            <h3 id=results class=navielement>
+                <a href=""> RESULTS </a>
+            </h3>
+            <h3 id=administration class=navielement>
+                <a href="{{ url_for('admin.users') }}"> ADMINISTRATION </a>
+            </h3>
+        </div>
       </div>
-        <hr>
-        {% block content %}{% endblock %}
+      
+      {% block content %}{% endblock %}
+
+      <div id=bottom>
+        <p id=copyrighttag>
+            Copyright &copy 2020 | Powered by CITS3403
+            <br>
+            Developed by Guohuan, Alan, Brandon and Jeremy
+      </div>
     </body>
 </html>
 

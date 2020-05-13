@@ -4,10 +4,9 @@ from app import app
 from app.models import User
 
 @app.route('/')
-@app.route('/index',)
-@login_required
-def index():
-    return render_template('index.html', title="Home Page")
+@app.route('/homepage')
+def homepage():
+    return render_template('homepage.html', title="Home Page")
 
 
 @app.route('/addquestion', methods=['GET', 'POST'])

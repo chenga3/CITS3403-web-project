@@ -1,95 +1,72 @@
 <!-- this is the adding user page -->
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Add Users</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='admin/admin.css') }}">
-        <script src="https://kit.fontawesome.com/2b4df1b305.js" crossorigin="anonymous"></script>
-    </head>
+{% extends "base.html" %}
 
-    <!-- header part -->
-    <body>
-        <header>
-            <p>Admin Panel</p>
-            <i class="fas fa-angle-double-right menu"></i>
-            <ul class="nav">
-                <li><a href="#">Homepage</a></li>
-                <li><a href="#">Questionpage</a></li>
-                <li>
-                    <a href="#">
-                        <i class="far fa-id-badge"></i>
-                        Jake
-                        <i class="fas fa-chevron-circle-down" style="font-size: 16px;"></i>
-                    </a>
-                    <ul>
-                        <li><a href="./Login.html" class="logout">Logout</a></li>
-                    </ul>
-                </li>
+{% block linkedfiles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin/admin.css') }}">
+    <script src="https://kit.fontawesome.com/2b4df1b305.js" crossorigin="anonymous"></script>
+{% endblock %}
+    
+{% block content %}
+    <!-- side nav part -->
+    <div class="admin-box">
+        <div class="sidebar">
+            <ul>
+                <li><a href="{{ url_for('admin.users') }}">Manage Users</a></li>
+                <li><a href="">Manage Questions</a></li>
+                <li><a href="">Assess Responses</a></li>
             </ul>
-        </header>
+        </div>
 
-        <!-- side nav part -->
-        <div class="admin-box">
-            <div class="sidebar">
-                <ul>
-                    <li><a href="{{ url_for('admin.users') }}">Manage Users</a></li>
-                    <li><a href="./question.html">Manage Questions</a></li>
-                    <li><a href="./assess.html">Assess Responses</a></li>
-                </ul>
+        <!-- main body -->
+        <div class="content">
+            <div class="button-group">
+                <a href="" class="button1">Manage Page</a>
             </div>
 
-            <!-- main body -->
-            <div class="content">
-                <div class="button-group">
-                    <a href="./user.html" class="button1">Manage Page</a>
-                </div>
-
-                <div>
-                    <h2 class="pagetitle">Add Users</h2>
-                    <div class="addform">
-                        <form action="" onsubmit="return addUser()" method="POST">
-                            {{ form.hidden_tag() }}
-                                <div>
-                                    {{ form.username.label }}<br>
-                                    {{ form.username(size=32) }}<br>
-                                    {% for error in form.username.errors %}
-                                        <span class="form-error">[{{ error }}]</span>
-                                    {% endfor %}
-                                </div>
-                                <div>
-                                    {{ form.email.label }}<br>
-                                    {{ form.email(size=64) }}<br>
-                                    {% for error in form.email.errors %}
-                                        <span class="form-error">[{{ error }}]</span>
-                                    {% endfor %}
-                                </div>
-                                <div>
-                                    {{ form.password.label }}<br>
-                                    {{ form.password(size=32)}}<br>
-                                    {% for error in form.password.errors %}
-                                        <span class="form-error">[{{ error }}]</span>
-                                    {% endfor %}
-                                </div>
-                                <div>
-                                    {{ form.password2.label }}<br>
-                                    {{ form.password2(size=32) }}<br>
-                                    {% for error in form.password2.errors %}
-                                        <span class="form-error">[{{ error }}]</span>
-                                    {% endfor %}
-                                </div>
-                                <div>
-                                    {{ form.role.label }}<br>
-                                    {{ form.role }}
-                                </div>
-                                <button type="submit" class="button2" name="adduser">Add</button>
-                        </form>
-                    </div>
+            <div>
+                <h2 class="pagetitle">Add Users</h2>
+                <div class="addform">
+                    <form action="" onsubmit="return addUser()" method="POST">
+                        {{ form.hidden_tag() }}
+                            <div>
+                                {{ form.username.label }}<br>
+                                {{ form.username(size=32) }}<br>
+                                {% for error in form.username.errors %}
+                                    <span class="form-error">[{{ error }}]</span>
+                                {% endfor %}
+                            </div>
+                            <div>
+                                {{ form.email.label }}<br>
+                                {{ form.email(size=64) }}<br>
+                                {% for error in form.email.errors %}
+                                    <span class="form-error">[{{ error }}]</span>
+                                {% endfor %}
+                            </div>
+                            <div>
+                                {{ form.password.label }}<br>
+                                {{ form.password(size=32)}}<br>
+                                {% for error in form.password.errors %}
+                                    <span class="form-error">[{{ error }}]</span>
+                                {% endfor %}
+                            </div>
+                            <div>
+                                {{ form.password2.label }}<br>
+                                {{ form.password2(size=32) }}<br>
+                                {% for error in form.password2.errors %}
+                                    <span class="form-error">[{{ error }}]</span>
+                                {% endfor %}
+                            </div>
+                            <div>
+                                {{ form.role.label }}<br>
+                                {{ form.role }}
+                            </div>
+                            <button type="submit" class="button2" name="adduser">Add</button>
+                    </form>
                 </div>
             </div>
         </div>
-        
-        <!-- js -->
-        <script src="./admin.js"></script>
-    </body>
-</html>
+    </div>
+    
+    <!-- js -->
+    <script src="{{ url_for('static', filename='admin/admin.js') }}"></script>
+{% endblock %}

@@ -1,16 +1,19 @@
 from flask import render_template, flash, url_for, request, redirect
+from flask_login import login_required
 from app import db
 from app.admin import bp
 from app.admin.forms import AddUserForm, EditUserForm
 from app.models import User
 
 @bp.route('/users', methods=['GET', 'POST'])
+@login_required
 def users():
     page = request.args.get('page', 1, type=int)
     users = User.query.paginate(page, 25, False)
     return render_template('admin/user.html', users=users.items)
 
 @bp.route('/adduser', methods=['GET', 'POST'])
+@login_required
 def adduser():
     form = AddUserForm()
     if form.validate_on_submit():
@@ -24,6 +27,7 @@ def adduser():
     return render_template('admin/adduser.html', form=form)
 
 @bp.route('/<int:id>/edituser', methods=['GET', 'POST'])
+@login_required
 def edituser(id):
     # get the user row entry using id in url
     user = User.query.filter_by(id=id).first()
@@ -43,6 +47,7 @@ def edituser(id):
     return render_template('admin/edituser.html', user=user, form=form)
 
 @bp.route('/<int:id>/deleteuser', methods=['GET'])
+@login_required
 def deleteuser(id):
     user = User.query.get(id)
     if user is None:
