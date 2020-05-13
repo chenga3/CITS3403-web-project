@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block linkedfiles %}
+{% block cssfiles %}
     <link rel="stylesheet" href="{{ url_for('static', filename='auth/login.css')}}">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;display=swap'>
 {% endblock %}
@@ -35,5 +35,8 @@
             </div>
         </form>
     </div>
+{% endblock %}
+
+{% block jsfiles %}
     <script src="{{ url_for('static', filename='auth/login-register.js') }}"></script>
 {% endblock %}

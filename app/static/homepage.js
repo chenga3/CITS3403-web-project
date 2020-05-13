@@ -1,7 +1,7 @@
 function showFirstSlide() {
     //change the slides background picture
     const slideshow = document.querySelector("#slideshow");
-    slideshow.style.backgroundImage = "url('./images/codeimage.jpg')";
+    slideshow.style.backgroundImage = "url('/static/images/codeimage.jpg')";
     slideshow.classList.add("slideshowstyle");
 
     //change the slides classes
@@ -25,7 +25,7 @@ function showFirstSlide() {
 function showSecondSlide() {
     //change the slides background picture
     const slideshow = document.querySelector("#slideshow");
-    slideshow.style.backgroundImage = "url('./images/interviewimage.jpg')";
+    slideshow.style.backgroundImage = "url('/static/images/interviewimage.jpg')";
 
     //change the slides classes
     const box = document.querySelector("slideshowbox");

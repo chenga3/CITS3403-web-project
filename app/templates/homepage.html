@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block linkedfiles %}
+{% block cssfiles %}
 {% endblock %}
 
 {% block content %}
@@ -25,5 +25,8 @@
             </p>
         </div>    
     </div>
+{% endblock %}
+
+{% block jsfiles %}
     <script src="{{ url_for('static', filename='homepage.js') }}"></script>
 {% endblock %}
