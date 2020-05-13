@@ -40,4 +40,14 @@ def edituser(id):
         print(form.role.data)
         db.session.commit()
         flash("User successfully updated.")
-    return render_template('admin/edituser.html', user=user, form=form) 
+    return render_template('admin/edituser.html', user=user, form=form)
+
+@bp.route('/<int:id>/deleteuser', methods=['GET'])
+def deleteuser(id):
+    user = User.query.get(id)
+    if user is None:
+        flash("User does not exist.")
+        return redirect(url_for('admin.users'))
+    db.session.delete(user)
+    db.session.commit()
+    return redirect(url_for('admin.users'))

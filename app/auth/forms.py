@@ -9,6 +9,27 @@ class LoginForm(FlaskForm):
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
+    def validate_username_email(self, username_email):
+        user1 = User.query.filter_by(username=username_email.data).first()
+        user2 = User.query.filter_by(email=username_email.data).first()
+        if user1 is None and user2 is None:
+            raise ValidationError('Incorrect username or email.')
+
+    def validate(self):
+        response = FlaskForm.validate(self)
+        if not response:
+            return False
+        user1 = User.query.filter_by(username=self.username_email.data).first()
+        user2 = User.query.filter_by(email=self.username_email.data).first()
+        if user1 is not None and not user1.check_password(self.password.data):
+            self.password.errors.append('Incorrect password.')
+            return False
+        elif user2 is not None and not user2.check_password(self.password.data):
+            self.password.errors.append('Incorrect password.')
+            return False
+        return True
+            
+
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])

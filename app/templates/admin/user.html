@@ -63,7 +63,7 @@
                                 <td>{{ user.email }}</td>
                                 <td>{% if user.admin == True %} Admin {% else %} User {% endif %}</td>
                                 <td><button type="submit" name="edituser" class="edit" onclick="location.href=&quot;{{ url_for('admin.edituser', id=user.id)}}&quot;">edit</button></td>
-                                <td><button type="submit" name="deleteuser" class="delete">delete</button></td>
+                                <td><button type="submit" name="deleteuser" class="delete" onclick="location.href=&quot;{{ url_for('admin.deleteuser', id=user.id)}}&quot;">delete</button></td>
                             </tr>
                             {% endfor %}
                         </tbody>

@@ -6,40 +6,6 @@
 {% endblock %}
 
 {% block content %}
-    <!--
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}<br>
-            {% for error in form.username.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.email.label }}<br>
-            {{ form.email(size=64) }}<br>
-            {% for error in form.email.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}<br>
-            {% for error in form.password.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password2.label }}<br>
-            {{ form.password2(size=32) }}<br>
-            {% for error in form.password2.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
-    </form>
-    -->
     <form onsubmit="return validate()" action="" method="POST">
         {{ form.hidden_tag() }}
         <div class="segment header">
@@ -75,5 +41,5 @@
         {{ form.submit(class="button") }}
         <button class="button" type="button" style="margin-top: 10px;" onclick= "location.href = &quot;{{ url_for('auth.login') }}&quot;" name="Back"> Back to Login</button>
     </form>
-    <!--<script src="{{ url_for('static', filename='js/login-register.js') }}"></script>-->
+    <script src="{{ url_for('static', filename='auth/login-register.js') }}"></script>
 {% endblock %}
