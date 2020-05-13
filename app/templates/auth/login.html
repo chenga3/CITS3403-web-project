@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block cssfiles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='auth/login.css')}}">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;display=swap'>
+{% endblock %}
+
+{% block content %}
+    <div class="login-form">
+        <h1>Welcome</h1>
+        <!-- Jump to the test page -->
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+        <form onsubmit="return isempty()" action="" method="POST">
+            {{ form.hidden_tag() }}
+            <!-- get the username and password-->
+            <div class="label">
+                {{ form.username_email(size=32, id="user", placeholder="Username/Email") }}
+            </div>
+            {% for error in form.username_email.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <div class="label">
+                {{ form.password(size=32, id="p0", placeholder="Password")}}
+            </div>
+            {% for error in form.password.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <div class="label">
+                {{ form.submit() }}
+            </div>
+            <div class="label">
+                <a style="margin-right: 3px;" href="{{ url_for('auth.register') }}">Register</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block jsfiles %}
+    <script src="{{ url_for('static', filename='auth/login-register.js') }}"></script>
+{% endblock %}
