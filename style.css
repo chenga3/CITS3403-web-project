@@ -86,6 +86,11 @@ body {
     margin-left: 1em;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
 .navielement:hover {
     cursor: pointer;
 }
