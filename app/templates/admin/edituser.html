@@ -1,25 +1,11 @@
 <!-- This is the edit user page -->
-{% extends "base.html" %}
+{% extends "admin/base.html" %}
 
-{% block cssfiles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='admin/admin.css')}}">
-{% endblock %}
-
-{% block content %}
-    <!-- side nav bar -->
-    <div class="admin-box">
-        <div class="sidebar">
-            <ul>
-                <li><a href="{{ url_for('admin.users')}}">Manage Users</a></li>
-                <li><a href="">Manage Questions</a></li>
-                <li><a href="">Assess Responses</a></li>
-            </ul>
-        </div>
-
+{% block admincontent %}
         <!-- main body -->
         <div class="content">
             <div class="button-group">
-                <a href="" class="button1">Manage Page</a>
+                <a href="{{ url_for('admin.users') }}" class="button1">Manage Page</a>
             </div>
 
             <div>
@@ -53,13 +39,11 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Using ckeditor to style the input textarea -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js"></script>
-    <script src="{{ url_for('static', filename='admin/admin.js')}}"></script>
 {% endblock %}
 
 {% block jsfiles %}
-    <script src="https://kit.fontawesome.com/2b4df1b305.js" crossorigin="anonymous"></script>
+    <!-- Using ckeditor to style the input textarea -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js"></script>
+    <script src="{{ url_for('static', filename='admin/admin.js')}}"></script>
+    {{ super() }}
 {% endblock %}

@@ -1,12 +1,23 @@
 from flask import render_template, flash, url_for, request, redirect
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app import db
 from app.admin import bp
 from app.admin.forms import AddUserForm, EditUserForm
 from app.models import User
+from functools import wraps
+
+def admin_required(view):
+    @wraps(view)
+    def wrapped_view(**kwargs):
+        if not current_user.admin:
+            flash("You must be an admin to access this page.")
+            return redirect(url_for('homepage'))
+        return view(**kwargs)
+    return wrapped_view
 
 @bp.route('/users', methods=['GET', 'POST'])
 @login_required
+@admin_required
 def users():
     page = request.args.get('page', 1, type=int)
     users = User.query.paginate(page, 25, False)
@@ -14,6 +25,7 @@ def users():
 
 @bp.route('/adduser', methods=['GET', 'POST'])
 @login_required
+@admin_required
 def adduser():
     form = AddUserForm()
     if form.validate_on_submit():
@@ -28,6 +40,7 @@ def adduser():
 
 @bp.route('/<int:id>/edituser', methods=['GET', 'POST'])
 @login_required
+@admin_required
 def edituser(id):
     # get the user row entry using id in url
     user = User.query.filter_by(id=id).first()
@@ -48,6 +61,7 @@ def edituser(id):
 
 @bp.route('/<int:id>/deleteuser', methods=['GET'])
 @login_required
+@admin_required
 def deleteuser(id):
     user = User.query.get(id)
     if user is None:
@@ -56,3 +70,21 @@ def deleteuser(id):
     db.session.delete(user)
     db.session.commit()
     return redirect(url_for('admin.users'))
+
+@bp.route('/questions', methods=['GET', 'POST'])
+@login_required
+@admin_required
+def questions():
+    return render_template('admin/question.html')
+
+@bp.route('/addquestion', methods=['GET', 'POST'])
+@login_required
+@admin_required
+def addquestion():
+    return render_template('admin/addquestion.html')
+
+@bp.route('/assess', methods=['GET', 'POST'])
+@login_required
+@admin_required
+def assess():
+    return render_template('admin/assess.html')

@@ -44,14 +44,16 @@
                 <a href="{{ url_for('homepage') }}"> HOME </a>
             </h3>
             <h3 id=questions class=navielement>
-                <a href=""> QUESTIONS </a>
+                <a href="{{ url_for('solve.problems') }}"> QUESTIONS </a>
             </h3>
             <h3 id=results class=navielement>
                 <a href=""> RESULTS </a>
             </h3>
+            {% if current_user.admin %}
             <h3 id=administration class=navielement>
                 <a href="{{ url_for('admin.users') }}"> ADMINISTRATION </a>
             </h3>
+            {% endif %}
         </div>
       </div>
       

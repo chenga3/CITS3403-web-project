@@ -22,16 +22,26 @@ class User(UserMixin, db.Model):
 def load_user(id):
     return User.query.get(int(id))
 
-class Question(db.Model):
+class Problem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), unique=True, index=True)
-    description = db.Column(db.String(9999))
-    inputSpec = db.Column(db.String(9999))
-    outputSpec = db.Column(db.String(9999))
-    sampleInput = db.Column(db.String(9999))
-    sampleOutput = db.Column(db.String(9999))
+    urlTitle = db.Column(db.String(100))
+    difficulty = db.Column(db.String(32), index=True)
+    numAttempts = db.Column(db.Integer, default=0)
+    numSuccesses = db.Column(db.Integer, default=0)
+    body= db.Column(db.Text())
     timeLimit = db.Column(db.Integer)
     memoryLimit = db.Column(db.Integer)
+    testCases = db.relationship('ProblemTestCases', backref="problem")
 
     def __repr__(self):
-        return '<Question {}>'.format(self.title)
+        return '<Problem {}>'.format(self.title)
+
+class ProblemTestCases(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    questionID = db.Column(db.Integer, db.ForeignKey('problem.id'))
+    input= db.Column(db.Text())
+    output= db.Column(db.Text())
+
+    def __repr__(self):
+        return '<Problem {}>'.format(self.title)
