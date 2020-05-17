@@ -34,7 +34,7 @@ body {
     position: relative;
     width: 200px;
     height: 200px;
-    padding: 60px 170px 10px 170px;
+    padding: 60px 170px 40px 170px;
     margin-top: 150px;
     cursor: default;
     /* background-color:lightcoral; */
@@ -88,7 +88,7 @@ body {
 .login-form input[type=text],
 .login-form input[type=password]{
     color: #686868;
-    width: 170px;
+    width: 200px;
     box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
 }
 
