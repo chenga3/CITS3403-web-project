@@ -183,6 +183,18 @@ td {
     border-bottom: 1px solid #343837;
 }
 
+/* style the table header */
+th {
+    cursor: pointer;
+}
+
+/* style the table header when hovering*/
+th:hover {
+    background-color: #3f728a;
+    padding: 10px;
+    transition: 0.8s;
+}
+
 /* style the delete button */
 .delete {
     color: red;
