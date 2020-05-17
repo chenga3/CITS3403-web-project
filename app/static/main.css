@@ -270,7 +270,7 @@ a {
     border-color: #9b2829;
 }
 
-#submit {
+#submit1 {
     background-color: #9b292a;
     border-radius: 4px;
     border-color: #9b292a;
@@ -280,11 +280,11 @@ a {
     margin-top: 0.5%;
 }
 
-#submit:focus {
+#submit1:focus {
     outline-style: none;
 }
 
-#submit:hover {
+#submit1:hover {
     cursor: pointer;
 }
 
