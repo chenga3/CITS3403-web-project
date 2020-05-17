@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script src="{{url_for('static', filename='js/submit.js')}}"></script>
+
+<h1>Submit</h1>
+<h1 id="problemTitle">{{problemTitle}}</h1>
+<style type="text/css" media="screen">
+    #editor { 
+        width: 40%;
+        height: 50%;
+    }
+</style>
+
+<div id="editor"></div>
+<button id="settings" onclick="editor.execCommand('showSettingsMenu')">Settings</button>
+<!-- PUT AFTER EDITOR DIV -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.11/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setKeyboardHandler("ace/keyboard/vim")
+</script>
+
+<label for="language">Choose a Language: </label>
+
+<select id="language">
+  <option value="cpp">C++</option>
+  <option value="py">Python 3</option>
+</select>
+
+<button id="submit">Submit</button>
+
+
+
+{% endblock %}

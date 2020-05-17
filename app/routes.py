@@ -1,10 +1,11 @@
-from flask import render_template, flash, redirect, url_for, request
-from app.forms import LoginForm, RegistrationForm, ProblemForm
+from flask import render_template, flash, redirect, url_for, request, jsonify
+from app.forms import LoginForm, RegistrationForm, ProblemForm, ProblemSubmitForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Problem, ProblemTestCases
 from werkzeug.urls import url_parse
 from app import app, db
 from app.helperFunctions import pandoc
+from app.judge.judge import judge, cleanUp, Question, testCase
 
 @app.route('/')
 @app.route('/index',)
@@ -27,7 +28,7 @@ def login():
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
-        return redirect(next_page) 
+        return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
 
 
@@ -80,10 +81,28 @@ def addProblem():
 def problems():
     problems = Problem.query.all()
     return render_template('problems.html', title='Problems', problems=problems)
-    
+
 @app.route('/problem/<title>')
 def problem(title):
     problem = Problem.query.filter_by(urlTitle=title).first()
     if problem is None:
         return redirect(url_for("problems"))
     return render_template('problem.html', title=problem.title, problem=problem, body=pandoc(problem.body))
+
+@app.route('/problem/<problem>/submit')
+def submitProblem(problem):
+    return render_template('submit.html', title="Submit", problemTitle=problem)
+    
+@app.route('/judge', methods=['POST'])
+def judgeSolution():
+    if request.method == 'POST':
+        data = request.get_json()
+    problem = Problem.query.filter_by(title=data['title']).first()
+    testCases = ProblemTestCases.query.filter_by(questionID = problem.id).all()
+    question = Question(problem.id, data['language'], data['code'], problem.timeLimit)
+    for test in testCases:
+        question.testCases.append(testCase(test.input.split("\n"), test.output.split("\n")))
+    output = judge(question)
+    return jsonify(output)
+
+ 

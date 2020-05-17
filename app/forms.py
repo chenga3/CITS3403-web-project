@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, TextAreaField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, TextAreaField, SelectField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length
 from app.models import User, Problem, ProblemTestCases
 
@@ -41,3 +41,8 @@ class ProblemForm(FlaskForm):
         problem = Problem.query.filter_by(title=title.data).first()
         if problem is not None:
             raise  ValidationError('Please use a different title. This problem already exists!')
+
+class ProblemSubmitForm(FlaskForm):
+    language = SelectField(u'Programming Language', choices=[('cpp', 'C++'), ('py', 'Python')]) 
+    code = TextAreaField('Code', validators=[DataRequired(), Length(min=0, max=99999)])
+    submit = SubmitField('Submit Solution')

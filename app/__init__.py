@@ -12,3 +12,6 @@ login = LoginManager(app)
 login.login_view = 'login'
 
 from app import routes, models
+
+from app.judge import bp as judge_bp
+app.register_blueprint(judge_bp)
