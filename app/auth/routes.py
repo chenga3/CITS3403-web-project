@@ -49,6 +49,8 @@ def register():
 @login_required
 def profile(username):
     user=User.query.filter_by(username=username).first_or_404()
+    if username != current_user.username:
+        return redirect(url_for('homepage'))
     form = EditProfileForm()
     if form.validate_on_submit():
         current_user.username = form.username.data
