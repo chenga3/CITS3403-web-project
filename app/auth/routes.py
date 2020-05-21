@@ -1,8 +1,8 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import db
 from app.auth import bp
-from app.auth.forms import LoginForm, RegistrationForm
-from flask_login import current_user, login_user, logout_user
+from app.auth.forms import LoginForm, RegistrationForm, EditProfileForm,ResetPasswordForm
+from flask_login import current_user, login_user, logout_user,login_required
 from app.models import User
 from werkzeug.urls import url_parse
 
@@ -44,3 +44,32 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('auth.login'))
     return render_template('auth/register.html', title='Register', form=form)
+
+@bp.route('/profile/<username>',methods=['GET','POST'])
+@login_required
+def profile(username):
+    user=User.query.filter_by(username=username).first_or_404()
+    form = EditProfileForm()
+    if form.validate_on_submit():
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        db.session.commit()
+        flash('Your change has been saved')
+        return redirect(url_for('homepage'))
+    elif request.method == 'GET':
+        form.username.data = current_user.username
+        form.email.data = current_user.email
+    return render_template('auth/profile.html', user=user,title='Profile',
+                           form=form)
+
+@bp.route('/reset_password', methods=['GET', 'POST'])
+@login_required
+def reset_password():
+    form = ResetPasswordForm()
+    if form.validate_on_submit():
+        current_user.set_password(form.password.data)
+        db.session.commit()
+        logout_user()
+        flash('Your password has been reset.')
+        return redirect(url_for('auth.login'))
+    return render_template('auth/reset_password.html', form=form)

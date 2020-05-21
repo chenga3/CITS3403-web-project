@@ -169,52 +169,52 @@ header ul li a:hover {
 }
 
 /* the data table */
-table {
+.content table {
     width: 100%;
     border-collapse: collapse;
     font-size: 1.1rem;
 }
 
 /* style the header and data of the table */
-th,
-td {
+.content th,
+.content td {
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid #343837;
 }
 
 /* style the table header */
-th {
+.content th {
     cursor: pointer;
 }
 
 /* style the table header when hovering*/
-th:hover {
+.content th:hover {
     background-color: #3f728a;
     padding: 10px;
     transition: 0.8s;
 }
 
 /* style the delete button */
-.delete {
+.content .delete {
     color: red;
 }
 
 /* style the hover delete button */
-.delete:hover {
+.content .delete:hover {
     background: #032d30;
     border-color: #032d30;
     cursor: pointer;
 }
 
 /* style the edit button */
-.edit {
+.content .edit {
     color: green;
     margin: 0;
 }
 
 /* style the hover edit button */
-.edit:hover {
+.content .edit:hover {
     background: #032d30;
     border-color: #032d30;
     cursor: pointer;
@@ -294,24 +294,4 @@ th:hover {
     border: 1px solid #abaec5;
     border-radius: 1px;
     overflow: scroll;
-}
-
-/* MEDIA when screen is small*/
-@media only screen and (max-width: 850px){
-
-    /* hide the top header */
-    header ul {
-        max-height: 0px;
-        overflow: hidden;
-    }
-
-    /* display a right side arrow  */
-    header .menu {
-        display: block;
-        margin: auto;
-        padding: 0;
-        margin-left: 300px;
-        margin-top: -30px;
-        font-size: 20px;
-    }
 }
