@@ -9,6 +9,7 @@ class AddUserForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     role = SelectField('Role', choices=[('user', 'User'), ('admin', 'Admin')])
+    prefer_language = SelectField('Prefer Language', choices=[('cpp','C++'),('py','Python')], validators=[DataRequired()])
 
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
@@ -24,6 +25,7 @@ class EditUserForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     role = SelectField('Role', choices=[('user', 'User'), ('admin', 'Admin')])
+    prefer_language = SelectField('Prefer Language', choices=[('cpp','C++'),('py','Python')], validators=[DataRequired()])
 
     def __init__(self, user, *args, **kwargs):
         super().__init__(*args, **kwargs)
