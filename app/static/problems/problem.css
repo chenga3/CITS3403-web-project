@@ -54,5 +54,9 @@ pre {
     border-style: solid;
     border-width: 0.5em;
     border-radius: 10px;
-    border-color: #0f3f8d;
+    border-color: #aaaaaa;
+    box-shadow: 1px 1px 5px 0px #767676;
+}
+
+
 }
