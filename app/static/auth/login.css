@@ -3,17 +3,8 @@ body {
     background-color: lightgrey;
 }
 
-/* define the header of the body */
-.header {
-    text-align: center;
-    font-size: 30px;
-    font-family:sans-serif;;
-    font-weight: bold;
-    text-shadow: 2px 2px 8px #FF0000;
-}
-
 /* define the input and button */
-.label {
+.login-form .label {
     display: block;
     margin-bottom: 1px;
     width: 100%;

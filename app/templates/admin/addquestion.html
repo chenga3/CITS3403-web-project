@@ -10,7 +10,7 @@
         <div>
             <h2 class="pagetitle">Add Questions</h2>
             <div class="addform">
-                <form action="./question.html" onsubmit="return validateQuestion()" method="POST">
+                <form action="./question.html" method="POST">
                     <div>
                         <label>Topic</label><br>
                         <select name="topic" id="topic">
@@ -46,5 +46,4 @@
 
 {% block jsfiles %}
     {{ super() }}
-    <script src="{{ url_for('static', filename='admin/admin.js') }}"></script>
 {% endblock %}

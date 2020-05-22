@@ -12,6 +12,7 @@ body {
     font-family: Lato, sans-serif;
     margin: 0;
     overflow: scroll;
+    background-color: lightgrey;
 }
 
 #topsection {
@@ -298,4 +299,471 @@ a {
 #copyrighttag {
     text-align: center;
     color: white;
+}
+
+/* This file is used to style the login page */
+
+/* define the input and button */
+.login-form .label {
+    display: block;
+    margin-bottom: 1px;
+    width: 100%;
+  }
+
+/*initial the style  */
+.login-form,
+.login-form h1,
+.login-form input {
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+
+/*define the style of the form  */
+.login-form {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    padding: 60px 170px 40px 170px;
+    margin-top: 150px;
+    cursor: default;
+    /* background-color:lightcoral; */
+    background-color: #EBECF0;
+    /* define some little curves around the window*/
+    border-radius: 5px;
+}
+
+
+/* style the heading of the form */
+.login-form h1 {
+    line-height: 30px;
+    font-family: 'Montserrat', sans-serif;;
+    font-size: 35px;
+    font-weight: normal;
+    color: #BABECC;
+    text-shadow: 1px 1px 1px #FFF;
+    text-align: center;
+}
+
+/* style the input*/
+.login-form input[type=text],
+.login-form input[type=password],
+.login-form input[type=submit],
+.login-form a {
+
+    line-height: 20px;
+    margin: 10px 0;
+    padding: 8px 25px;
+    border: 0;
+    outline: none;
+
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    background-color: #EBECF0;
+    text-shadow: 1px 1px 0 #FFF;
+
+    border-radius: 26px;
+    /* set different transition be smooth and slow start and end */
+    transition: all .15s ease-in-out;
+}
+
+/* style the link */
+.login-form a {
+    text-decoration: none;
+}
+
+/* style the input of username and password */
+.login-form input[type=text],
+.login-form input[type=password]{
+    color: #686868;
+    width: 200px;
+    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+}
+
+/* style when entering the username and password*/
+.login-form input[type=text]:focus,
+.login-form input[type=password]:focus {
+    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+
+/*define the style of submit button*/
+.login-form input[type=submit],
+.login-form a {
+    float: right;
+    cursor: pointer;
+    font-weight: bold;
+    color: #AE1100;
+    box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+}
+
+/* change the style of the submit button when hover on it, adding shadow to indicate the status */
+.login-form input[type=submit]:hover,
+.login-form a:hover {
+    box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+}
+
+/* button when active */
+.login-form input[type=submit]:active,
+.login-form a:active {
+    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+  }
+
+.register-form {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+  }
+/* define the letter style*/
+.register-form input, button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+  }
+  
+  /* define the style of the header */
+  .register-form .header {
+    color: #BABECC;
+    text-shadow: 1px 1px 1px #FFF;
+  }
+  
+  /* define the main information part */
+  .register-form form {
+    position: relative;
+    padding: 16px;
+    width: 320px;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: #EBECF0;
+  }
+  
+   /* define as one segment */
+   .register-form .segment {
+    padding: 32px 0;
+    text-align: center;
+  } 
+  
+  /* define the button and input part */
+  .register-form .button, input {
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 320px;
+    padding: 16px;
+    background-color: #EBECF0;
+    text-shadow: 1px 1px 0 #FFF;
+  }
+  
+  /* separate the input and button part */
+  .register-form .label {
+    display: block;
+    margin-bottom: 24px;
+    width: 100%;
+  }
+  
+  /* style the input */
+  .register-form input {
+    margin-right: 8px;
+    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  /* style the input when click */
+  .register-form input:focus {
+    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+  }
+  
+  /* define the button */
+  .register-form .button {
+    display: block;
+    width: 100%;
+    color: #61677C;
+    font-weight: bold;
+    box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  /* style the button when mouse hovering */
+  .register-form .button:hover {
+    box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+  }
+  
+  /* style the button when click */
+  .register-form .button:active {
+    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+  }
+
+  .proheadfile {
+    text-align: center;
+    margin-bottom: -80px;
+}
+
+.proheadreset {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: -50px;
+}
+
+.proimg {
+    margin-left: 90px;
+}
+
+.prolabel {
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: 'Lucida Sans';
+}
+
+.prelan {
+    resize: none;
+    height: 100px;
+    font-family: Georgia;
+    font-size: 16px;
+    color: #666060;
+    border-radius: 1px;
+    overflow: auto;
+}
+
+.probutton a {
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 320px;
+    padding: 16px;
+    background-color: #EBECF0;
+    text-shadow: 1px 1px 0 #FFF;
+    text-align: center;
+    margin-left: -16px;
+}
+
+/* define the button */
+.probutton input,
+.probutton a{
+    display: block;
+    width: 100%;
+    color: #61677C;
+    font-weight: bold;
+    box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+    /* style the button when mouse hovering */
+.probutton input:hover,
+.probutton a:hover {
+    box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+}
+
+    /* style the button when click */
+.probutton input:active,
+.probutton a:active {
+    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+
+/* this file is to style the all admin pages*/
+
+/* elimate all the margin of the element */
+.admin-box * {
+    box-sizing: border-box;
+}
+
+/* style the main content */
+.admin-box{
+    display: flex;
+    height: 900px;
+}
+
+/* the side nav */
+.admin-box .sidebar {
+    flex: 2;
+    height:100%;
+    background: #386270;
+}
+
+/* initial the elements */
+.admin-box .sidebar ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* style the side nav bars */
+.admin-box .sidebar ul li a {
+    padding: 18px;
+    display: block;
+    border-bottom: 1px solid #032d30;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+/* style the side nav bars when hover it */
+.admin-box .sidebar ul li a:hover {
+    background: #032d30;
+    transition: 0.5s;
+}
+
+/* the content part style */
+.admin-box .content {
+    flex: 8;
+    height:100%;
+    padding: 40px 100px 100px;
+    overflow-y: scroll;
+}
+
+/* initial the button */
+.content .button-group {
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* style the button of back to manage page */
+.button1 {
+    font-family: Georgia;
+    background: #284047;
+    padding: 10px;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+/* style the hover button*/
+.button1:hover {
+    color: #299ace;
+}
+
+/* style the page title */
+.content .pagetitle {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: #575f5f;
+    font-family: 'Franklin Gothic Medium';
+}
+
+/* the data table */
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.1rem;
+}
+
+/* style the header and data of the table */
+.content th,
+.content td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #343837;
+}
+
+/* style the table header */
+.content th {
+    cursor: pointer;
+}
+
+/* style the table header when hovering*/
+.content th:hover {
+    background-color: #3f728a;
+    padding: 10px;
+    transition: 0.8s;
+}
+
+/* style the delete button */
+.content .delete {
+    color: red;
+}
+
+/* style the hover delete button */
+.content .delete:hover {
+    background: #032d30;
+    border-color: #032d30;
+    cursor: pointer;
+}
+
+/* style the edit button */
+.content .edit {
+    color: green;
+    margin: 0;
+}
+
+/* style the hover edit button */
+.content .edit:hover {
+    background: #032d30;
+    border-color: #032d30;
+    cursor: pointer;
+}
+
+/* Style the button in the functional pages */
+.button2 {
+    font-family: Georgia;
+    background: #284047;
+    padding: 10px;
+    color: aliceblue;
+    text-decoration: none;
+    border: none;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+/* style the hover functinal pages button */
+.button2:hover {
+    color: #299ace;
+}
+
+/* make more space between every  part in form*/
+.addform div {
+    margin-bottom: 25px;
+}
+
+/* style the label of inputs */
+.addform label{
+    font-family:'Times New Roman';
+    margin-bottom: 3px;
+    color: #534b4b;
+    font-weight: bold;
+}
+
+/* style the input and options */
+.addform input,
+.addform select {
+    width: 40%;
+    border: 2px solid #575f5f;
+    height: 30px;
+}
+
+/* style the hover button of input and options bar */
+.addform input:hover,
+.addform select:hover {
+    border-color: #1a9973;
+}
+
+/* style the clicked input and options bar */
+.addform input:focus,
+.addform select:focus {
+    border: 3px solid #299ace;
+}
+
+/* style the assess button */
+.assess {
+    background: #646668;
+    color: #f3e6e6;
+    border: none;
+    cursor: pointer;
+}
+
+/* style the hover assess button */
+.assess:hover {
+    background: #2e302f;
+}
+
+/* style the text area of the assess part */
+.assessdisplay {
+    resize: none;
+    height: 100px;
+    width: 50%;
+    font-family: Georgia;
+    font-size: 16px;
+    color: #666060;
+    border: 1px solid #abaec5;
+    border-radius: 1px;
+    overflow: scroll;
 }

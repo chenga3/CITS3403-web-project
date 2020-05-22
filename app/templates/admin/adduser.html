@@ -11,7 +11,7 @@
         <div>
             <h2 class="pagetitle">Add Users</h2>
             <div class="addform">
-                <form action="" onsubmit="return addUser()" method="POST">
+                <form action="" method="POST">
                     {{ form.hidden_tag() }}
                         <div>
                             {{ form.username.label }}<br>
@@ -53,7 +53,5 @@
 {% endblock %}
 
 {% block jsfiles %}
-    <!-- js -->
-    <script src="{{ url_for('static', filename='admin/admin.js') }}"></script>
     {{ super() }}
 {% endblock %}

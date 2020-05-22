@@ -31,5 +31,7 @@
 {% endblock %}
 
 {% block jsfiles %}
-    <script src="{{ url_for('static', filename='homepage.js') }}"></script>
+    <script>
+        showFirstSlide();
+    </script>
 {% endblock %}
