@@ -1,0 +1,71 @@
+{% extends "admin/base.html" %}
+
+{% block admincontent %}
+    <!-- main body -->
+    <div class="content">
+        <div class="button-group">
+            <a href="{{ url_for('admin.questions') }}" class="button1">Manage Page</a>
+        </div>
+
+        <div>
+            <h2 class="pagetitle">Add Questions</h2>
+            <div class="addform">
+                    <div>
+                        <label>Title</label><br>
+                        <input id="problemTitle" type="text" name="titlename"><br>
+                    </div>
+                    <div>
+                        <label>Difficulty</label><br>
+                        <select name="difficulty" id="difficulty">
+                            <option value="0">Easy</option>
+                            <option value="1">Normal</option>
+                            <option value="2">Difficult</option>
+                            <option value="3">Expert</option>
+                        </select><br>
+                    </div>
+                    <!-- Time Limit -->
+                    <div>
+                        <label>Time Limit (s)</label><br>
+                        <input id="timeLimit" type="number" name="timelimit"><br>
+                    </div>
+                    <!-- Question -->
+                    <h1>Question (Use markdown)</h1>
+                    <style type="text/css" media="screen">
+                        #editor { 
+                            height: 50%;
+                        }
+                    </style>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+                    <div id="editor"></div>
+                    <button id="settings" onclick="editor.execCommand('showSettingsMenu')">Settings</button>
+                    <!-- PUT AFTER EDITOR DIV -->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.11/ace.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+                    <script>
+                        var editor = ace.edit("editor");
+                    </script>
+                    <!-- Test Cases -->
+                    <h3>Test Cases</h3>
+                    <div class="tab">
+                        <button value="testCase1" class="tablinks" id="tab1" >Test Case 1</button>
+                        <button id="addtest" onclick="">Add</button>
+                        <button id="removetest" onclick="">Remove Test</button>
+                    </div>
+
+                    <div id="testCase1" class="tabcontent">
+                        <textarea class="testinput" name="input" id="input1" cols="30" rows="10"></textarea>
+                        <textarea class= "testoutput" name="output" id="output1" cols="30" rows="10"></textarea>
+                    </div>
+
+                    <div>
+                        <button id="submit" class="button2" >Submit</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block jsfiles %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='admin/admin.js') }}"></script>
+{% endblock %}

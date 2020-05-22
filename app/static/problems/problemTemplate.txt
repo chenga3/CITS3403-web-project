@@ -1,0 +1,23 @@
+# Title
+
+...
+
+## Input Specification
+
+Input ...
+
+## Output Specification
+
+Output ... 
+
+## Sample Input
+
+    2
+    2 1
+    -1 0
+
+
+## Sample Output
+
+    1
+    -1

@@ -1,0 +1,290 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('./Lato/Lato-Bold.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'Lato-light';
+    src: url('./Lato/Lato-light.ttf') format('truetype')
+}
+
+body {
+    font-family: Lato, sans-serif;
+    margin: 0;
+    overflow: scroll;
+}
+
+#topsection {
+    position: sticky;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+}
+
+#header {
+    display: flex;
+    border-bottom-style: solid;
+    border-color: #e0e0e0;
+    height: 5em;
+    background-color: #2d6cdf;
+}
+#titlebox {
+    margin-left: 17%;
+    margin-top: 0.3%;
+    display: inline-flex;
+}
+
+#title {
+    margin-top: 1%;
+    color: white;
+    font-size: 4rem;
+}
+
+
+#login {
+    margin-left: 45%;
+    margin-top: 1.5%;
+    color: white;
+    background-color: #9b2929;
+    padding: 0.5em;
+    height: 1.5em;
+    font-size: 1em;
+    border-radius: 8px;
+}
+
+#login:hover {
+    cursor: pointer;
+}
+
+#navigationbar {
+    height: 1.9em;
+    background-color: #f9f9f9;
+    color: black;
+    display: flex;
+}
+
+#home {
+    margin-left: 12em;
+}
+
+.navielement {
+    margin-top: 0.5em;
+    font-size: 0.9rem;
+    margin-left: 1em;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+   
+.navielement:hover {
+    cursor: pointer;
+}
+
+#midsectionquestions {
+    display: flex;
+    margin: 0;
+}
+
+#sidecolumn {
+    border-right-style: solid;
+    border-color: #e0e0e0;
+    box-shadow: 1px 0px 5px 0.1px #d5d5d5;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color: #f9f9f9;
+    overflow: scroll;
+    position: fixed;
+    height: 85%;
+    width: 17.5em;
+    z-index: 2;
+}
+
+.link {
+    width: 95%;
+    height: 5em;
+    border-style: solid;
+    border-color: #dbdbdb;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    transition: all 0.4s ease;
+}
+
+.link:hover {
+    color: white;
+    background-color: #9b2929;
+    cursor: pointer;
+}
+
+.link:hover .linktitle {
+    color: white;
+}
+
+.selectedLink {
+    color: white;
+    background-color: #9b2929;
+
+}
+
+.selectedLink .linktitle {
+    color: white;
+}
+
+.linktitle {
+    margin: 0.8em;
+    font-size: 1.3rem;
+    color: #9b2929;
+}
+
+.linkdescription {
+    margin: 0.5rem;
+    margin-left: 5em;
+    margin-top: 1em;
+    font-size: 0.8em;
+}
+.slideshowstyle {
+    width: 100%;
+    height: 40%;
+    transition: all 0.5s ease;
+    padding-top: 10%;
+}
+
+#slideshowbox {
+    height: 10em;
+    padding: 0.5%;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.slideshowbox1 {
+    width: 23%;
+    margin-left: 15%;
+}
+
+.slideshowbox2 {
+    width: 20%;
+    margin-left: 67%;
+}
+
+#slideshowheader {
+    font-size: 1.6rem;
+}
+
+#slideshowdescription {
+    font-family: Lato-light, sans-serif;
+}
+
+#centercontent {
+    margin-left: 7%;
+    width: 85%;
+    text-align: center;
+}
+
+#centercontentquestions {
+    position: absolute;
+    left: 20em;
+    width: 75%;
+}
+
+#quizheader {
+    display: flex;
+}
+
+#questiontitle {
+    border-bottom-style: solid;
+    border-radius: 5px;
+    border-color: #9b2829;
+    border-width: 0.2em;
+    padding-right: 0.3em;
+    padding-bottom: 0.3em;
+}
+
+.quizheader {
+    margin-left: 4%;
+    margin-top: 2.1%;
+}
+
+#difficulty {
+    color: green;
+}
+
+.questiondescriptor {
+   font-family: Lato-light, sans-serif;
+}
+
+.codebuttons {
+   display: flex;
+   margin-top: 3%;
+}
+
+.codebutton {
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 0.2em;
+    border-color: #dbdbdb;
+    font-size: 1em;
+    font-family: Lato, sans-serif;
+    background-color: white;
+    background-blend-mode: color;
+    margin-right: 0.2%;
+}
+
+.codebutton:focus {
+    border-color: #9b2829;
+    outline-style: none;
+}
+
+.codebutton:hover {
+    cursor: pointer;
+}
+
+#codeinput {
+    border-style: solid;
+    border-color: #dbdbdb;
+    border-width: 0.2em;
+    margin-top: 1%;
+    width: 70%;
+    height: 30em; 
+    display: block;
+}
+
+#codeinput:focus {
+    outline-style: none;
+    border-color: #9b2829;
+}
+
+#submit1 {
+    background-color: #9b292a;
+    border-radius: 4px;
+    border-color: #9b292a;
+    color: white;
+    font-size: 1em;
+    font-family: Lato, sans-serif;
+    margin-top: 0.5%;
+}
+
+#submit1:focus {
+    outline-style: none;
+}
+
+#submit1:hover {
+    cursor: pointer;
+}
+
+#bottom {
+    background-color: #9b292a;
+    height: 10%;
+    padding-top: 1%;
+    margin-top: 3%;
+}
+
+#copyrighttag {
+    text-align: center;
+    color: white;
+}

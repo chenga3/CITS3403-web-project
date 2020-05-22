@@ -1,0 +1,304 @@
+/* this file is to style the all admin pages*/
+
+/* elimate all the margin of the element */
+* {
+    box-sizing: border-box;
+}
+
+/* initialize the body */
+body {
+    margin: 0;
+    padding: 0;
+    background: lightgrey;
+}
+
+/* header initial style */
+header{
+    background: #033a3b;
+    padding: 25px;
+}
+
+/* all elements in header */
+header * {
+    margin: 0 auto;
+    font-family: 'Courier New';
+    color: #cecbcb;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* the tile in header */
+header p {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+/* hide the symbol of drow down */
+header .menu {
+    display: none;
+}
+
+/* the header nav */
+header ul {
+    float: right;
+    margin-top: -50px;
+    margin-bottom: -21px;
+    padding: 0;
+    list-style: none;
+}
+
+/* make the header nav bars in a line*/
+header ul li {
+    float: left;
+    position: relative;
+}
+
+/* make the drow down option in position*/
+header ul li ul {
+    position: absolute;
+    top: 125px;
+    right: 4px;
+    width: 180px;
+    display: none;
+}
+
+/* display the drowdown option when hover it */
+header ul li:hover ul {
+    display: block;
+}
+
+/* style the drowdown potion */
+header ul li ul li {
+    width: 100%;
+}
+
+/* style the logout function */
+header ul li ul li a.logout {
+    padding: 13px;
+    color: #3e4444;
+    background: #f1ecec;
+}
+
+/* hover style */
+header ul li ul li a:hover {
+    background: #609988;
+}
+
+/* style the header nav */
+header ul li a {
+    display: block;
+    padding: 22px;
+    text-decoration: none;
+}
+
+/* style the header nav when hover it */
+header ul li a:hover {
+    background: #106268;
+    transition: 0.5s;
+}
+
+/* style the main content */
+.admin-box{
+    display: flex;
+    height: 900px;
+}
+
+/* the side nav */
+.admin-box .sidebar {
+    flex: 2;
+    height:100%;
+    background: #386270;
+}
+
+/* initial the elements */
+.admin-box .sidebar ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* style the side nav bars */
+.admin-box .sidebar ul li a {
+    padding: 18px;
+    display: block;
+    border-bottom: 1px solid #032d30;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+/* style the side nav bars when hover it */
+.admin-box .sidebar ul li a:hover {
+    background: #032d30;
+    transition: 0.5s;
+}
+
+/* the content part style */
+.admin-box .content {
+    flex: 8;
+    height:100%;
+    padding: 40px 100px 100px;
+    overflow-y: scroll;
+}
+
+/* initial the button */
+.content .button-group {
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* style the button of back to manage page */
+.button1 {
+    font-family: Georgia;
+    background: #284047;
+    padding: 10px;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+/* style the hover button*/
+.button1:hover {
+    color: #299ace;
+}
+
+/* style the page title */
+.content .pagetitle {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: #575f5f;
+    font-family: 'Franklin Gothic Medium';
+}
+
+/* the data table */
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.1rem;
+}
+
+/* style the header and data of the table */
+.content th,
+.content td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #343837;
+}
+
+/* style the table header */
+.content th {
+    cursor: pointer;
+}
+
+/* style the table header when hovering*/
+.content th:hover {
+    background-color: #3f728a;
+    padding: 10px;
+    transition: 0.8s;
+}
+
+/* style the delete button */
+.content .delete {
+    color: red;
+}
+
+/* style the hover delete button */
+.content .delete:hover {
+    background: #032d30;
+    border-color: #032d30;
+    cursor: pointer;
+}
+
+/* style the edit button */
+.content .edit {
+    color: green;
+    margin: 0;
+}
+
+/* style the hover edit button */
+.content .edit:hover {
+    background: #032d30;
+    border-color: #032d30;
+    cursor: pointer;
+}
+
+/* Style the button in the functional pages */
+.button2 {
+    font-family: Georgia;
+    background: #284047;
+    padding: 10px;
+    color: aliceblue;
+    text-decoration: none;
+    border: none;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+/* style the hover functinal pages button */
+.button2:hover {
+    color: #299ace;
+}
+
+/* make more space between every  part in form*/
+.addform div {
+    margin-bottom: 25px;
+}
+
+/* style the label of inputs */
+.addform label{
+    font-family:'Times New Roman';
+    margin-bottom: 3px;
+    color: #534b4b;
+    font-weight: bold;
+}
+
+/* style the input and options */
+.addform input,
+.addform select {
+    width: 40%;
+    border: 2px solid #575f5f;
+    height: 30px;
+}
+
+/* style the hover button of input and options bar */
+.addform input:hover,
+.addform select:hover {
+    border-color: #1a9973;
+}
+
+/* style the clicked input and options bar */
+.addform input:focus,
+.addform select:focus {
+    border: 3px solid #299ace;
+}
+
+/* style the assess button */
+.assess {
+    background: #646668;
+    color: #f3e6e6;
+    border: none;
+    cursor: pointer;
+}
+
+/* style the hover assess button */
+.assess:hover {
+    background: #2e302f;
+}
+
+/* style the text area of the assess part */
+.assessdisplay {
+    resize: none;
+    height: 100px;
+    width: 50%;
+    font-family: Georgia;
+    font-size: 16px;
+    color: #666060;
+    border: 1px solid #abaec5;
+    border-radius: 1px;
+    overflow: scroll;
+}
+
+.tabcontent {
+}
+
+.tabcontenthidden {
+    display: none;
+}

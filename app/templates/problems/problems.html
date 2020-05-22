@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block cssfiles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='problems/problem.css')}}">
+{% endblock %}
+
+{% block content %}
+            {% for problem in problems %}
+                <a class="questionBoxLink" href="{{ url_for('problems.problem', title=''.join(problem.title.split()).lower()) }}">
+                <div class="questionBox">
+                    <p> {{ problem.title }} </p>
+                    <p>
+                            {%if problem.difficulty == '0'%}
+                            Difficulty: Easy
+                            {%elif problem.difficulty == '1'%}
+                            Difficulty: Intermediate
+                            {%elif problem.difficulty == '2'%}
+                            Difficulty: Advanced
+                            {%elif problem.difficulty == '3'%}
+                            Difficulty: Expert 
+                            {% endif %}
+                    </p>
+
+                </div>    
+                </a>
+            {% endfor %}
+{% endblock %}
+
+{% block jsfiles %}
+    <script src="{{ url_for('static', filename='solve/problems.js') }}"></script>
+{% endblock %}
+

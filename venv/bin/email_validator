@@ -1,8 +1,10 @@
-#!/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/bin/python
+#!/home/brandon/CITS3403-web-project/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
+
 from email_validator import main
+
 if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
     sys.exit(main())
