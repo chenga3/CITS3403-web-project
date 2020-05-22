@@ -139,7 +139,7 @@ a {
 
 .selectedLink {
     color: white;
-    background-color: #9b2929;
+    background-color: #3d6cb9;
 
 }
 
@@ -150,7 +150,7 @@ a {
 .linktitle {
     margin: 0.8em;
     font-size: 1.3rem;
-    color: #9b2929;
+    color: #3d6cb9;
 }
 
 .linkdescription {
@@ -216,7 +216,7 @@ a {
 #questiontitle {
     border-bottom-style: solid;
     border-radius: 5px;
-    border-color: #9b2829;
+    border-color: #17469b;
     border-width: 0.2em;
     padding-right: 0.3em;
     padding-bottom: 0.3em;
@@ -311,7 +311,7 @@ a {
     width: 35em;
     padding: 1em;
     border-left-style: solid;
-    border-color: #9b292a;
+    border-color: #266cc2;
 }
 
 #submissiontable {
@@ -321,7 +321,7 @@ a {
 #submissiontable, th, td {
     border-style: solid;
     border-width: thin;
-    border-color: #9b292a;
+    border-color: #0072ff;
     border-collapse: collapse;
     font-family: lato-light;
     font-size: 1.2rem;
