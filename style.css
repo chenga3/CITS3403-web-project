@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: 'Lato-light';
-    src: url('./Lato/Lato-light.ttf') format('truetype')
+    src: url('./Lato/Lato-Light.ttf') format('truetype')
 }
 
 body {
@@ -203,6 +203,12 @@ a {
     width: 75%;
 }
 
+#centercontentanswers {
+    position: absolute;
+    left: 20em;
+    width: 40%;
+}
+
 #quizheader {
     display: flex;
 }
@@ -286,6 +292,40 @@ a {
 
 #submit:hover {
     cursor: pointer;
+}
+
+.solutionsnippet {
+    border-top-style: solid;
+    padding-bottom: 1em;
+    border-color: #d2d2d2;
+    border-width: 0.1em;
+}
+
+#submisionsection {
+    overflow: scroll;
+    position: fixed;
+    z-index: 2;
+    background-color: white;
+    right: 0;
+    height: 85%;
+    width: 35em;
+    padding: 1em;
+    border-left-style: solid;
+    border-color: #9b292a;
+}
+
+#submissiontable {
+    width: 100%;
+}
+
+#submissiontable, th, td {
+    border-style: solid;
+    border-width: thin;
+    border-color: #9b292a;
+    border-collapse: collapse;
+    font-family: lato-light;
+    font-size: 1.2rem;
+    padding: 0.6em;
 }
 
 #bottom {
