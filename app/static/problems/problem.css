@@ -58,5 +58,8 @@ pre {
     box-shadow: 1px 1px 5px 0px #767676;
 }
 
-
+.questionBoxLink:hover , .questionBoxLink:hover > .questionBox {
+    background-color: white;
+    color: #3d6cb9;
+    border-color: #0f3f8d;
 }
