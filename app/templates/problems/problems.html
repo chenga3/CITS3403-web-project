@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+            <div class=questionWrapper>
             {% for problem in problems %}
                 <a class="questionBoxLink" href="{{ url_for('problems.problem', title=''.join(problem.title.split()).lower()) }}">
                 <div class="questionBox">
@@ -25,6 +26,7 @@
                 </div>    
                 </a>
             {% endfor %}
+            </div>
 {% endblock %}
 
 {% block jsfiles %}
