@@ -91,5 +91,3 @@ function showSecondSlide() {
     //set timer to call the other slide
     setTimeout(() => showFirstSlide(), 5000);
 }
-
-// showFirstSlide();

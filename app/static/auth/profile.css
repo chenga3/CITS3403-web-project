@@ -1,0 +1,66 @@
+.proheadfile {
+    text-align: center;
+    margin-bottom: -80px;
+}
+
+.proheadreset {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: -50px;
+}
+
+.proimg {
+    margin-left: 90px;
+}
+
+.prolabel {
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: 'Lucida Sans';
+}
+
+.prelan {
+    resize: none;
+    height: 100px;
+    font-family: Georgia;
+    font-size: 16px;
+    color: #666060;
+    border-radius: 1px;
+    overflow: auto;
+}
+
+.probutton a {
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 320px;
+    padding: 16px;
+    background-color: #EBECF0;
+    text-shadow: 1px 1px 0 #FFF;
+    text-align: center;
+    margin-left: -16px;
+}
+
+/* define the button */
+.probutton input,
+.probutton a{
+    display: block;
+    width: 100%;
+    color: #61677C;
+    font-weight: bold;
+    box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+/* style the button when mouse hovering */
+.probutton input:hover,
+.probutton a:hover {
+    box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+}
+
+/* style the button when click */
+.probutton input:active,
+.probutton a:active {
+    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
