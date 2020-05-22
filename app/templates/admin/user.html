@@ -21,7 +21,7 @@
                 </thead>
                 <tbody>
                     {% for user in users %}
-                    <tr>
+                    <tr id="{{ user.username }}">
                         <td>{{ user.username }} </td>
                         <td>{{ user.email }}</td>
                         <td>{% if user.admin == True %} Admin {% else %} User {% endif %}</td>
