@@ -323,3 +323,7 @@ header ul li a:hover {
 .tabcontenthidden {
     display: none;
 }
+#editor { 
+    height: 50%;
+    position: sticky;
+}
