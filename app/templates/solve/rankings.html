@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+    <thead>
+        <th> Rank </th>
+        <th> User </th>
+        <th> Points </th>
+    </thead>
+    <tbody>
+    {% for i in range(users|length) %}
+        <tr>
+            <td> {{ i+1 }} </td>
+            <td><a href="{{ url_for('auth.profile', username=users[i].username) }}"> {{ users[i].username }} </a></td>
+            <td> {{ users[i].points }} </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -51,6 +51,9 @@
             <h3 id=results class=navielement>
                 <a href=""> RESULTS </a>
             </h3>
+            <h3 id=rankings class=navielement>
+                <a href="{{ url_for('solve.rankings') }}"> RANKINGS </a>
+            </h3>
             {% if current_user.admin %}
             <h3 id=administration class=navielement>
                 <a href="{{ url_for('admin.users') }}"> ADMINISTRATION </a>
