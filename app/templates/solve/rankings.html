@@ -1,20 +1,50 @@
 {% extends "base.html" %}
-
+{% block cssfiles %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='admin/admin.css') }}">
+{% endblock %}
 {% block content %}
-<table>
-    <thead>
-        <th> Rank </th>
-        <th> User </th>
-        <th> Points </th>
-    </thead>
-    <tbody>
-    {% for i in range(users|length) %}
-        <tr>
-            <td> {{ i+1 }} </td>
-            <td><a href="{{ url_for('auth.profile', username=users[i].username) }}"> {{ users[i].username }} </a></td>
-            <td> {{ users[i].points }} </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+<div class="admin-box">
+    <div class="content rank">
+        <h1>Leading board</h1>
+        <table id ="usertable">
+            <thead>
+                <th class="headerSortDown"> Rank </th>
+                <th class="headerSortDown"> User </th>
+                <th class="headerSortDown"> Points </th>
+            </thead>
+            <tbody>
+            {% for i in range(users|length) %}
+                <tr>
+                    <td> {{ i+1 }} </td>
+                    <td><a href="{{ url_for('auth.profile', username=users[i].username, rank=i+1) }}"> {{ users[i].username }} </a></td>
+                    <td> {{ users[i].points }} </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+{% block jsfiles %}
+    <!-- js to achieve row delete and sorting-->
+    <script>
+    //sort table
+    $('th').click(function(){
+    var table = $(this).parents('table').eq(0);
+    var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()));
+    this.asc = !this.asc;
+    $(this).toggleClass('headerSortDown headerSortUp');
+    if (!this.asc){rows = rows.reverse()};
+    for (var i = 0; i < rows.length; i++){table.append(rows[i])}
+    });
+    function comparer(index) {
+        return function(a, b) {
+            var valA = getCellValue(a, index), valB = getCellValue(b, index);
+            return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB);
+        };
+    };
+    function getCellValue(row, index){ return $(row).children('td').eq(index).text() };
+    </script>
+    {{ super() }}
 {% endblock %}

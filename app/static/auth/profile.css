@@ -64,3 +64,29 @@
 .probutton a:active {
     box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
 }
+
+.userprofile {
+    text-align: center;
+    font-family: 'Courier New';
+}
+.userprofile .userhead {
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.userprofile .userimg {
+    height: 150px;
+    width: 150px;
+}
+
+.userprofile .userlabel {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.userprofile .userdata {
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium';
+    color: #4865e4;
+}

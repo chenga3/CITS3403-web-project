@@ -45,12 +45,18 @@ def register():
         return redirect(url_for('auth.login'))
     return render_template('auth/register.html', title='Register', form=form)
 
-@bp.route('/profile/<username>',methods=['GET','POST'])
+@bp.route('/profile/<username>/<rank>')
 @login_required
-def profile(username):
+def profile(username,rank):
+    user = User.query.filter_by(username=username).first_or_404()
+    return render_template('auth/profile.html', user=user, rank=rank, title='Profile')
+
+@bp.route('/edit_profile/<username>',methods=['GET','POST'])
+@login_required
+def edit_profile(username):
     user=User.query.filter_by(username=username).first_or_404()
     if username != current_user.username:
-        return redirect(url_for('homepage'))
+         return redirect(url_for('homepage'))
     form = EditProfileForm()
     if form.validate_on_submit():
         current_user.username = form.username.data
@@ -61,7 +67,7 @@ def profile(username):
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.email.data = current_user.email
-    return render_template('auth/profile.html', user=user,title='Profile',
+    return render_template('auth/edit_profile.html', user=user, title='Edit Profile',
                            form=form)
 
 @bp.route('/reset_password', methods=['GET', 'POST'])
