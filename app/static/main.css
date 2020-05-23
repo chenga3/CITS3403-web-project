@@ -4,8 +4,8 @@
 }
 
 @font-face {
-    font-family: 'Lato-light';
-    src: url('./Lato/Lato-light.ttf') format('truetype')
+    font-family: 'Latol';
+    src: url('./Lato/Lato-Light.ttf') format('truetype')
 }
 
 body {
@@ -188,7 +188,7 @@ a {
 }
 
 #slideshowdescription {
-    font-family: Lato-light, sans-serif;
+    font-family: Latol, sans-serif;
 }
 
 #centercontent {
@@ -226,7 +226,7 @@ a {
 }
 
 .questiondescriptor {
-   font-family: Lato-light, sans-serif;
+   font-family: Latol, sans-serif;
 }
 
 .codebuttons {
@@ -308,9 +308,9 @@ a {
 #submissiontable, th, td {
     border-style: solid;
     border-width: thin;
-    border-color: #0072ff;
+    border-color: black;
     border-collapse: collapse;
-    font-family: lato-light;
+    font-family: Latol;
     font-size: 1.2rem;
     padding: 0.6em;
 }
