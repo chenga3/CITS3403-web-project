@@ -22,3 +22,6 @@ app.register_blueprint(admin_bp, url_prefix='/admin')
 
 from app.solve import bp as solve_bp
 app.register_blueprint(solve_bp)
+
+from app.api import bp as api_bp
+app.register_blueprint(api_bp, url_prefix='/api')

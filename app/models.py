@@ -1,5 +1,6 @@
 from app import db, login
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask import url_for
 from flask_login import UserMixin
 from hashlib import md5
 
@@ -24,6 +25,23 @@ class User(UserMixin, db.Model):
         digest= md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
             digest, size)
+
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'admin': self.admin,
+            'points': self.points,
+        }
+        return data
+
+    def from_dict(self, data, new_user=False):
+        for field in ['username', 'email', 'admin']:
+            if field in data:
+                setattr(self, field, data[field])
+        if new_user and 'password' in data:
+            self.set_password(data['password'])
 
 @login.user_loader
 def load_user(id):

@@ -1,5 +1,94 @@
 // This js file is for admin functions in all admin pages
+/*** AJAX for REST API ***/
+var usertable, user;
 
+window.onload = function() {
+    this.setUp();
+}
+
+function setUp() {
+    usertable = document.getElementById('usertable-api');
+    console.log('setup...');
+    getUsers();
+}
+
+
+function getUsers() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        //console.log(this.readyState);
+        //console.log(this.status);
+        if (this.readyState == 4 && this.status == 200) {
+            responseData = JSON.parse(this.responseText);
+            userList = responseData['userList'];
+            renderTable(userList);
+        }
+    }
+    xhttp.open('GET', '/api/users', true);
+    xhttp.send();
+}
+
+function editUser(id) {
+    console.log('Editing user...');
+    console.log(id);
+    usertable.hidden = true;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            responseData = JSON.parse(this.responseText);
+            user = responseData;
+            console.log(user);
+        }
+    }
+    xhttp.open('GET', '/api/users/' + id, true);
+    xhttp.send();
+}
+
+function renderTable(userList) {
+    for (i=0; i<userList.length; i++) {
+        console.log(userList[i]);
+        tr = document.createElement('tr');
+
+        td = document.createElement('td');
+        td.innerHTML = userList[i].username;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerHTML = userList[i].email;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerHTML = (userList[i].admin) ? "Admin" : "User";
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        button = document.createElement('button');
+        button.innerHTML = 'edit';
+        button.classList.add('edit');
+        button.value = userList[i].id;
+        button.onclick = function(ev) { editUser(ev.target.value); };
+        td.appendChild(button);
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        button = document.createElement('button');
+        button.innerHTML = 'delete';
+        button.classList.add('delete');
+        td.appendChild(button);
+        tr.appendChild(td);
+
+        usertable.appendChild(tr);
+    }
+}
+
+function renderUserForm(user) {
+    
+}
+
+
+
+/*** OTHER FUNCTIONS ***/
 //Adding a new user
 function addUser() {
     var username = document.getElementById("username").value.trim();
@@ -44,7 +133,7 @@ function validateQuestion() {
 }
 
 //edit the user
-function editUser() {
+/* function editUser() {
     var username = document.getElementById("username").value.trim();
     var email = document.getElementById("email").value.trim();
     var password = document.getElementById("password").value.trim();
@@ -66,7 +155,7 @@ function editUser() {
     else {
         return true;
     }
-}
+} */
 
 
 //import internet editor in the content
@@ -93,3 +182,4 @@ function postAssess() {
     }
     return true;
 }
+
