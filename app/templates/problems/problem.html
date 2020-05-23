@@ -26,8 +26,11 @@
           <option value="cpp">C++</option>
           <option value="py">Python 3</option>
         </select>
-        
+        {% if current_user.is_authenticated %}
         <button id="submit">Submit</button>
+        {% else %}
+        <button disabled>Login To Submit</button>
+        {% endif %}
         
         <!-- PUT AFTER EDITOR DIV -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.11/ace.js"></script>

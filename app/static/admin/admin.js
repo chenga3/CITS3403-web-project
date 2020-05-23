@@ -81,41 +81,41 @@ function validateQuestion() {
 }
 
 $(document).on("click", "#submit", function() {
-        if(!validateQuestion()) {
-            alert("Some inputs are empty");
+        if(!validatequestion()) {
+            alert("some inputs are empty");
             return
         }
-        var testCases = []
-        var inputs = document.getElementsByClassName("testinput");
-        var outputs = document.getElementsByClassName("testoutput");
+        var testcases = []
+        var inputs = document.getelementsbyclassname("testinput");
+        var outputs = document.getelementsbyclassname("testoutput");
         for (var i = 0; i < inputs.length ; i++) {
             input = inputs[i].value;
             output = outputs[i].value;
             if (input == "" || output == "") {
-                alert("Test Cases are empty");
+                alert("test cases are empty");
                 return
             }
-            testCases.push({"input": inputs[i].value, 
+            testcases.push({"input": inputs[i].value, 
                             "output": outputs[i].value});
         }
         
         var packet = {
-            "title": $("#problemTitle").val(),
+            "title": $("#problemtitle").val(),
             "diff": $("#difficulty").val(),
-            "time": $("#timeLimit").val(),
-            "question": editor.getValue(),
-            "testcases": testCases
+            "time": $("#timelimit").val(),
+            "question": editor.getvalue(),
+            "testcases": testcases
         }
        $.ajax({
             url: '/admin/addquestion',
-            data: JSON.stringify(packet),
-            type: 'POST',
-            contentType: 'application/json',
+            data: json.stringify(packet),
+            type: 'post',
+            contenttype: 'application/json',
             success: function(response) {
                 alert(response);
             },
             error: function(response) { 
-                alert("ERROR");
+                alert("error");
            }
        });
 });
@@ -126,7 +126,7 @@ $(document).on("click", ".tablinks",function(event) {
     $("#" + id +"").addClass("tabcontent").removeClass("tabcontenthidden");
 });
 
-var n = 1;
+var n = $('.tablinks').length;
 $(document).ready(function() {
     $("#addtest").click(function() {
         button = "<button value=\"testCase" + ++n + "\" class=\"tablinks\"" +
@@ -171,3 +171,49 @@ $(document).on("click", "#removetest",function() {
     }
     $("#testCase1").addClass("tabcontent").removeClass("tabcontenthidden");
 });
+
+$(document).on("click", "#edit", function() {
+        if(!validateQuestion()) {
+            alert("Some inputs are empty");
+            return
+        }
+        var testCases = []
+        var inputs = document.getElementsByClassName("testinput");
+        var outputs = document.getElementsByClassName("testoutput");
+        for (var i = 0; i < inputs.length ; i++) {
+            input = inputs[i].value;
+            output = outputs[i].value;
+            if (input == "" || output == "") {
+                alert("Test Cases are empty");
+                return
+            }
+            testCases.push({"input": inputs[i].value, 
+                            "output": outputs[i].value});
+        }
+        
+        oldUrlTitle = window.location.pathname.split("/")
+        oldUrlTitle = oldUrlTitle[oldUrlTitle.length - 1] 
+        var packet = {
+            "oldurltitle": oldUrlTitle,
+            "title": $("#problemTitle").val(),
+            "diff": $("#difficulty").val(),
+            "time": $("#timeLimit").val(),
+            "question": editor.getValue(),
+            "testcases": testCases
+        }
+       $.ajax({
+            url: '/admin/updatequestion',
+            data: JSON.stringify(packet),
+            type: 'PUT',
+            contentType: 'application/json',
+            success: function(response) {
+                alert(response);
+            },
+            error: function(response) { 
+                alert("ERROR");
+           }
+       });
+});
+
+var editor = ace.edit("editor");
+editor.setFontSize("16px");

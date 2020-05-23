@@ -13,11 +13,22 @@ body {
     float: left;
     overflow-y: scroll;
     height: 80%;
+    -ms-overflow-style: none;
+}
+
+.one::-webkit-scrollbar {
+  display: none;
 }
 
 .two {
   margin-left: 52%;
-  heightL 57%;
+  height: 80%;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+}
+
+.two::-webkit-scrollbar {
+  display: none;
 }
 
 pre {
@@ -30,15 +41,21 @@ pre {
 
 #editor { 
     width: 100%;
-    height: 45%;
+    height: 50%;
     position: sticky;
+    -ms-overflow-style: none;
 }
+
+#editor::-webkit-scrollbar {
+  display: none;
+}
+
 
 #results {
     background-color: gainsboro;
-    height: 10cm;
+    height: 40%;
     margin-top: 0.5cm;
-    overflow: hidden;
+    overflow-y: auto;
     padding-left: 0.5cm;
     -ms-overflow-style: none;
 }

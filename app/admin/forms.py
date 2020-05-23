@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SelectField, SubmitField
+from wtforms import StringField, PasswordField, SelectField, SubmitField, TextAreaField, IntegerField   
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 from app.models import User
 
@@ -38,3 +38,5 @@ class EditUserForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None and user is not self.user:
             raise ValidationError('Please use a different email address.')
+
+ 

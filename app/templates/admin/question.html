@@ -22,7 +22,7 @@
                             <td>{{p.title}}</td>
                             <td>{{p.dateAdded}}</td>
                             {%if p.difficulty == '0'%}
-                            <td>Easy</td>
+                            <td>Beginner</td>
                             {%elif p.difficulty == '1'%}
                             <td>Intermediate</td>
                             {%elif p.difficulty == '2'%}
@@ -30,7 +30,7 @@
                             {%elif p.difficulty == '3'%}
                             <td>Expert</td>
                             {% endif %}
-                            <td><button type="submit" name="edituser" class="edit" onclick="location.href='./editquestion.html'">edit</button></td>
+                            <td><button type="submit" name="edituser" class="edit" onclick="window.location.href='{{url_for('admin.editquestion', urltitle=''.join(p.title.split()).lower())}}';">edit</button></td>
                             <td><button type="submit" name="deletequestion" class="delete">delete</button></td>
                         </tr>
                     {% endfor %}

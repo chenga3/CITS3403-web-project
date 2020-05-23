@@ -90,7 +90,6 @@ def testSolution(question):
             file = open("runtime","r")
             time = file.readline()
             file.close()
-            print(time, question.time)
             if float(time) > question.time:
                 results[f"{i}"] = "Failed: Did not finish in time :("
                 results["pass"] = "no"
@@ -125,7 +124,9 @@ def judge(question):
     print(temp)
     if temp["pass"] != "yes":
         return temp
-    return testSolution(question)
+    output = testSolution(question)
+    print(output)
+    return output
 
 
 

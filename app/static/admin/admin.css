@@ -325,5 +325,6 @@ header ul li a:hover {
 }
 #editor { 
     height: 50%;
+    width: 80%;
     position: sticky;
 }

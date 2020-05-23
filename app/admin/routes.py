@@ -88,9 +88,7 @@ def submitquestion():
 @login_required
 @admin_required
 def addquestion():
-    if request.method == 'POST':
-        data = request.get_json()
-        print(data)
+    data = request.get_json()
     if data["question"] == "":
         return ("ERROR: Some Empty Inputs")
     problem = Problem.query.filter_by(title=data["title"]).first()
@@ -118,12 +116,43 @@ def addquestion():
         db.session.commit()
         return ("SUCCESS")
 
-@bp.route('/editquestion', methods=['GET', 'POST'])
+@bp.route('/editquestion/<urltitle>', methods=['GET', 'POST'])
 @login_required
 @admin_required
-def editquestion():
-    return render_template('admin/editquestion.html')
+def editquestion(urltitle):
+    problem = Problem.query.filter_by(urlTitle=urltitle).first()
+    testcases = ProblemTestCases.query.filter_by(questionID=problem.id).all()
+    return render_template('admin/editquestion.html', problem=problem, testcases = testcases)
 
+@bp.route('/updatequestion', methods=['PUT'])
+def updatequestion():
+    data = request.get_json()
+    if data["question"] == "":
+        return ("ERROR: Some Empty Inputs")
+    problem = Problem.query.filter_by(urlTitle=data["oldurltitle"]).first()
+    if Problem.query.filter_by(title=data["title"]) is None or problem.title == data["title"]:
+        problem.title=data["title"]
+        problem.urlTitle=''.join((data["title"]).split()).lower()
+        problem.body=data["question"]
+        problem.difficulty = data["diff"]
+        problem.timeLimit = int(data["time"])
+        tests = data["testcases"]
+        oldtestcases = ProblemTestCases.query.filter_by(questionID = problem.id).all()
+        for old in oldtestcases:
+            db.session.delete(old)
+        for i in tests:
+            if i["input"] == "" or i["output"] == "":
+                return ("ERROR: Some Empty Inputs")
+            testcase = ProblemTestCases(\
+                problem = problem,\
+                input = i["input"],\
+                output = i["output"],
+            )
+            db.session.add(testcase)
+        db.session.commit()
+        return ("SUCCESS")
+    else:
+        return ("Title Already Exists")
 
 @bp.route('/assess', methods=['GET', 'POST'])
 @login_required

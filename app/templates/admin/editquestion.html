@@ -8,38 +8,65 @@
         </div>
 
         <div>
-            <h2 class="pagetitle">Edit Questions</h2>
+            <h2 class="pagetitle">Edit: {{problem.title}}</h2>
             <div class="addform">
-                <form action="./question.html" onsubmit="return validateQuestion()" method="POST">
-                    <div>
-                        <label>Topic</label><br>
-                        <select name="topic" id="topic">
-                            <option value="Python">Python</option>
-                            <option value="C++">C++</option>
-                            <option value="Python&C++">Python&C++</option>
-                            <option value="Other">Other</option>
-                        </select><br>
-                    </div>
                     <div>
                         <label>Title</label><br>
-                        <input id="titlename" type="text" name="titlename" placeholder="Original title"><br>
+                        <input id="problemTitle" type="text" name="titlename" value="{{problem.title}}"><br>
                     </div>
                     <div>
                         <label>Difficulty</label><br>
                         <select name="difficulty" id="difficulty">
-                            <option value="Easy">Easy</option>
-                            <option value="Normal">Normal</option>
-                            <option value="Difficult">Difficult</option>
-                            <option value="Expert">Expert</option>
+                            <option value="0" {{ 'selected' if problem.difficulty == "0" else '' }}>Beginner</option>
+                            <option value="1" {{ 'selected' if problem.difficulty == "1" else '' }}>Intermediate</option>
+                            <option value="2" {{ 'selected' if problem.difficulty == "2" else '' }}>Difficult</option>
+                            <option value="3" {{ 'selected' if problem.difficulty == "3" else '' }}>Expert</option>
                         </select><br>
                     </div>
+                    <!-- Time Limit -->
                     <div>
-                        <label>Content</label><br>
-                        <textarea name="content" id="content" placeholder="This is original content."></textarea>
+                        <label>Time Limit (s)</label><br>
+                        <input id="timeLimit" type="number" name="timelimit", value="{{problem.timeLimit}}"><br>
                     </div>
-                        <button type="submit" class="button2" name="questioneditsubmit">Post</button>
-                </form>
+                    <!-- Question -->
+                    <h1>Question (Use markdown)</h1>
+                    <style type="text/css" media="screen">
+                    </style>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+                    <div id="editor">{{problem.body}}</div>
+                    <button id="settings" onclick="editor.execCommand('showSettingsMenu')">Settings</button>
+                    <!-- PUT AFTER EDITOR DIV -->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.11/ace.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+                    <!-- Test Cases -->
+                    <h3>Test Cases</h3>
+                    <div class="tab">
+                        {% for i in range(testcases|length)%}
+                        <button value="testCase{{i+1}}" class="tablinks" id="tab{{i + 1}}" >Test Case {{i+1}}</button>
+                        {% endfor %}
+                        <button id="addtest" onclick="">Add</button>
+                        <button id="removetest" onclick="">Remove Test</button>
+                    </div>
+                    {% for test in testcases %}
+                        {% if loop.index == 1 %}
+                            <div id="testCase{{loop.index}}" class="tabcontent">
+                        {% else %}
+                            <div id="testCase{{loop.index}}" class="tabcontenthidden">
+                        {%endif%}
+                            <textarea class="testinput" name="input" id="input{{loop.index}}" cols="30" rows="10">{{test.input}}</textarea>
+                            <textarea class= "testoutput" name="output" id="output{loop.index}}" cols="30" rows="10">{{test.output}}</textarea>
+                    </div>
+                    {% endfor %}
+
+                    <div>
+                        <button id="edit" class="button2" >Submit</button>
+                    </div>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block jsfiles %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='admin/admin.js') }}"></script>
 {% endblock %}

@@ -14,6 +14,7 @@ def problems():
     return render_template('problems/problems.html', title='Problems', problems=problems)
 
 @bp.route('/problem/<title>')
+@login_required
 def problem(title):
     problem = Problem.query.filter_by(urlTitle=title).first()
     if problem is None:
@@ -21,23 +22,25 @@ def problem(title):
     return render_template('problems/problem.html', problem=problem, body=pandoc(problem.body))
 
 @bp.route('/judge', methods=['POST'])
+@login_required
 def judgeSolution():
-    data = request.get_json()
-    if data["code"] == "":
-        return jsonify({"error": "Empty Submission"})
-    problem = Problem.query.filter_by(urlTitle=data['urlTitle']).first()
-    testCases = ProblemTestCases.query.filter_by(questionID = problem.id).all()
-    question = Question(problem.id, data['language'], data['code'], problem.timeLimit)
-    print(question)
-    for test in testCases:
-        question.testCases.append(testCase(test.input.split("\n"), test.output.split("\n")))
-    job = current_app.task_queue.enqueue(judge,question)
-    while job.result == None:
-        pass
-    output = job.result
-    if output["pass"] == "yes":
-        problem.numSuccesses += 1
-    problem.numAttempts += 1
-    db.session.commit()
-
-    return jsonify(output)
+    if current_user.is_authenticated:
+        data = request.get_json()
+        if data["code"] == "":
+            return jsonify({"error": "Empty Submission"})
+        problem = Problem.query.filter_by(urlTitle=data['urlTitle']).first()
+        testCases = ProblemTestCases.query.filter_by(questionID = problem.id).all()
+        question = Question(problem.id, data['language'], data['code'], problem.timeLimit)
+        for test in testCases:
+            question.testCases.append(testCase(test.input.split("\n"), test.output.split("\n")))
+        job = current_app.task_queue.enqueue(judge,question)
+        while job.result == None:
+            pass
+        output = job.result
+        if output["pass"] == "yes":
+            problem.numSuccesses += 1
+        problem.numAttempts += 1
+        db.session.commit()
+        return jsonify(output)
+    else:
+        return jsonify({"error": "You need to login to submit code"})
