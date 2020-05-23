@@ -116,6 +116,11 @@ def addquestion():
         db.session.commit()
         return ("SUCCESS")
 
+@bp.route('/editquestion', methods=['GET', 'POST'])
+@login_required
+@admin_required
+def editquestion():
+    return render_template('admin/editquestion.html')
 
 
 @bp.route('/assess', methods=['GET', 'POST'])
