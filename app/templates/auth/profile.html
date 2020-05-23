@@ -13,10 +13,22 @@
         {{ user.username }}
     </div>
     <div class="userlabel">
-        <p>Email</p>
+        <p>Rank</p>
     </div>
     <div class="userdata">
-        {{ user.email }}
+        <p>{{rank}}</p>
     </div>
+    <div class="userlabel">
+        <p>Point</p>
+    </div>
+    <div class="userdata">
+        {{ user.points }}
+    </div>
+    <!-- <div class="userlabel">
+        <p>Prefered Language</p>
+    </div>
+    <div class="userdata">
+        {{ user.prefer_language }}
+    </div> -->
 </div>
 {% endblock %}

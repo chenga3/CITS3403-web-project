@@ -45,11 +45,11 @@ def register():
         return redirect(url_for('auth.login'))
     return render_template('auth/register.html', title='Register', form=form)
 
-@bp.route('/profile/<username>')
+@bp.route('/profile/<username>/<rank>')
 @login_required
-def profile(username):
+def profile(username,rank):
     user = User.query.filter_by(username=username).first_or_404()
-    return render_template('auth/profile.html', user=user,title='Profile')
+    return render_template('auth/profile.html', user=user, rank=rank, title='Profile')
 
 @bp.route('/edit_profile/<username>',methods=['GET','POST'])
 @login_required
