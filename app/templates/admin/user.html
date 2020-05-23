@@ -12,6 +12,7 @@
             {% for message in get_flashed_messages() %}
                 <span class="flash">{{ message }}</span>
             {% endfor %}
+<<<<<<< HEAD
             <table id="usertable">
                 <thead>
                     <th>User Name</th>
@@ -31,6 +32,18 @@
                     {% endfor %}
                 </tbody>
             </table>
+=======
+
+            <table id="usertable-api">
+                <thead>
+                    <th> Username </th>
+                    <th> Email </th>
+                    <th> Role </th>
+                    <th colspan=3> Action </th>
+                </thead>
+            </table>
+
+>>>>>>> c1d62354... token authentication
         </div>
     </div>
 {% endblock %}
