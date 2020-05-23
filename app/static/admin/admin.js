@@ -202,7 +202,7 @@ $(document).on("click", "#edit", function() {
             "testcases": testCases
         }
        $.ajax({
-            url: '/admin/updatequestion',
+            url: '/admin/question',
             data: JSON.stringify(packet),
             type: 'PUT',
             contentType: 'application/json',
@@ -215,5 +215,28 @@ $(document).on("click", "#edit", function() {
        });
 });
 
-var editor = ace.edit("editor");
-editor.setFontSize("16px");
+$(document).on("click", ".delete", function() {
+        if (confirm("Please confirm u want to delete this question")) {
+            urlTitle = $(this).val();
+            var packet = {
+                "urltitle": urlTitle
+            }
+            $.ajax({
+                url: '/admin/question',
+                data: JSON.stringify(packet),
+                type: 'DELETE',
+                contentType: 'application/json',
+                success: function(response) {
+                    alert(response);
+                },
+                error: function(response) { 
+                    alert("ERROR");
+            }
+            });
+        } else {
+            // do nothings
+            return
+        }
+});
+
+

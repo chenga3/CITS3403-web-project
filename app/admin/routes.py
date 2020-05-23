@@ -124,7 +124,23 @@ def editquestion(urltitle):
     testcases = ProblemTestCases.query.filter_by(questionID=problem.id).all()
     return render_template('admin/editquestion.html', problem=problem, testcases = testcases)
 
-@bp.route('/updatequestion', methods=['PUT'])
+@bp.route('/question', methods=['DELETE'])
+def delete_question():
+    data = request.get_json()
+    if data["urltitle"] == "":
+        return ("ERROR: Some Empty Inputs")
+    problem = Problem.query.filter_by(urlTitle=data["urltitle"]).first()
+    if Problem.query.filter_by(title=data["urltitle"]) is not None:
+        testcases = ProblemTestCases.query.filter_by(questionID = problem.id).all()
+        for test in testcases:
+            db.session.delete(test)
+        db.session.delete(problem)
+        db.session.commit()
+        return "Succesfully Deleted"
+    else:
+        return ("SOMETHING WENT WRONG")
+
+@bp.route('/question', methods=['PUT'])
 def updatequestion():
     data = request.get_json()
     if data["question"] == "":

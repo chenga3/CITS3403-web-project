@@ -30,8 +30,9 @@
                             {%elif p.difficulty == '3'%}
                             <td>Expert</td>
                             {% endif %}
+                            <!-- DONT TOUCH IT WORKS -->
                             <td><button type="submit" name="edituser" class="edit" onclick="window.location.href='{{url_for('admin.editquestion', urltitle=''.join(p.title.split()).lower())}}';">edit</button></td>
-                            <td><button type="submit" name="deletequestion" class="delete">delete</button></td>
+                            <td><button type="submit" name="deletequestion" class="delete" value="{{''.join(p.title.split()).lower()}}">delete</button></td>
                         </tr>
                     {% endfor %}
                     
@@ -73,4 +74,5 @@
         function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
     </script>
     {{ super() }}
+    <script src="{{ url_for('static', filename='admin/admin.js') }}"></script>
 {% endblock %}
