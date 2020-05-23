@@ -88,14 +88,13 @@ def submitquestion():
 @login_required
 @admin_required
 def addquestion():
-    print("tersr")
     if request.method == 'POST':
-        print("post")
         data = request.get_json()
-    print(data)
+    if data["body"] == "":
+        return ("ERROR: Some Empty Inputs")
     problem = Problem.query.filter_by(title=data["title"]).first()
     if problem is not None:
-        return ("Problem Already Exists")
+        return ("ERROR: Problem Already Exists")
     else:
         p = Problem(\
             title=data["title"],\
@@ -107,6 +106,8 @@ def addquestion():
         db.session.add(p)
         tests = data["testcases"]
         for i in tests:
+            if i["input"] == "" or i["output"] == "":
+                return ("ERROR: Some Empty Inputs")
             testcase = ProblemTestCases(\
                 problem = p,\
                 input = i["input"],\

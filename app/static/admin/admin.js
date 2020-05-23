@@ -33,15 +33,7 @@ function addUser() {
     }
 }
 
-//Adding a new question
-function validateQuestion() {
-    var title = document.getElementById("titlename").value.trim();
-    if(title == ""){
-        alert("Any inputs should not be empty");
-        return false;
-    }
-    return true;
-}
+
 
 //edit the user
 function editUser() {
@@ -79,15 +71,30 @@ function postAssess() {
     return true;
 }
 
-File
+//Adding a new question
+function validateQuestion() {
+    var title = document.getElementById("problemTitle").value.trim();
+    if(title == "" || editor.getValue() == ""){
+        return false;
+    }
+    return true;
+}
 
 $(document).on("click", "#submit", function() {
+        if(!validateQuestion()) {
+            alert("Some inputs are empty");
+            return
+        }
         var testCases = []
-
-
         var inputs = document.getElementsByClassName("testinput");
         var outputs = document.getElementsByClassName("testoutput");
         for (var i = 0; i < inputs.length ; i++) {
+            input = inputs[i].value;
+            output = outputs[i].value;
+            if (input == "" || output == "") {
+                alert("Test Cases are empty");
+                return
+            }
             testCases.push({"input": inputs[i].value, 
                             "output": outputs[i].value});
         }

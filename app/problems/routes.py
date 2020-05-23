@@ -22,10 +22,12 @@ def problem(title):
 def judgeSolution():
     if request.method == 'POST':
         data = request.get_json()
-    problem = Problem.query.filter_by(urlTitle=data['urlTitle']).first()
-    testCases = ProblemTestCases.query.filter_by(questionID = problem.id).all()
-    question = Question(problem.id, data['language'], data['code'], problem.timeLimit)
-    for test in testCases:
-        question.testCases.append(testCase(test.input.split("\n"), test.output.split("\n")))
-    output = judge(question)
-    return jsonify(output)
+        if data["code"] == "":
+            return jsonify({"error": ""})
+        problem = Problem.query.filter_by(urlTitle=data['urlTitle']).first()
+        testCases = ProblemTestCases.query.filter_by(questionID = problem.id).all()
+        question = Question(problem.id, data['language'], data['code'], problem.timeLimit)
+        for test in testCases:
+            question.testCases.append(testCase(test.input.split("\n"), test.output.split("\n")))
+        output = judge(question)
+        return jsonify(output)

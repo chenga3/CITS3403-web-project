@@ -1,9 +1,4 @@
-from app import app, db
-from app.models import User, Problem
+from app import create_app
 
-@app.shell_context_processor
-def make_shell_context():
-    return {'db': db, 'User': User, 'Problem': Problem}
+app = create_app()
 
-if __name__ =="__main__":
-    app.run(debug=True)
