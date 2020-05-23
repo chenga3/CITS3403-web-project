@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+}
+
 .container {
     width: 95%;
     margin: auto;
@@ -5,13 +9,15 @@
 }
 
 .one {
-    width: 48%;
+    width: 50%;
     float: left;
-    overflow-y: auto;
+    overflow-y: scroll;
+    height: 80%;
 }
 
 .two {
   margin-left: 52%;
+  heightL 57%;
 }
 
 pre {
