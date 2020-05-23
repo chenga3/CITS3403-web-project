@@ -1,15 +1,26 @@
 /* this file is to style the all admin pages*/
 
+@font-face {
+    font-family: 'Lato';
+    src: url('./Lato/Lato-Bold.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'Latol';
+    src: url('./Lato/Lato-Light.ttf') format('truetype')
+}
+
+
 /* elimate all the margin of the element */
 * {
-    box-sizing: border-box;
+
 }
 
 /* initialize the body */
 body {
     margin: 0;
     padding: 0;
-    background: lightgrey;
+    background: #f0f0f0;
 }
 
 /* header initial style */
@@ -100,15 +111,14 @@ header ul li a:hover {
 
 /* style the main content */
 .admin-box{
-    display: flex;
-    height: 900px;
+    
 }
 
 /* the side nav */
 .admin-box .sidebar {
-    flex: 2;
-    height:100%;
-    background: #386270;
+    position: fixed; 
+    margin-top: 5em;
+    margin-left: 2em;
 }
 
 /* initial the elements */
@@ -121,23 +131,22 @@ header ul li a:hover {
 .admin-box .sidebar ul li a {
     padding: 18px;
     display: block;
-    border-bottom: 1px solid #032d30;
     color: aliceblue;
     text-decoration: none;
 }
 
 /* style the side nav bars when hover it */
 .admin-box .sidebar ul li a:hover {
-    background: #032d30;
-    transition: 0.5s;
+
 }
 
 /* the content part style */
 .admin-box .content {
-    flex: 8;
-    height:100%;
-    padding: 40px 100px 100px;
-    overflow-y: scroll;
+    margin: 15px 15px 15px;
+    margin-left: 15em;
+    padding: 3em;
+    background-color: white;
+    box-shadow: 2px 2px 3px 3px #e0e0e0;
 }
 
 /* initial the button */
@@ -146,9 +155,20 @@ header ul li a:hover {
     padding: 0;
 }
 
+.adminoption {
+    background-color: #0f3f8d;
+    border-radius: 4px;
+    width: 11em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    list-style-type: none;
+    box-shadow: 1px 1px 1px 1px #ababab;
+}
+
 /* style the button of back to manage page */
 .button1 {
-    font-family: Georgia;
+    font-family: 'Latol';
     background: #284047;
     padding: 10px;
     color: aliceblue;
@@ -165,7 +185,7 @@ header ul li a:hover {
     text-align: center;
     margin-bottom: 2.5rem;
     color: #575f5f;
-    font-family: 'Franklin Gothic Medium';
+    font-family: 'Lato';
 }
 
 /* the data table */
@@ -190,7 +210,7 @@ header ul li a:hover {
 
 /* style the table header when hovering*/
 .content th:hover {
-    background-color: #3f728a;
+    background-color: #2d6cdf;
     padding: 10px;
     transition: 0.8s;
 }

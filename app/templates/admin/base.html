@@ -11,9 +11,9 @@
     <div class="admin-box">
         <div class="sidebar">
             <ul>
-                <li><a href="{{ url_for('admin.users') }}">Manage Users</a></li>
-                <li><a href="{{ url_for('admin.questions') }}">Manage Questions</a></li>
-                <li><a href="{{ url_for('admin.assess') }}">Assess Responses</a></li>
+                <li class=adminoption><a href="{{ url_for('admin.users') }}">Manage Users</a></li>
+                <li class=adminoption><a href="{{ url_for('admin.questions') }}">Manage Questions</a></li>
+                <li class=adminoption><a href="{{ url_for('admin.assess') }}">Assess Responses</a></li>
             </ul>
         </div>
     {% block admincontent %}{% endblock %}
