@@ -35,29 +35,27 @@ def writeQuestion(question):
 
 def compileCode(question):
     # Compile CPP to Binary
+    result = {"pass":"yes", "error": ""}
     if question.language == 'cpp':
         output = subprocess.run(['g++', '-o','solution', 'solution.cpp'],
                                 capture_output=True)
         if output.returncode == 0:
-            return 0
+            return result
         else:
-            return output.stderr
+            result["pass"] = "no"
+            result["error"] = str(output.stderr,"utf-8")
+            return result
 
     # CoMpIlE pYtHoN
     if question.language == 'py':
-        return 0
-
-    # not a reconized file type
-    else:
-        return 1
-
+        return result
 
 
 def testSolution(question):
     if question.testCases == None:
         return 1
 
-    results = {}
+    results = {"pass": "yes"}
     i = 0
     for test in question.testCases:
         if question.language == 'cpp':
@@ -84,28 +82,31 @@ def testSolution(question):
                 output.stdin.write(f"{line}\n")
 
         stdout, stderr = output.communicate()
+        print(stdout)
         if stderr != '':
-            results[i] = stderr
+            results["pass"] = "no"
         else:
             o = stdout.strip().split("\n")
             file = open("runtime","r")
             time = file.readline()
             file.close()
+            print(time, question.time)
             if float(time) > question.time:
-                results[f"{i}"] = "Did not finish in time :("
+                results[f"{i}"] = "Failed: Did not finish in time :("
+                results["pass"] = "no"
                 continue
             try:
                 for j in range(0,len(test.outputs)):
                     if o[j] == test.outputs[j]:
-                        results[f"{i}"] = f"Completed in {time}".strip()
+                        results[f"{i}"] = f"Passed: Completed in {time}".strip()
                     else:
-                        results[f"{i}"] = "Incorrect output"
+                        results[f"{i}"] = "Failed: Incorrect output"
+                        results["pass"] = "no"
                         break
             except:
                 results[f"{i}"] = "Failed"
         i+=1
 
-    cleanUp()
     return results
 
 def cleanUp():
@@ -119,10 +120,11 @@ def cleanUp():
 def judge(question):
     os.chdir(path)
     writeQuestion(question)
+    print("writequestion")
     temp = compileCode(question)
-    if temp != 0:
-        cleanUp()
-        return {'error': str(temp, "utf-8")}
+    print(temp)
+    if temp["pass"] != "yes":
+        return temp
     return testSolution(question)
 
 

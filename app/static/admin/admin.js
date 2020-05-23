@@ -100,7 +100,7 @@ $(document).on("click", "#submit", function() {
         }
         
         var packet = {
-            "title": $("#problemTitle").text(),
+            "title": $("#problemTitle").val(),
             "diff": $("#difficulty").val(),
             "time": $("#timeLimit").val(),
             "question": editor.getValue(),

@@ -10,19 +10,23 @@
             {% for problem in problems %}
                 <a class="questionBoxLink" href="{{ url_for('problems.problem', title=''.join(problem.title.split()).lower()) }}">
                 <div class="questionBox">
-                    <p> {{ problem.title }} </p>
-                    <p>
-                            {%if problem.difficulty == '0'%}
-                            Difficulty: Easy
-                            {%elif problem.difficulty == '1'%}
-                            Difficulty: Intermediate
-                            {%elif problem.difficulty == '2'%}
-                            Difficulty: Advanced
-                            {%elif problem.difficulty == '3'%}
-                            Difficulty: Expert 
-                            {% endif %}
-                    </p>
-
+                    <h2> {{ problem.title }} </h2>
+                    {%if problem.difficulty == '0'%}
+                    <p>Difficulty: Beginner</p>
+                    {%elif problem.difficulty == '1'%}
+                    <p>Difficulty: Intermediate</p>
+                    {%elif problem.difficulty == '2'%}
+                    <p>Difficulty: advanced</p>
+                    {%elif problem.difficulty == '3'%}
+                    <p>Difficulty: Expert</p>
+                    {% endif %}
+                    <p > Attempts: {{problem.numAttempts}}</p>
+                    {% if problem.numAttempts == 0%}
+                        <p >Success Rate: 0%</p>
+                    {% else %}
+                        {% set rate = problem.numSuccesses/problem.numAttempts*100 %}
+                        <p >Success Rate: {{'%0.2f' % rate|float}}%</p>
+                    {%endif%}
                 </div>    
                 </a>
             {% endfor %}

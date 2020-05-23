@@ -1,0 +1,8 @@
+prefix=/home/brandon/Documents/cits3403/CITS3403-Project-2/venv
+
+Name: Pycairo
+Description: Python 3 bindings for cairo
+Version: 1.19.1
+Requires: cairo
+Cflags: -I${prefix}/include/pycairo
+Libs:

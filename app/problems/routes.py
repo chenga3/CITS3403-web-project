@@ -5,6 +5,8 @@ from app.problems import bp
 from app.models import Problem, ProblemTestCases
 from app.helperFunctions import pandoc
 from app.problems.judge import judge, cleanUp, Question, testCase
+from redis import Redis
+import rq
 
 @bp.route('/problems')
 def problems():
@@ -26,11 +28,16 @@ def judgeSolution():
     problem = Problem.query.filter_by(urlTitle=data['urlTitle']).first()
     testCases = ProblemTestCases.query.filter_by(questionID = problem.id).all()
     question = Question(problem.id, data['language'], data['code'], problem.timeLimit)
+    print(question)
     for test in testCases:
         question.testCases.append(testCase(test.input.split("\n"), test.output.split("\n")))
     job = current_app.task_queue.enqueue(judge,question)
     while job.result == None:
         pass
+    output = job.result
+    if output["pass"] == "yes":
+        problem.numSuccesses += 1
+    problem.numAttempts += 1
+    db.session.commit()
 
-    output = judge(question)
     return jsonify(output)

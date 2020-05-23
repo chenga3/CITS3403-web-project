@@ -11,7 +11,7 @@ def admin_required(view):
     def wrapped_view(**kwargs):
         if not current_user.admin:
             flash("You must be an admin to access this page.")
-            return redirect(url_for('homepage'))
+            return redirect(url_for('main.homepage'))
         return view(**kwargs)
     return wrapped_view
 
@@ -90,7 +90,8 @@ def submitquestion():
 def addquestion():
     if request.method == 'POST':
         data = request.get_json()
-    if data["body"] == "":
+        print(data)
+    if data["question"] == "":
         return ("ERROR: Some Empty Inputs")
     problem = Problem.query.filter_by(title=data["title"]).first()
     if problem is not None:

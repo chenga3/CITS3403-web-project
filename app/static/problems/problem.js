@@ -37,6 +37,7 @@ $(document).ready(function() {
             contentType: 'application/json',
             success: function(response) {
                 $("#results").empty();
+
                 if (response.hasOwnProperty('error')){
                     $("#results").append('<p>Error</p>');
                     s = response['error'].split("\n");
@@ -48,13 +49,31 @@ $(document).ready(function() {
                 else {
                     $("#results").append('<p>Result</p>');
                     for (i in response) {
-                        s = "<p>Test Case " + i + " " + response[i] + "</p>";
+                        console.log(response);
+                        if (i == "pass") {
+                            continue
+                        }
+                        if (response[i].includes("Failed")) {
+                            s = "<p>Test Case " + (parseInt(i) + 1) + " " + response[i] + "</p>";
+                        }
+                        else {
+                            s = "<p>Test Case " + (parseInt(i) + 1) + ": " + response[i] + "</p>";
+                        }
                         $("#results").append(s);
+                    }
+                    if (response["pass"] == "yes") {
+                        $("#results").append('<p>Passed! Well Done :)</p>');
+                    }
+                    else {
+                        $("#results").append('<p>Failed. Please Try Again</p>');
                     }
                 }
                 $("#submit").attr("disabled", false);
             },
             error: function(response) { 
+
+                $("#results").empty();
+                $("#results").append('<p>Failed To Query Judge</p>');
                 alert("ERROR");
                 $("#submit").attr("disabled", false);
            }

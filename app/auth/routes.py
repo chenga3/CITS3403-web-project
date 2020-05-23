@@ -9,7 +9,7 @@ from werkzeug.urls import url_parse
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('homepage'))
+        return redirect(url_for('main.homepage'))
     form =  LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username_email.data).first()
@@ -19,7 +19,7 @@ def login():
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('homepage')
+            next_page = url_for('main.homepage')
         return redirect(next_page) 
     return render_template('auth/login.html', title='Sign In', form=form)
 
@@ -33,7 +33,7 @@ def logout():
 @bp.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('homepage'))
+        return redirect(url_for('main.homepage'))
     form = RegistrationForm()
     if form.validate_on_submit():
         # create the new user and insert into database
@@ -50,14 +50,14 @@ def register():
 def profile(username):
     user=User.query.filter_by(username=username).first_or_404()
     if username != current_user.username:
-        return redirect(url_for('homepage'))
+        return redirect(url_for('main.homepage'))
     form = EditProfileForm()
     if form.validate_on_submit():
         current_user.username = form.username.data
         current_user.email = form.email.data
         db.session.commit()
         flash('Your change has been saved')
-        return redirect(url_for('homepage'))
+        return redirect(url_for('main.homepage'))
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.email.data = current_user.email
