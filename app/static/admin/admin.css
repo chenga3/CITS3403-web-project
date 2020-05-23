@@ -133,6 +133,7 @@ header ul li a:hover {
     display: block;
     color: aliceblue;
     text-decoration: none;
+    text-align: center;
 }
 
 /* style the side nav bars when hover it */
