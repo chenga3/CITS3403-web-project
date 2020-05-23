@@ -1,0 +1,44 @@
+{% extends "admin/base.html" %}
+
+{% block admincontent %}
+    <!-- main body -->
+    <div class="content">
+        <div class="button-group">
+            <a href="" class="button1">Manage Page</a>
+        </div>
+        <div>
+            <h2 class="pagetitle">Assess Responses</h2>
+            <div class="addform">
+                <form action="./assess.html" method="POST">
+                        <div>
+                            <label>Question Description</label><br>
+                            <textarea name="question" id="question" class="assessdisplay" placeholder="Here is the question description."></textarea><br>
+                        </div>
+                        <div>
+                            <label>User's Answer</label><br>
+                            <textarea name="answer" id="answer" class="assessdisplay" placeholder="Here is the user submitted answer."></textarea><br>
+                        </div>
+                        <div>
+                            <label>Feedback</label><br>
+                            <textarea name="Feedback" id="content" placeholder="Write some feedback."></textarea>
+                        </div>
+                        <div>
+                            <label>Rate</label><br>
+                            <select name="Rate" id="Rate">
+                                <option value="Perfect">Perfect</option>
+                                <option value="Excellent">Excellent</option>
+                                <option value="Good">Good</option>
+                                <option value="Fine">Fine</option>
+                                <option value="Incorrect">Incorrect</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="button2" name="assesssubmit">Post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block jsfiles %}
+    {{ super() }}
+{% endblock %}

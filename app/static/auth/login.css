@@ -1,0 +1,112 @@
+/* This file is used to style the login page */
+body {
+    background-color: lightgrey;
+}
+
+/* define the input and button */
+.login-form .label {
+    display: block;
+    margin-bottom: 1px;
+    width: 100%;
+  }
+
+/*initial the style  */
+.login-form,
+.login-form h1,
+.login-form input {
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+
+/*define the style of the form  */
+.login-form {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    padding: 60px 170px 40px 170px;
+    margin-top: 150px;
+    cursor: default;
+    /* background-color:lightcoral; */
+    background-color: #EBECF0;
+    /* define some little curves around the window*/
+    border-radius: 5px;
+}
+
+
+/* style the heading of the form */
+.login-form h1 {
+    line-height: 30px;
+    font-family: 'Montserrat', sans-serif;;
+    font-size: 35px;
+    font-weight: normal;
+    color: #BABECC;
+    text-shadow: 1px 1px 1px #FFF;
+    text-align: center;
+}
+
+/* style the input*/
+.login-form input[type=text],
+.login-form input[type=password],
+.login-form input[type=submit],
+.login-form a {
+
+    line-height: 20px;
+    margin: 10px 0;
+    padding: 8px 25px;
+    border: 0;
+    outline: none;
+
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    background-color: #EBECF0;
+    text-shadow: 1px 1px 0 #FFF;
+
+    border-radius: 26px;
+    /* set different transition be smooth and slow start and end */
+    transition: all .15s ease-in-out;
+}
+
+/* style the link */
+.login-form a {
+    text-decoration: none;
+}
+
+/* style the input of username and password */
+.login-form input[type=text],
+.login-form input[type=password]{
+    color: #686868;
+    width: 200px;
+    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+}
+
+/* style when entering the username and password*/
+.login-form input[type=text]:focus,
+.login-form input[type=password]:focus {
+    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+
+/*define the style of submit button*/
+.login-form input[type=submit],
+.login-form a {
+    float: right;
+    cursor: pointer;
+    font-weight: bold;
+    color: #AE1100;
+    box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+}
+
+/* change the style of the submit button when hover on it, adding shadow to indicate the status */
+.login-form input[type=submit]:hover,
+.login-form a:hover {
+    box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+}
+
+/* button when active */
+.login-form input[type=submit]:active,
+.login-form a:active {
+    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+  }

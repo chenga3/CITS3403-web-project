@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block cssfiles %}
+{% endblock %}
+
+{% block content %}
+    <div id=midsectionquestions>
+        <div id=sidecolumn>
+            {% for problem in problems %}
+                <div id="link{{ problem.id }}" class=link>
+                    <p class=linktitle>
+                        Q{{ problem.id }}: {{ problem.title }}
+                    </p>
+                    <p class=linkdescription>
+                        Difficulty: {{ problem.difficulty }}
+                    </p>
+                </div>    
+            {% endfor %}
+            <!--
+            <div id=link3 class=link>
+                <p class=linktitle>
+                    Question 3 description
+                </p>
+                <p class=linkdescription>                   
+                    Put difficulty here 
+                </p>
+            </div>
+            <div id=link4 class=link>
+                <p class=linktitle>
+                    Question 4 description
+                </p>
+                <p class=linkdescription>                   
+                    Put difficulty here 
+                </p>
+            </div>
+            <div id=link5 class=link>
+                <p class=linktitle>
+                    Question 5 description
+                </p>
+                <p class=linkdescription>                   
+                    Put difficulty here 
+                </p>
+            </div>
+            <div id=link6 class=link>
+                <p class=linktitle>
+                    Question 6 description
+                </p>
+                <p class=linkdescription>                   
+                    Put difficulty here 
+                </p>
+            </div>
+            <div id=link7 class=link>
+                <p class=linktitle>
+                    Question 7 description
+                </p>
+                <p class=linkdescription>
+                    Put difficulty here
+                </p>
+            </div>
+            <div id=link8 class=link>
+                <p class=linktitle>
+                    Question 8 description
+                </p>
+                <p class=linkdescription>
+                    Put difficulty here
+                </p>
+            </div>
+            <div id=link9 class=link>
+                <p class=linktitle>
+                    Question 9 description
+                </p>
+                <p class=linkdescription>
+                    Put difficulty here
+                </p>
+            </div>
+            <div id=link10 class=link>
+                <p class=linktitle>
+                    Question 10 description
+                </p>
+                <p class=linkdescription>
+                    Put difficulty here
+                </p>
+            </div>
+            -->
+        </div>  
+        <div id=centercontentquestions>
+            <div id=quizheader>
+                <h1 id=questiontitle>
+                    Two Sum
+                </h1>   
+                <h3 id=difficulty class=quizheader>
+                    Easy    
+                </h3>
+                <h3 class=quizheader>
+                    1631 Attempts
+                </h3>
+                <h3 class=quizheader>
+                    20% success rate
+                </h3>
+            </div>
+            <p class=questiondescriptor>
+                Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+            <br><br>
+                You may assume that each input would have exactly one solution, and you may not use the same element twice.
+            </p>
+            <h3>
+                Example:
+            </h3>
+            <code>
+                Given nums = [2, 7, 11, 15], target = 9,
+                <br><br>
+                Because nums[0] + nums[1] = 2 + 7 = 9,
+                <br><br>
+                return [0, 1].
+            </code>
+            <div class=codebuttons>
+                <button class=codebutton>
+                    Python
+                </button>
+                <button class=codebutton>
+                    C++
+                </button>
+            </div>
+            <textarea id=codeinput>
+            </textarea>
+            <button id=submit1>Submit</button>
+        </div>    
+    </div>
+{% endblock %}
+
+{% block jsfiles %}
+{% endblock %}
+

@@ -1,0 +1,46 @@
+<!-- This is the edit user page -->
+{% extends "admin/base.html" %}
+
+{% block admincontent %}
+        <!-- main body -->
+        <div class="content">
+            <div class="button-group">
+                <a href="{{ url_for('admin.users') }}" class="button1">Manage Page</a>
+            </div>
+
+            <div>
+                <h2 class="pagetitle">Edit User</h2>
+                {% for message in get_flashed_messages() %}
+                    <span class="flash">{{ message }}</span>
+                {% endfor %}
+                <div class="addform">
+                    <form action="" onsubmit="return editUser()" method="POST">
+                            {{ form.hidden_tag() }}
+                            <div>
+                                {{ form.username.label }}<br>
+                                {{ form.username(size=32, value=user.username) }}<br>
+                                {% for error in form.username.errors %}
+                                    <span class="form-error">[{{ error }}]</span>
+                                {% endfor %}
+                            </div>
+                            <div>
+                                {{ form.email.label }}<br>
+                                {{ form.email(size=64, value=user.email) }}<br>
+                                {% for error in form.email.errors %}
+                                    <span class="form-error">[{{ error }}]</span>
+                                {% endfor %}
+                            </div>
+                            <div>
+                                {{ form.role.label }}<br>
+                                {{ form.role }}
+                            </div>
+                            <button type="submit" class="button2" name="usereditsubmit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+{% block jsfiles %}
+    {{ super() }}
+{% endblock %}
