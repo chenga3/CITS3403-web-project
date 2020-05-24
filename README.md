@@ -27,7 +27,7 @@ Navigate to CITS3403-web-project folder containing app folder.
 Set flask variables:
 - On Windows `set FLASK_APP=app`
 - On Linux/Mac `export FLASK_APP=app`
-- Alteratively create a .flaskenv (pip install flask-dotenv && echo 'export FLASK_APP=yeetcode.py')
+- Alteratively create a .flaskenv (pip install flask-dotenv && echo 'export FLASK_APP=yeetcode.py' > .flaskenv)
 
 Start the redis server 
 - Linux 'sudo systemctl start redis.service'
