@@ -15,13 +15,11 @@ def admin_required(view):
         return view(**kwargs)
     return wrapped_view
 
-@bp.route('/users', methods=['GET', 'POST'])
+@bp.route('/manage', methods=['GET', 'POST'])
 @login_required
 @admin_required
-def users():
-    page = request.args.get('page', 1, type=int)
-    users = User.query.paginate(page, 25, False)
-    return render_template('admin/user.html', users=users.items)
+def manage():
+    return render_template('admin/manage.html', title="Admin")
 
 @bp.route('/adduser', methods=['GET', 'POST'])
 @login_required
@@ -35,7 +33,7 @@ def adduser():
         db.session.add(user)
         db.session.commit()
         flash("User successfully added.")
-        return redirect(url_for('admin.users'))
+        return redirect(url_for('admin.manage'))
     return render_template('admin/adduser.html', form=form)
 
 @bp.route('/<int:id>/edituser', methods=['GET', 'POST'])
@@ -46,7 +44,7 @@ def edituser(id):
     user = User.query.filter_by(id=id).first()
     if user is None:
         flash("User does not exist.")
-        return redirect(url_for('admin.users'))
+        return redirect(url_for('admin.manage'))
     # initialise form with correct default value for role selector
     form = EditUserForm(user=user, role=('admin' if user.admin else 'user'))
     if form.validate_on_submit():
@@ -66,10 +64,10 @@ def deleteuser(id):
     user = User.query.get(id)
     if user is None:
         flash("User does not exist.")
-        return redirect(url_for('admin.users'))
+        return redirect(url_for('admin.manage'))
     db.session.delete(user)
     db.session.commit()
-    return redirect(url_for('admin.users'))
+    return redirect(url_for('admin.manage'))
 
 @bp.route('/questions', methods=['GET', 'POST'])
 @login_required
@@ -141,7 +139,7 @@ def delete_question():
     if data["urltitle"] == "":
         return ("ERROR: Some Empty Inputs")
     problem = Problem.query.filter_by(urlTitle=data["urltitle"]).first()
-    if Problem.query.filter_by(title=data["urltitle"]) is not None:
+    if Problem.query.filter_by(urlTitle=data["urltitle"]) is not None:
         testcases = ProblemTestCases.query.filter_by(questionID = problem.id).all()
         for test in testcases:
             db.session.delete(test)

@@ -85,6 +85,16 @@ class Problem(db.Model):
     def __repr__(self):
         return '<Problem {}>'.format(self.title)
 
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'title': self.title,
+            'urlTitle': self.urlTitle,
+            'difficulty': self.difficulty,
+            'dateAdded': self.dateAdded
+        }
+        return data
+
 class ProblemTestCases(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     questionID = db.Column(db.Integer, db.ForeignKey('problem.id'))

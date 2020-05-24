@@ -1,6 +1,6 @@
 // This js file is for admin functions in all admin pages
 /*** AJAX for REST API ***/
-var usertable, user, base_url;
+var managetable, addbutton, pagetitle, user, base_url;
 var authToken = null;
 
 window.onload = function() {
@@ -9,16 +9,25 @@ window.onload = function() {
 }
 
 function setUp() {
-    usertable = document.getElementById('usertable-api');
+    managetable = document.getElementById('managetable-api');
+    addbutton = document.getElementById('addbutton');
     console.log('setup...');
+    // title
+    pagetitle = document.getElementById('pagetitle');
+    pagetitle.innerHTML = 'Manage Users';
+    // change side links to onclick AJAX buttons
+    manageusers = document.getElementById('manageusers');
+    manageusers.href = "#";
+    manageusers.onclick = getUsers;
+    manageproblems = document.getElementById('manageproblems');
+    manageproblems.href = "#";
+    manageproblems.onclick = getProblems;
+
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             responseData = JSON.parse(this.responseText);
             authToken = responseData['token'];
-            if (usertable != null) {
-                getUsers();
-            }
         }
     }
     xhttp.open('POST', '/api/tokens', true);
@@ -32,7 +41,9 @@ function getUsers() {
         if (this.readyState == 4 && this.status == 200) {
             responseData = JSON.parse(this.responseText);
             userList = responseData['userList'];
-            renderTable(userList);
+            renderUserTable(userList);
+            renderAddButton('user');
+            console.log(userList);
         }
     }
     xhttp.open('GET', '/api/users', true);
@@ -74,7 +85,126 @@ function deleteUser(id) {
     xhttp.send();
 }
 
-function renderTable(userList) {
+function getProblems() {
+    console.log('getting problems...');
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            responseData = JSON.parse(this.responseText);
+            problemList = responseData['problemList'];
+            renderProblemTable(problemList);
+            renderAddButton('problem');
+            console.log(problemList);
+        }
+    }
+    xhttp.open('GET', '/api/problems', true);
+    xhttp.setRequestHeader("Authorization", "Bearer " + authToken);
+    xhttp.send();
+}
+
+function deleteProblem(urlTitle) {
+    console.log('Deleting problem ' + urlTitle + '...');
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            responseData = JSON.parse(this.responseText);
+            id = responseData['id'];
+            tr = document.getElementById('problem' + id);
+            tr.remove();
+        }
+    }
+    xhttp.open('DELETE', '/api/users/' + id, true);
+    xhttp.setRequestHeader("Authorization", "Bearer " + authToken);
+    xhttp.send();
+}
+
+function renderAddButton(manage) {
+    if (manage == 'user') {
+        addbutton.href = base_url + '/admin/adduser';
+        addbutton.innerHTML = 'Add User';
+    } else if (manage == 'problem') {
+        addbutton.href = base_url + '/admin/submitquestion';
+        addbutton.innerHTML = 'Add Problem';
+    }
+}
+
+function renderProblemTable(problemList) {
+    pagetitle.innerHTML = 'Manage Problems';
+    // clear existing table
+    while (managetable.firstChild) {
+        managetable.firstChild.remove();
+    }
+
+    thead = document.createElement('thead');
+    th = document.createElement('th');
+    th.innerHTML = 'Title';
+    thead.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'Date Added';
+    thead.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'Difficulty';
+    thead.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'Action';
+    th.colSpan = 3
+    thead.appendChild(th);
+    managetable.appendChild(thead);
+
+    tbody = document.createElement('tbody');
+    for (var i=0; i<problemList.length; i++) {
+        tr = document.createElement('tr');
+        tr.id = 'problem' + problemList[i].id;
+
+        td = document.createElement('td');
+        td.innerHTML = problemList[i].title;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerHTML = problemList[i].dateAdded;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerHTML = problemList[i].difficulty;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        button = document.createElement('button');
+        button.innerHTML = 'edit';
+        button.classList.add('edit');
+        button.value = problemList[i].urlTitle;
+        button.onclick = function(ev) { location.href = base_url + '/admin/editquestion/' + ev.target.value; };
+        td.appendChild(button);
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        button = document.createElement('button');
+        button.innerHTML = 'delete';
+        button.classList.add('delete');
+        button.value = problemList[i].urlTitle;
+        button.name = problemList[i].title;
+        button.onclick = function(ev) { 
+                var result = confirm("Are you sure you want to delete " + ev.target.name + "?");
+                if (result) {
+                    deleteProblem(ev.target.value);
+                }
+            }
+        td.appendChild(button);
+        tr.appendChild(td);
+
+        tbody.appendChild(tr);
+    }
+    managetable.appendChild(tbody);
+}
+
+
+function renderUserTable(userList) {
+    pagetitle.innerHTML = 'Manage Users';
+    // clear existing table
+    while (managetable.firstChild) {
+        managetable.firstChild.remove();
+    }
+
     thead = document.createElement('thead');
     th = document.createElement('th');
     th.innerHTML = 'Username';
@@ -89,11 +219,10 @@ function renderTable(userList) {
     th.innerHTML = 'Action';
     th.colSpan = 3
     thead.appendChild(th);
-    usertable.appendChild(thead);
+    managetable.appendChild(thead);
 
     tbody = document.createElement('tbody');
     for (var i=0; i<userList.length; i++) {
-        console.log(userList[i]);
         tr = document.createElement('tr');
         tr.id = 'user' + userList[i].id;
 
@@ -123,8 +252,9 @@ function renderTable(userList) {
         button.innerHTML = 'delete';
         button.classList.add('delete');
         button.value = userList[i].id;
+        button.name = userList[i].username;
         button.onclick = function(ev) { 
-                var result = confirm("Are you sure you want to delete");
+                var result = confirm("Are you sure you want to delete " + ev.target.name + "?");
                 if (result) {
                     deleteUser(ev.target.value);
                 }
@@ -134,7 +264,7 @@ function renderTable(userList) {
 
         tbody.appendChild(tr);
     }
-    usertable.appendChild(tbody);
+    managetable.appendChild(tbody);
 }
 
 function renderUserForm(user) {
@@ -259,7 +389,7 @@ $(document).on("click", "#submit", function() {
                 alert(response);
             },
             error: function(response) { 
-                alert("error");
+                alert("ERROR");
            }
        });
 });
