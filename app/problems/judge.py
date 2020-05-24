@@ -3,7 +3,6 @@ import os
 import sys
 path = os.path.dirname(os.path.realpath(__file__))
 
-
 class Question:
     def __init__(self, id, language, code, time):
         self.id = id

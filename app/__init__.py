@@ -3,6 +3,8 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+import threading
+import subprocess
 import redis
 import rq
 
@@ -10,6 +12,10 @@ db = SQLAlchemy()
 migrate = Migrate()
 login = LoginManager()
 login.login_view = 'auth.login'
+
+def start_rq_worker():
+    subprocess.run('rq worker yeetcode-judge', shell=True)
+
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -21,6 +27,9 @@ def create_app(config_class=Config):
 
     app.redis = redis.Redis.from_url('redis://')
     app.task_queue = rq.Queue('yeetcode-judge', connection=app.redis)
+    t = threading.Thread(target=start_rq_worker)
+    t.start()
+
 
     # Register Blueprints
 
