@@ -60,3 +60,4 @@ class ProblemsCompleted(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     questionID = db.Column(db.Integer, db.ForeignKey('problem.id'))
     user = db.Column(db.Integer, db.ForeignKey('user.id'))
+    correct = db.Column(db.Boolean, index=True)

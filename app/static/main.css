@@ -28,6 +28,7 @@ body {
     /* border-color: #e1e0e0; */
     height: 5em;
     background-color: #2d6cdf;
+    width: 100%;
 }
 
 #header > p {
@@ -40,20 +41,23 @@ body {
     margin-left: 13%;
     margin-top: 0.3%;
     display: inline-flex;
+    width: 40%;
 }
 
 #title {
     margin-top: 1%;
     color: white;
     font-size: 4rem;
+    margin-right: 5cm;
 }
 
 
 #login {
-    margin-left: 37%;
+    margin-left: 20%;
     margin-top: 1.5%;
     color: white;
     background-color: #0f3f8d;
+    float: right;
     padding: 0.5em;
     font-size: 1em;
     border-radius: 8px;
@@ -168,6 +172,8 @@ a {
     padding: 0.5%;
     background-color: white;
     transition: all 0.3s ease;
+    border-radius: 8px;
+    justify-content: center;
 }
 
 .slideshowbox1 {
