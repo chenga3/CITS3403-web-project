@@ -33,7 +33,7 @@ def adduser():
         db.session.add(user)
         db.session.commit()
         flash("User successfully added.")
-        return redirect(url_for('admin.manage'))
+        return redirect(url_for('admin.adduser'))
     return render_template('admin/adduser.html', form=form)
 
 @bp.route('/<int:id>/edituser', methods=['GET', 'POST'])

@@ -2,14 +2,15 @@
 # https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xxiii-application-programming-interfaces-apis
 
 from flask import jsonify
+from flask_login import current_user, login_required
 from app import db
 from app.api import bp
-from app.api.auth import basic_auth, token_auth
+from app.api.auth import token_auth
 
 @bp.route('/tokens', methods=['POST'])
-@basic_auth.login_required
+@login_required
 def get_token():
-    token = basic_auth.current_user().get_token()
+    token = current_user.get_token()
     db.session.commit()
     return jsonify({'token': token})
 

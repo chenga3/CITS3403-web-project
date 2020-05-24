@@ -472,28 +472,26 @@ $(document).on("click", "#edit", function() {
        });
 });
 
-// $(document).on("click", ".delete", function() {
-//         if (confirm("Please confirm u want to delete this question")) {
-//             urlTitle = $(this).val();
-//             var packet = {
-//                 "urltitle": urlTitle
-//             }
-//             $.ajax({
-//                 url: '/admin/question',
-//                 data: JSON.stringify(packet),
-//                 type: 'DELETE',
-//                 contentType: 'application/json',
-//                 success: function(response) {
-//                     alert(response);
-//                 },
-//                 error: function(response) { 
-//                     alert("ERROR");
-//             }
-//             });
-//         } else {
-//             // do nothings
-//             return
-//         }
-// });
-
-
+/* $(document).on("click", ".delete", function() {
+        if (confirm("Please confirm u want to delete this question")) {
+            urlTitle = $(this).val();
+            var packet = {
+                "urltitle": urlTitle
+            }
+            $.ajax({
+                url: '/admin/question',
+                data: JSON.stringify(packet),
+                type: 'DELETE',
+                contentType: 'application/json',
+                success: function(response) {
+                    alert(response);
+                },
+                error: function(response) { 
+                    alert("ERROR");
+            }
+            });
+        } else {
+            // do nothings
+            return
+        }
+}); */

@@ -2,21 +2,11 @@ var editor = ace.edit("editor");
 // editor.setKeyboardHandler("ace/keyboard/vim");
 editor.setFontSize("18px");
 editor.getSession().setMode("ace/mode/c_cpp");
+var authToken = null;
 
+jQuery(function() {
+    setUp();
 
-
-$(document).ready( function() {
-    $( "#language" ).change(function() {
-        if ($(this).val() == "cpp") {
-            editor.getSession().setMode("ace/mode/c_cpp");
-        }
-        if ($(this).val() == "py") {
-            editor.getSession().setMode("ace/mode/python");
-        }
-    });
-});
-
-$(document).ready(function() {
     $("#submit").click(function() {
         $("#submit").attr("disabled", true);
         var urlTitle = window.location.pathname;
@@ -35,6 +25,9 @@ $(document).ready(function() {
             data: JSON.stringify(packet),
             type: 'POST',
             contentType: 'application/json',
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + authToken);
+            },
             success: function(response) {
                 $("#results").empty();
 
@@ -80,3 +73,23 @@ $(document).ready(function() {
        });
     });
 });
+
+function setUp() {
+    $.ajax({
+        url: '/api/tokens',
+        type: 'post',
+        success: function(result) {
+            authToken = result['token'];
+            // console.log(authToken);
+        }
+    })
+
+    $( "#language" ).change(function() {
+        if ($(this).val() == "cpp") {
+            editor.getSession().setMode("ace/mode/c_cpp");
+        }
+        if ($(this).val() == "py") {
+            editor.getSession().setMode("ace/mode/python");
+        }
+    });
+}
