@@ -57,17 +57,17 @@ def edituser(id):
         flash("User successfully updated.")
     return render_template('admin/edituser.html', user=user, form=form)
 
-@bp.route('/<int:id>/deleteuser', methods=['GET'])
-@login_required
-@admin_required
-def deleteuser(id):
-    user = User.query.get(id)
-    if user is None:
-        flash("User does not exist.")
-        return redirect(url_for('admin.manage'))
-    db.session.delete(user)
-    db.session.commit()
-    return redirect(url_for('admin.manage'))
+# @bp.route('/<int:id>/deleteuser', methods=['GET'])
+# @login_required
+# @admin_required
+# def deleteuser(id):
+#     user = User.query.get(id)
+#     if user is None:
+#         flash("User does not exist.")
+#         return redirect(url_for('admin.manage'))
+#     db.session.delete(user)
+#     db.session.commit()
+#     return redirect(url_for('admin.manage'))
 
 @bp.route('/questions', methods=['GET', 'POST'])
 @login_required
@@ -162,7 +162,8 @@ def updatequestion():
 
     urltitle = ''.join((data["title"]).split()).lower()
     problem = Problem.query.filter_by(urlTitle=urltitle).first()
-    if problem is not None:
+    if problem is not None and urltitle != data["oldurltitle"]:
+        print("trete")
         return ("ERROR: Problem Name to Similar to Another Problem")
 
     problem = Problem.query.filter_by(urlTitle=data["oldurltitle"]).first()

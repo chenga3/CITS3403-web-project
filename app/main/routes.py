@@ -7,3 +7,9 @@ from app.models import User
 @bp.route('/homepage')
 def homepage():
     return render_template('homepage.html', title="YeetCode")
+
+@bp.route('/rankings')
+def rankings():
+    users = User.query.all()
+    users.sort(key=lambda x:x.points, reverse=True)
+    return render_template('rankings.html', title='Rankings', users=users)

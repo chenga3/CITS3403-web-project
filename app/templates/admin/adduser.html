@@ -45,15 +45,9 @@
                             {{ form.role.label }}<br>
                             {{ form.role }}
                         </div>
-                        <button type="submit" class="button2" name="adduser">Add</button>
+                        <button type="submit" class="button2" name="adduser" id="adduser">Add</button>
                 </form>
             </div>
         </div>
     </div>
-{% endblock %}
-
-{% block jsfiles %}
-    <!-- js -->
-    <script src="{{ url_for('static', filename='admin/admin.js') }}"></script>
-    {{ super() }}
 {% endblock %}

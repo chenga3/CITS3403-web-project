@@ -72,7 +72,7 @@ function displayProblemTable() {
     console.log('Getting problems...')
     $.ajax({
         url: '/api/problems',
-        type: 'get',
+        type: 'GET',
         beforeSend: function(xhr) {
             xhr.setRequestHeader("Authorization", "Bearer " + authToken);
         },
@@ -95,7 +95,7 @@ function deleteUser(id) {
     console.log('Deleting user ' + id + '...');
     $.ajax({
         url: '/api/users/' + id,
-        type: 'delete',
+        type: 'DELETE',
         beforeSend: function(xhr) {
             xhr.setRequestHeader("Authorization", "Bearer " + authToken);
         },
@@ -472,28 +472,28 @@ $(document).on("click", "#edit", function() {
        });
 });
 
-$(document).on("click", ".delete", function() {
-        if (confirm("Please confirm u want to delete this question")) {
-            urlTitle = $(this).val();
-            var packet = {
-                "urltitle": urlTitle
-            }
-            $.ajax({
-                url: '/admin/question',
-                data: JSON.stringify(packet),
-                type: 'DELETE',
-                contentType: 'application/json',
-                success: function(response) {
-                    alert(response);
-                },
-                error: function(response) { 
-                    alert("ERROR");
-            }
-            });
-        } else {
-            // do nothings
-            return
-        }
-});
+// $(document).on("click", ".delete", function() {
+//         if (confirm("Please confirm u want to delete this question")) {
+//             urlTitle = $(this).val();
+//             var packet = {
+//                 "urltitle": urlTitle
+//             }
+//             $.ajax({
+//                 url: '/admin/question',
+//                 data: JSON.stringify(packet),
+//                 type: 'DELETE',
+//                 contentType: 'application/json',
+//                 success: function(response) {
+//                     alert(response);
+//                 },
+//                 error: function(response) { 
+//                     alert("ERROR");
+//             }
+//             });
+//         } else {
+//             // do nothings
+//             return
+//         }
+// });
 
 

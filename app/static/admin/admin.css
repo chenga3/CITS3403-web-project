@@ -109,11 +109,6 @@ header ul li a:hover {
     transition: 0.5s;
 }
 
-/* style the main content */
-.admin-box{
-    
-}
-
 /* the side nav */
 .admin-box .sidebar {
     position: fixed; 
