@@ -10,8 +10,9 @@ class Question:
         self.code = code
         self.time = time
         self.testCases = []
-    def __repr__(self):
-        return f"ID:{self.id}, language:{self.language}"
+
+    # def __repr__(self):
+        # return f"ID:{self.id}, language:{self.language}"
 
 class testCase:
     def __init__(self, inputs, outputs):
@@ -81,7 +82,6 @@ def testSolution(question):
                 output.stdin.write(f"{line}\n")
 
         stdout, stderr = output.communicate()
-        print(stdout)
         if stderr != '':
             results["pass"] = "no"
         else:
@@ -118,13 +118,10 @@ def cleanUp():
 def judge(question):
     os.chdir(path)
     writeQuestion(question)
-    print("writequestion")
     temp = compileCode(question)
-    print(temp)
     if temp["pass"] != "yes":
         return temp
     output = testSolution(question)
-    print(output)
     return output
 
 

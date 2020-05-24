@@ -1,27 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ULL unsigned long long
+int main(int argc, char *argv[]) {
 
-int main(void) {
+	int n;
+	cin >> n;
 
-    ULL n;
-    cin >> n;
+	while(n--) {
+		int a, b;
+		cin >> a >> b;
+		cout << a - b << "\n";
+	}
 
-    unordered_set<ULL> s;
+	return 0;
 
-    for (ULL  i = 0; i < (ULL)sqrt(n) + 1; i++) {
-        s.insert(i*i);
-    }
-
-    for (ULL i = 0; i < (ULL)sqrt(n) + 1; i++) {
-        if (s.find(n - i*i) != s.end()) {
-            cout << i << " " << (ULL)sqrt(n - i*i) << "\n";
-            return 0;
-        }
-    }
-
-    cout << "-1" << "\n";
-
-    return 0;
 }
+

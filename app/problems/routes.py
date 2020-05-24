@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, request, jsonify, current_
 from flask_login import login_required, current_user
 from app import db
 from app.problems import bp
-from app.models import Problem, ProblemTestCases
+from app.models import Problem, ProblemTestCases, User
 from app.helperFunctions import pandoc
 from app.problems.judge import judge, cleanUp, Question, testCase
 from app.api.auth import token_auth
@@ -24,7 +24,7 @@ def problem(title):
     return render_template('problems/problem.html', problem=problem, body=pandoc(problem.body))
 
 @bp.route('/judge', methods=['POST'])
-@token_auth.login_required
+# @token_auth.login_required
 @login_required
 def judgeSolution():
     if current_user.is_authenticated:
@@ -40,7 +40,9 @@ def judgeSolution():
         while job.result == None:
             pass
         output = job.result
+        user = User.query.filter_by(id=current_user.id).first()
         if output["pass"] == "yes":
+            user.points += int(problem.difficulty) + 1
             problem.numSuccesses += 1
         problem.numAttempts += 1
         db.session.commit()
