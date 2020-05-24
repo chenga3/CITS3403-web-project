@@ -1,6 +1,7 @@
 from flask import jsonify
+from app import db
 from app.api import bp
-from app.models import Problem
+from app.models import Problem, ProblemTestCases
 from app.api.errors import bad_request, error_response
 from app.api.auth import token_auth
 
@@ -16,8 +17,8 @@ def get_problems():
 
 @bp.route('/problems/<urltitle>', methods=['DELETE'])
 @token_auth.login_required(role='admin')
-def remove_problem(urlTitle):
-    p = Problem.query.filter_by(urlTitle=urlTitle).first()
+def remove_problem(urltitle):
+    p = Problem.query.filter_by(urlTitle=urltitle).first()
     if p is None:
         return bad_request()
     testcases = ProblemTestCases.query.filter_by(questionID=p.id).all()

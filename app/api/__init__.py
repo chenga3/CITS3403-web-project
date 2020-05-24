@@ -2,4 +2,4 @@ from flask import Blueprint
 
 bp = Blueprint('api', __name__)
 
-from app.api import problems, errors, tokens, users
+from app.api import auth, problems, errors, tokens, users
