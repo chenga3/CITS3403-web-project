@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block cssfiles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='auth/login.css')}}">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;display=swap'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='auth/login.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -12,7 +12,7 @@
         {% for message in get_flashed_messages() %}
             <div class="flash">{{ message }}</div>
         {% endfor %}
-        <form onsubmit="return isempty()" action="" method="POST">
+        <form action="" method="POST">
             {{ form.hidden_tag() }}
             <!-- get the username and password-->
             <div class="label">
@@ -38,5 +38,4 @@
 {% endblock %}
 
 {% block jsfiles %}
-    <script src="{{ url_for('static', filename='auth/login-register.js') }}"></script>
 {% endblock %}

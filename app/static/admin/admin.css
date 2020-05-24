@@ -9,93 +9,8 @@
 body {
     margin: 0;
     padding: 0;
-    background: lightgrey;
-}
-
-/* header initial style */
-header{
-    background: #033a3b;
-    padding: 25px;
-}
-
-/* all elements in header */
-header * {
-    margin: 0 auto;
-    font-family: 'Courier New';
-    color: #cecbcb;
-    font-size: 25px;
-    font-weight: bold;
-    margin-left: 5px;
-}
-
-/* the tile in header */
-header p {
-    font-size: 30px;
-    font-weight: bolder;
-}
-
-/* hide the symbol of drow down */
-header .menu {
-    display: none;
-}
-
-/* the header nav */
-header ul {
-    float: right;
-    margin-top: -50px;
-    margin-bottom: -21px;
-    padding: 0;
-    list-style: none;
-}
-
-/* make the header nav bars in a line*/
-header ul li {
-    float: left;
-    position: relative;
-}
-
-/* make the drow down option in position*/
-header ul li ul {
-    position: absolute;
-    top: 125px;
-    right: 4px;
-    width: 180px;
-    display: none;
-}
-
-/* display the drowdown option when hover it */
-header ul li:hover ul {
-    display: block;
-}
-
-/* style the drowdown potion */
-header ul li ul li {
-    width: 100%;
-}
-
-/* style the logout function */
-header ul li ul li a.logout {
-    padding: 13px;
-    color: #3e4444;
-    background: #f1ecec;
-}
-
-/* hover style */
-header ul li ul li a:hover {
-    background: #609988;
-}
-
-/* style the header nav */
-header ul li a {
-    display: block;
-    padding: 22px;
-    text-decoration: none;
-}
-
-/* style the header nav when hover it */
-header ul li a:hover {
-    background: #106268;
-    transition: 0.5s;
+    background: white;
+    overflow-x: hidden;
 }
 
 /* style the main content */
@@ -182,6 +97,53 @@ header ul li a:hover {
     text-align: left;
     border-bottom: 1px solid #343837;
 }
+.rank h1{
+    margin-bottom: 20px;
+    font-family: Cambria;
+    font-weight: bold;
+    color: #4865e4;
+}
+
+.rank th,
+.rank td,
+.rank h1 {
+    text-align: center;
+}
+
+.rank th {
+    font-family: 'Lucida Sans';
+}
+
+.rank td {
+    font-family: 'Franklin Gothic Medium';
+}
+
+.rank td a {
+    color: #4865e4;
+}
+
+.headerSortDown:after,
+.headerSortUp:after {
+  content: ' ';
+  position: relative;
+  left: 12px;
+  border: 8px solid transparent;
+}
+
+.headerSortDown:after {
+  top: 15px;
+  border-top-color: #4865e4;
+}
+
+.headerSortUp:after {
+  bottom: 15px;
+  border-bottom-color: #4865e4;
+}
+
+.headerSortDown,
+.headerSortUp {
+  padding-right: 10px;
+}
 
 /* style the table header */
 .content th {
@@ -193,6 +155,11 @@ header ul li a:hover {
     background-color: #3f728a;
     padding: 10px;
     transition: 0.8s;
+}
+
+.rank th:hover {
+    background-color: white;
+    padding: 15px;
 }
 
 /* style the delete button */

@@ -3,7 +3,7 @@
 
 {% block cssfiles %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="{{  url_for('static', filename='admin/admin.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin/admin.css') }}">
 {% endblock %}
     
 {% block content %}
@@ -18,5 +18,8 @@
         </div>
     {% block admincontent %}{% endblock %}
     </div>
-{% endblock %}{% block jsfiles %}
+{% endblock %}
+
+{% block jsfiles %}
+<script type="text/javascript" src="{{ url_for('static', filename='admin/admin.js') }}"></script>
 {% endblock %}

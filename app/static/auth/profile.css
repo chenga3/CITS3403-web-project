@@ -1,6 +1,12 @@
-.prohead {
+.proheadfile {
     text-align: center;
     margin-bottom: -80px;
+}
+
+.proheadreset {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: -50px;
 }
 
 .proimg {
@@ -46,14 +52,40 @@
     cursor: pointer;
 }
 
-    /* style the button when mouse hovering */
+/* style the button when mouse hovering */
 .probutton input:hover,
 .probutton a:hover {
     box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
 }
 
-    /* style the button when click */
+/* style the button when click */
 .probutton input:active,
 .probutton a:active {
     box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+
+.userprofile {
+    text-align: center;
+    font-family: 'Courier New';
+}
+.userprofile .userhead {
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.userprofile .userimg {
+    height: 150px;
+    width: 150px;
+}
+
+.userprofile .userlabel {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.userprofile .userdata {
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium';
+    color: #4865e4;
 }

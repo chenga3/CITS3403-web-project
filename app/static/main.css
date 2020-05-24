@@ -12,6 +12,7 @@ body {
     font-family: Lato, sans-serif;
     margin: 0;
     overflow: scroll;
+    background-color: white;
 }
 
 #topsection {
@@ -299,3 +300,4 @@ a {
     text-align: center;
     color: white;
 }
+
