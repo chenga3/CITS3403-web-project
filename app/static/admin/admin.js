@@ -1,5 +1,263 @@
 // This js file is for admin functions in all admin pages
+/*** AJAX for REST API ***/
+var managetable, user, base_url;
+var authToken = null;
 
+jQuery(function() {
+    base_url = window.location.origin;
+    setUp();
+
+    $('#manageusers').click(function() {
+        displayUserTable();
+    });
+
+    $('#manageproblems').click(function() {
+        displayProblemTable();
+    });
+});
+
+function getParam(name) {
+    return (location.search.split(name + '=')[1] || '').split('&')[0];
+}
+
+function setUp() {
+    managetable = document.getElementById('managetable-api');
+    console.log('setup...');
+    // change side links to onclick AJAX buttons
+    var path = window.location.pathname;
+    if (path == '/admin/manage') {
+        $('#manageusers').attr('href', '#');
+        $('#manageproblems').attr('href', '#');
+    }
+    
+    $.ajax({
+        url: '/api/tokens',
+        type: 'post',
+        success: function(result) {
+            authToken = result['token'];
+        }
+    }).done(function() {
+        var mode = getParam('mode');
+        if (mode == 'user') {
+            displayUserTable();
+        } else if (mode == 'problem') {
+            displayProblemTable();
+        }
+    });
+}
+
+function displayUserTable() {
+    console.log('Getting users...')
+    $.ajax({
+        url: '/api/users',
+        type: 'get',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + authToken);
+        },
+        success: function(result) {
+            var userList = result.userList
+            console.log(userList);
+            renderUserTable(userList);
+            $('#content').removeClass('hidden');
+            $('#addbutton').attr('href', base_url + '/admin/adduser')
+                .html('Add User').hide().fadeIn();
+        }
+    }).done(function() {
+        console.log('Showing content...');
+        $('#pagecontent').hide().slideDown();
+    });
+}
+
+function displayProblemTable() {
+    console.log('Getting problems...')
+    $.ajax({
+        url: '/api/problems',
+        type: 'get',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + authToken);
+        },
+        success: function(result) {
+            var problemList = result.problemList;
+            console.log(problemList);
+            renderProblemTable(problemList);
+            $('#content').removeClass('hidden');
+            $('#addbutton').attr('href', base_url + '/admin/submitquestion')
+                .html('Add Problem').hide().fadeIn();
+        }
+    }).done(function() {
+        console.log('Showing content...');
+        $('#pagecontent').hide().slideDown();
+    });
+}
+
+function deleteUser(id) {
+    console.log(id);
+    console.log('Deleting user ' + id + '...');
+    $.ajax({
+        url: '/api/users/' + id,
+        type: 'delete',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + authToken);
+        },
+        success: function(result) {
+            $('#user' + id).remove();
+        }
+    });
+}
+
+function deleteProblem(urlTitle) {
+    console.log('Deleting problem ' + urlTitle + '...');
+    $.ajax({
+        url: '/api/problems/' + urlTitle,
+        type: 'delete',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + authToken);
+        },
+        success: function(result) {
+            id = result.id;
+            $('#problem' + id).remove();
+        }
+    });
+}
+
+function renderProblemTable(problemList) {
+    $('#pagetitle').html('Manage Problems');
+    // clear existing table
+    $('#managetable-api').empty();
+
+    thead = document.createElement('thead');
+    th = document.createElement('th');
+    th.innerHTML = 'Title';
+    thead.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'Date Added';
+    thead.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'Difficulty';
+    thead.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'Action';
+    th.colSpan = 3
+    thead.appendChild(th);
+    managetable.appendChild(thead);
+
+    tbody = document.createElement('tbody');
+    for (var i=0; i<problemList.length; i++) {
+        tr = document.createElement('tr');
+        tr.id = 'problem' + problemList[i].id;
+
+        td = document.createElement('td');
+        td.innerHTML = problemList[i].title;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerHTML = problemList[i].dateAdded;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerHTML = problemList[i].difficulty;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        button = document.createElement('button');
+        button.innerHTML = 'edit';
+        button.classList.add('edit');
+        button.value = problemList[i].urlTitle;
+        button.onclick = function(ev) { location.href = base_url + '/admin/editquestion/' + ev.target.value; };
+        td.appendChild(button);
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        button = document.createElement('button');
+        button.innerHTML = 'delete';
+        button.classList.add('delete');
+        button.value = problemList[i].urlTitle;
+        button.name = problemList[i].title;
+        button.onclick = function(ev) { 
+                var result = confirm("Are you sure you want to delete " + ev.target.name + "?");
+                if (result) {
+                    deleteProblem(ev.target.value);
+                }
+            }
+        td.appendChild(button);
+        tr.appendChild(td);
+
+        tbody.appendChild(tr);
+    }
+    managetable.appendChild(tbody);
+}
+
+
+function renderUserTable(userList) {
+    $('#pagetitle').html('Manage Users');
+    // clear existing table
+    $('#managetable-api').empty();
+
+    thead = document.createElement('thead');
+    th = document.createElement('th');
+    th.innerHTML = 'Username';
+    thead.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'Email';
+    thead.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'Role';
+    thead.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'Action';
+    th.colSpan = 3
+    thead.appendChild(th);
+    managetable.appendChild(thead);
+
+    tbody = document.createElement('tbody');
+    for (var i=0; i<userList.length; i++) {
+        tr = document.createElement('tr');
+        tr.id = 'user' + userList[i].id;
+
+        td = document.createElement('td');
+        td.innerHTML = userList[i].username;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerHTML = userList[i].email;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerHTML = (userList[i].admin) ? "Admin" : "User";
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        button = document.createElement('button');
+        button.innerHTML = 'edit';
+        button.classList.add('edit');
+        button.value = userList[i].id;
+        button.onclick = function(ev) { location.href = base_url + '/admin/' + ev.target.value + '/edituser'; };
+        td.appendChild(button);
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        button = document.createElement('button');
+        button.innerHTML = 'delete';
+        button.classList.add('delete');
+        button.value = userList[i].id;
+        button.name = userList[i].username;
+        button.onclick = function(ev) { 
+                var result = confirm("Are you sure you want to delete " + ev.target.name + "?");
+                if (result) {
+                    deleteUser(ev.target.value);
+                }
+            }
+        td.appendChild(button);
+        tr.appendChild(td);
+
+        tbody.appendChild(tr);
+    }
+    managetable.appendChild(tbody);
+}
+
+
+
+/*** OTHER FUNCTIONS ***/
 //Adding a new user
 function addUser() {
     var username = document.getElementById("username").value.trim();
@@ -115,7 +373,7 @@ $(document).on("click", "#submit", function() {
                 alert(response);
             },
             error: function(response) { 
-                alert("error");
+                alert("ERROR");
            }
        });
 });
