@@ -60,11 +60,10 @@ def edit_profile(username):
     user=User.query.filter_by(username=username).first_or_404()
     if username != current_user.username:
         return redirect(url_for('main.homepage'))
-    form = EditProfileForm(preferred_language=('py' if current_user.prefer_language == 'py' else 'cpp'))
+    form = EditProfileForm()
     if form.validate_on_submit():
         current_user.username = form.username.data
         current_user.email = form.email.data
-        current_user.prefer_language = form.preferred_language.data
         db.session.commit()
         flash('Your change has been saved')
         return redirect(url_for('main.homepage'))

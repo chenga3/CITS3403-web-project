@@ -8,26 +8,33 @@ import subprocess
 import redis
 import rq
 
+# initialse things
 db = SQLAlchemy()
 migrate = Migrate()
 login = LoginManager()
 login.login_view = 'auth.login'
 
+# function to start the redis worker
 def start_rq_worker():
     subprocess.run('rq worker yeetcode-judge', shell=True)
 
+# create a instance of the flask app
 def create_app(config_class=Config):
+    # app
     app = Flask(__name__)
     app.config.from_object(config_class)
 
+    # initalise the stuff from above
     db.init_app(app)
     migrate.init_app(app, db)
     login.init_app(app)
-    t = threading.Thread(target=start_rq_worker)
-    t.start()
+    #start worker
+    # t = threading.Thread(target=start_rq_worker)
+    # t.start()
+
+    #make redis queue
     app.redis = redis.Redis.from_url('redis://')
     app.task_queue = rq.Queue('yeetcode-judge', connection=app.redis)
-    
 
 
     # Register Blueprints
@@ -46,9 +53,6 @@ def create_app(config_class=Config):
 
     from app.api import bp as api_bp
     app.register_blueprint(api_bp, url_prefix='/api')
-
-    # if not app.debug and not app.testing:
-        # pass
 
     return app
 

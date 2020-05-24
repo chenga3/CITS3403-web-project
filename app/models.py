@@ -6,6 +6,7 @@ from hashlib import md5
 from datetime import datetime, timedelta, date
 import base64, os
 
+# Class for the user
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True, nullable=False)
@@ -17,20 +18,21 @@ class User(UserMixin, db.Model):
     token = db.Column(db.String(32), index=True, unique=True)
     token_expiration = db.Column(db.DateTime)
     
-    # def __repr__(self):
-        # return '<User {}>'.format(self.username)    
-
+    # set password
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
-    
+
+    # check password    
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+    # generate avater
     def avatar(self,size):
         digest= md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
             digest, size)
 
+    # to dict
     def to_dict(self):
         data = {
             'id': self.id,
@@ -40,7 +42,8 @@ class User(UserMixin, db.Model):
             'points': self.points,
         }
         return data
-
+    
+    # from dict
     def from_dict(self, data, new_user=False):
         for field in ['username', 'email', 'admin']:
             if field in data:
@@ -48,6 +51,7 @@ class User(UserMixin, db.Model):
         if new_user and 'password' in data:
             self.set_password(data['password'])
 
+    # get token
     def get_token(self, expires_in=3600):
         now = datetime.utcnow()
         if self.token and self.token_expiration > now + timedelta(seconds=60):
@@ -57,9 +61,11 @@ class User(UserMixin, db.Model):
         db.session.add(self)
         return self.token
     
+    # revoke token
     def revoke_token(self):
         self.token_expiration = datetime.utcnow() - timedelta(seconds=1)
 
+    #check token
     @staticmethod
     def check_token(token):
         user = User.query.filter_by(token=token).first()
@@ -67,10 +73,12 @@ class User(UserMixin, db.Model):
             return None
         return user
 
+# load user
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
 
+# class for Problems
 class Problem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), unique=True, index=True)
@@ -86,6 +94,7 @@ class Problem(db.Model):
     def __repr__(self):
         return '<Problem {}>'.format(self.title)
 
+    # to dict
     def to_dict(self):
         data = {
             'id': self.id,
@@ -96,6 +105,7 @@ class Problem(db.Model):
         }
         return data
 
+# Class for problem test cases
 class ProblemTestCases(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     questionID = db.Column(db.Integer, db.ForeignKey('problem.id'))

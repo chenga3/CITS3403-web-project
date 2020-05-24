@@ -3,6 +3,7 @@ import os
 import sys
 path = os.path.dirname(os.path.realpath(__file__))
 
+# Class to store question
 class Question:
     def __init__(self, id, language, code, time):
         self.id = id
@@ -11,14 +12,13 @@ class Question:
         self.time = time
         self.testCases = []
 
-    # def __repr__(self):
-        # return f"ID:{self.id}, language:{self.language}"
-
+# Class to store test case
 class testCase:
     def __init__(self, inputs, outputs):
         self.inputs = inputs
         self.outputs = outputs
 
+# Write question to file 
 def writeQuestion(question):
     if question.language == 'cpp':
         file = open("solution.cpp", "w")
@@ -32,7 +32,7 @@ def writeQuestion(question):
     return 0
 
 
-
+# Compile the code into a binary
 def compileCode(question):
     # Compile CPP to Binary
     result = {"pass":"yes", "error": ""}
@@ -51,13 +51,20 @@ def compileCode(question):
         return result
 
 
+# test the code against the test cases from the 
+# database
 def testSolution(question):
+    # break if no test cases
     if question.testCases == None:
         return 1
 
+    # initialise results
     results = {"pass": "yes"}
     i = 0
+
+    # Loop through all the test cases
     for test in question.testCases:
+        # run the code
         if question.language == 'cpp':
             output = subprocess.Popen([f"{path}/../lib/time -f %e -o runtime ./solution"],
                                         stdin=subprocess.PIPE,
@@ -66,9 +73,11 @@ def testSolution(question):
                                         shell=True,
                                         universal_newlines=True,
                                         bufsize=0)
+            # pipe in stdin
             for line in test.inputs:
                 output.stdin.write(f"{line}\n")
 
+        # run the code
         if question.language == 'py':
             output = subprocess.Popen([f"{path}/../lib/time -f %e -o runtime python3 solution.py"],
                                         stdin=subprocess.PIPE,
@@ -77,11 +86,13 @@ def testSolution(question):
                                         shell=True,
                                         universal_newlines=True,
                                         bufsize=0)
-
+            # pipe in stdin
             for line in test.inputs:
                 output.stdin.write(f"{line}\n")
 
+        # get stdout
         stdout, stderr = output.communicate()
+        # check stderr
         if stderr != '':
             results["pass"] = "no"
         else:
@@ -89,10 +100,12 @@ def testSolution(question):
             file = open("runtime","r")
             time = file.readline()
             file.close()
+            # Check runtime
             if float(time) > question.time:
                 results[f"{i}"] = "Failed: Did not finish in time :("
                 results["pass"] = "no"
                 continue
+            # added runtime to the result if successfull
             try:
                 for j in range(0,len(test.outputs)):
                     if o[j] == test.outputs[j]:
@@ -107,6 +120,7 @@ def testSolution(question):
 
     return results
 
+# Delete files
 def cleanUp():
     try:
         subprocess.run(['rm solution*'], shell=True)
@@ -115,6 +129,7 @@ def cleanUp():
         pass
 
 
+# judge main function
 def judge(question):
     os.chdir(path)
     writeQuestion(question)

@@ -1,5 +1,7 @@
 from app import create_app, db
 from app.models import User, Problem, ProblemTestCases
+
+#create the app
 app = create_app()
 
 @app.shell_context_processor
