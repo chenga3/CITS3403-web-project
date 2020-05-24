@@ -10,12 +10,14 @@ from app.models import User
 def get_user(id):
     return jsonify(User.query.get(id).to_dict())
 
+# display list of all users in json format
 @bp.route('/users', methods=['GET'])
 @token_auth.login_required(role='admin')
 def get_users():
     users = [user.to_dict() for user in User.query.all()]
     return jsonify({'userList': users})
 
+# deletes a user by id and returns updated list of all users in json
 @bp.route('/users/<int:id>', methods=['DELETE'])
 @token_auth.login_required(role='admin')
 def remove_user(id):
