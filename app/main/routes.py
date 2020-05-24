@@ -6,4 +6,4 @@ from app.models import User
 @bp.route('/')
 @bp.route('/homepage')
 def homepage():
-    return render_template('homepage.html', title="Home Page")
+    return render_template('homepage.html', title="YeetCode")

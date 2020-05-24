@@ -3,13 +3,19 @@
       <meta charset="utf-8">
 
       {% if title %}
-      <title>{{ title }} - YeetCode</title>
+      <title>{{ title }}</title>
       {% else %}
       <title>Welcome to YeetCode</title>
       {% endif %}
 
       <!-- common css files -->
       <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+      <!-- <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='favicon/apple-touch-icon.png')}}">
+      <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon/favicon-32x32.png')}}">
+      <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicon/favicon-16x16.png')}}">
+      <link rel="manifest" href="{{url_for('static', filename='favicon/site.webmanifest')}}"> -->
+      <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
+      
 
       <!-- block for page-specific css files -->
       {% block cssfiles %}{% endblock %}
@@ -37,7 +43,7 @@
                 <a href="{{ url_for('main.homepage') }}"> HOME </a>
             </h3>
             <h3 id=questions class=navielement>
-                <a href="{{ url_for('problems.problems') }}"> QUESTIONS </a>
+                <a href="{{ url_for('problems.problems') }}"> PROBLEMS </a>
             </h3>
             {% if current_user.admin %}
             <h3 id=administration class=navielement>

@@ -39,7 +39,6 @@ body {
 
 #titlebox {
     margin-left: 13%;
-    margin-top: 0.3%;
     display: inline-flex;
     width: 40%;
 }
@@ -173,7 +172,7 @@ a {
     background-color: white;
     transition: all 0.3s ease;
     border-radius: 8px;
-    justify-content: center;
+    text-align: center;
 }
 
 .slideshowbox1 {
@@ -188,6 +187,7 @@ a {
 
 #slideshowheader {
     font-size: 1.6rem;
+    margin-top: 0.2cm;
 }
 
 #slideshowdescription {
@@ -213,7 +213,7 @@ a {
 #questiontitle {
     border-bottom-style: solid;
     border-radius: 5px;
-    border-color: #17469b;
+    border-color: #3d6cb9;
     border-width: 0.2em;
     padding-right: 0.3em;
     padding-bottom: 0.3em;
