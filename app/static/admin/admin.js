@@ -81,13 +81,13 @@ function validateQuestion() {
 }
 
 $(document).on("click", "#submit", function() {
-        if(!validatequestion()) {
+        if(!validateQuestion()) {
             alert("some inputs are empty");
             return
         }
         var testcases = []
-        var inputs = document.getelementsbyclassname("testinput");
-        var outputs = document.getelementsbyclassname("testoutput");
+        var inputs = document.getElementsByClassName("testinput");
+        var outputs = document.getElementsByClassName("testoutput");
         for (var i = 0; i < inputs.length ; i++) {
             input = inputs[i].value;
             output = outputs[i].value;
@@ -100,17 +100,17 @@ $(document).on("click", "#submit", function() {
         }
         
         var packet = {
-            "title": $("#problemtitle").val(),
+            "title": $("#problemTitle").val(),
             "diff": $("#difficulty").val(),
-            "time": $("#timelimit").val(),
-            "question": editor.getvalue(),
+            "time": $("#timeLimit").val(),
+            "question": editor.getValue(),
             "testcases": testcases
         }
        $.ajax({
             url: '/admin/addquestion',
-            data: json.stringify(packet),
-            type: 'post',
-            contenttype: 'application/json',
+            data: JSON.stringify(packet),
+            type: 'POST',
+            contentType: 'application/json',
             success: function(response) {
                 alert(response);
             },
@@ -121,8 +121,7 @@ $(document).on("click", "#submit", function() {
 });
 
 $(document).on("click", ".tablinks",function(event) {
-    id = event.target.value;
-    $(".tabcontent").addClass("tabcontenthidden").removeClass("tabcontent");
+    id = event.target.value; $(".tabcontent").addClass("tabcontenthidden").removeClass("tabcontent");
     $("#" + id +"").addClass("tabcontent").removeClass("tabcontenthidden");
 });
 
@@ -134,8 +133,8 @@ $(document).ready(function() {
         $("#addtest").before(button);
 
         testcasediv = "<div id=\"testCase" + n + "\" class=\"tabcontenthidden\">" +
-                        "<textarea class=\"testinput\" name=\"input\" id=\"input" + n + "\" cols=\"30\" rows=\"10\"></textarea>" +
-                        "<textarea class=\"testoutput\"name=\"output\" id=\"output" + n + "\" cols=\"30\" rows=\"10\"></textarea>"+
+                        "<textarea placeholder=\"Input\" class=\"testinput\" name=\"input\" id=\"input" + n + "\" cols=\"30\" rows=\"10\"></textarea>" +
+                        "<textarea placeholder=\"Output\" class=\"testoutput\"name=\"output\" id=\"output" + n + "\" cols=\"30\" rows=\"10\"></textarea>"+
                         "</div>";
 
         $("#testCase" + (n - 1) + "").after(testcasediv);

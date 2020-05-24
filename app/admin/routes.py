@@ -90,31 +90,42 @@ def submitquestion():
 def addquestion():
     data = request.get_json()
     if data["question"] == "":
-        return ("ERROR: Some Empty Inputs")
+        return ("ERROR: Empty Question")
+    try:
+        if float(data["time"]) <= 0:
+            return ("ERROR: Please enter time > 0")
+    except:
+        return ("ERROR: Invalid time please enter a positive real number > 0")
+
     problem = Problem.query.filter_by(title=data["title"]).first()
     if problem is not None:
         return ("ERROR: Problem Already Exists")
-    else:
-        p = Problem(\
-            title=data["title"],\
-            urlTitle=''.join((data["title"]).split()).lower(),\
-            body=data["question"],\
-            difficulty = data["diff"],\
-            timeLimit = int(data["time"]),\
+
+    urltitle = ''.join((data["title"]).split()).lower()
+    problem = Problem.query.filter_by(urlTitle=urltitle).first()
+    if problem is not None:
+        return ("ERROR: Problem Name to Similar to Another Problem")
+
+    p = Problem(\
+        title=data["title"],\
+        urlTitle=''.join((data["title"]).split()).lower(),\
+        body=data["question"],\
+        difficulty = data["diff"],\
+        timeLimit = float(data["time"]),\
+    )
+    db.session.add(p)
+    tests = data["testcases"]
+    for i in tests:
+        if i["input"] == "" or i["output"] == "":
+            return ("ERROR: Empty Test Case")
+        testcase = ProblemTestCases(\
+            problem = p,\
+            input = i["input"],\
+            output = i["output"],
         )
-        db.session.add(p)
-        tests = data["testcases"]
-        for i in tests:
-            if i["input"] == "" or i["output"] == "":
-                return ("ERROR: Some Empty Inputs")
-            testcase = ProblemTestCases(\
-                problem = p,\
-                input = i["input"],\
-                output = i["output"],
-            )
-            db.session.add(testcase)
-        db.session.commit()
-        return ("SUCCESS")
+        db.session.add(testcase)
+    db.session.commit()
+    return ("Succesfully Added Question")
 
 @bp.route('/editquestion/<urltitle>', methods=['GET', 'POST'])
 @login_required
@@ -144,21 +155,32 @@ def delete_question():
 def updatequestion():
     data = request.get_json()
     if data["question"] == "":
-        return ("ERROR: Some Empty Inputs")
+        return ("ERROR: Empty Question")
+    try:
+        if float(data["time"]) <= 0:
+            return ("ERROR: Please enter time > 0")
+    except:
+        return ("ERROR: Invalid time please enter a positive real number > 0")
+
+    urltitle = ''.join((data["title"]).split()).lower()
+    problem = Problem.query.filter_by(urlTitle=urltitle).first()
+    if problem is not None:
+        return ("ERROR: Problem Name to Similar to Another Problem")
+
     problem = Problem.query.filter_by(urlTitle=data["oldurltitle"]).first()
     if Problem.query.filter_by(title=data["title"]) is None or problem.title == data["title"]:
         problem.title=data["title"]
         problem.urlTitle=''.join((data["title"]).split()).lower()
         problem.body=data["question"]
         problem.difficulty = data["diff"]
-        problem.timeLimit = int(data["time"])
+        problem.timeLimit = float(data["time"])
         tests = data["testcases"]
         oldtestcases = ProblemTestCases.query.filter_by(questionID = problem.id).all()
         for old in oldtestcases:
             db.session.delete(old)
         for i in tests:
             if i["input"] == "" or i["output"] == "":
-                return ("ERROR: Some Empty Inputs")
+                return ("ERROR: Empty Test Case")
             testcase = ProblemTestCases(\
                 problem = problem,\
                 input = i["input"],\
@@ -166,7 +188,7 @@ def updatequestion():
             )
             db.session.add(testcase)
         db.session.commit()
-        return ("SUCCESS")
+        return ("Succesfully Updated Question")
     else:
         return ("Title Already Exists")
 

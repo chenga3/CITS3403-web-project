@@ -17,9 +17,9 @@
                     <div>
                         <label>Difficulty</label><br>
                         <select name="difficulty" id="difficulty">
-                            <option value="0">Easy</option>
-                            <option value="1">Normal</option>
-                            <option value="2">Difficult</option>
+                            <option value="0">Beginner</option>
+                            <option value="1">Intermediate</option>
+                            <option value="2">Advanced</option>
                             <option value="3">Expert</option>
                         </select><br>
                     </div>
@@ -40,6 +40,7 @@
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
                     <script>
                         var editor = ace.edit("editor");
+                        editor.setFontSize("16px");
                     </script>
                     <!-- Test Cases -->
                     <h3>Test Cases</h3>
@@ -50,8 +51,8 @@
                     </div>
 
                     <div id="testCase1" class="tabcontent">
-                        <textarea class="testinput" name="input" id="input1" cols="30" rows="10"></textarea>
-                        <textarea class= "testoutput" name="output" id="output1" cols="30" rows="10"></textarea>
+                        <textarea placeholder="Input" class="testinput" name="input" id="input1" cols="30" rows="10"></textarea>
+                        <textarea placeholder="Output" class= "testoutput" name="output" id="output1" cols="30" rows="10"></textarea>
                     </div>
 
                     <div>
@@ -65,8 +66,5 @@
 {% block jsfiles %}
     {{ super() }}
     <script src="{{ url_for('static', filename='admin/admin.js') }}"></script>
-    <script>
-        var editor = ace.edit("editor");
-        editor.setFontSize("16px");
-    </script>
+    
 {% endblock %}

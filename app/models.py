@@ -35,13 +35,13 @@ def load_user(id):
 class Problem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), unique=True, index=True)
-    urlTitle = db.Column(db.String(100))
+    urlTitle = db.Column(db.String(100), unique=True)
     difficulty = db.Column(db.Integer)
     numAttempts = db.Column(db.Integer, default=0)
     numSuccesses = db.Column(db.Integer, default=0)
     dateAdded = db.Column(db.String(10), default = datetime.date.today().strftime("%d/%m/%Y"))
     body= db.Column(db.Text())
-    timeLimit = db.Column(db.Integer)
+    timeLimit = db.Column(db.Float)
     testCases = db.relationship('ProblemTestCases', backref="problem")
 
     def __repr__(self):
@@ -55,3 +55,8 @@ class ProblemTestCases(db.Model):
 
     def __repr__(self):
         return '<Problem {}>'.format(self.title)
+
+class ProblemsCompleted(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    questionID = db.Column(db.Integer, db.ForeignKey('problem.id'))
+    user = db.Column(db.Integer, db.ForeignKey('user.id'))

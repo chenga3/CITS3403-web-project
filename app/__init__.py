@@ -27,8 +27,8 @@ def create_app(config_class=Config):
 
     app.redis = redis.Redis.from_url('redis://')
     app.task_queue = rq.Queue('yeetcode-judge', connection=app.redis)
-    t = threading.Thread(target=start_rq_worker)
-    t.start()
+    # t = threading.Thread(target=start_rq_worker)
+    # t.start()
 
 
     # Register Blueprints
@@ -48,8 +48,8 @@ def create_app(config_class=Config):
     from app.api import bp as api_bp
     app.register_blueprint(api_bp, url_prefix='/api')
 
-    if not app.debug and not app.testing:
-        pass
+    # if not app.debug and not app.testing:
+        # pass
 
     return app
 

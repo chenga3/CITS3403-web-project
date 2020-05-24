@@ -317,14 +317,17 @@ header ul li a:hover {
     overflow: scroll;
 }
 
-.tabcontent {
-}
-
 .tabcontenthidden {
     display: none;
 }
 #editor { 
-    height: 50%;
-    width: 80%;
+    height: 15cm;
+    width: 70%;
+    margin: 1cm;
+    /* padding: 1cm; */
     position: sticky;
+}
+
+.addform div {
+    margin-bottom: 0px;
 }

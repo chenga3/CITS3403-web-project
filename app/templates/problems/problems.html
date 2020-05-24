@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+            <h3 style="margin-left: 5%; padding-top: 1cm;">All questions are stolen from <a href="https://pcs.org.au/" style="color: darkblue;">UWA PCS</a>. All credit goes to their respective authors</h1>
             <div class=questionWrapper>
             {% for problem in problems %}
                 <a class="questionBoxLink" href="{{ url_for('problems.problem', title=''.join(problem.title.split()).lower()) }}">

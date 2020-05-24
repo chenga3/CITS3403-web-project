@@ -8,6 +8,7 @@
 - Redis Server 
     - sudo apt install redis-server
     - brew install redis 
+    - sudo pacman -S redis
 
 
 ### Installing
@@ -24,11 +25,12 @@ Copy 'tests' folder into your CITS3403-web-project folder (currently empty).
 Navigate to CITS3403-web-project folder containing app folder.
 
 Set flask variables:
-- On Windows `set FLASK_APP=app` and `set FLASK_ENV=development`
-- On Linux/Mac `export FLASK_APP=app` and `export FLASK_ENV=development`
+- On Windows `set FLASK_APP=app`
+- On Linux/Mac `export FLASK_APP=app`
+- Alteratively create a .flaskenv (pip install flask-dotenv && echo 'export FLASK_APP=yeetcode.py')
 
-Initialise database: `flask init-db`
+Start the redis server 
+- Linux 'sudo systemctl start redis.service'
+- Mac 'brew services start redis'
 
 Run the application (ensure you are in /CITS3403-web-project not /CITS3403-web-project/app): `flask run`
-
-Navigate to login page: http://localhost:5000/auth/login
