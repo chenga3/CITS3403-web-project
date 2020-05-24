@@ -1,5 +1,13 @@
+vhtml {
+  overflow:   scroll;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
 body {
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .container {
@@ -68,6 +76,7 @@ pre {
     width: 90%;
     margin: 0 auto;
     margin-top: 3em;
+    margin-bottom: 3em;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
     grid-auto-rows: 10em;
