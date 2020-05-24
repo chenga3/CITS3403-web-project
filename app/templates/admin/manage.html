@@ -3,11 +3,15 @@
 
 {% block admincontent %}
 <!-- main body -->
-    <div class="content">
+    <div id="content" class="content hidden">
         <div class="button-group">
             <a id="addbutton" class="button1"></a>
         </div>
+<<<<<<< HEAD:app/templates/admin/manage.html
         <div>
+=======
+        <div id="pagecontent">
+>>>>>>> ajax admin question display:app/templates/admin/manage.html
             <h2 id="pagetitle" class="pagetitle"></h2>
             {% for message in get_flashed_messages() %}
                 <span class="flash">{{ message }}</span>

@@ -1,15 +1,32 @@
 // This js file is for admin functions in all admin pages
 /*** AJAX for REST API ***/
+<<<<<<< HEAD
 var managetable, addbutton, pagetitle, user, base_url;
+=======
+var managetable, user, base_url;
+>>>>>>> ajax admin question display
 var authToken = null;
 
-window.onload = function() {
-    this.setUp();
+jQuery(function() {
     base_url = window.location.origin;
+    setUp();
+
+    $('#manageusers').click(function() {
+        displayUserTable();
+    });
+
+    $('#manageproblems').click(function() {
+        displayProblemTable();
+    });
+});
+
+function getParam(name) {
+    return (location.search.split(name + '=')[1] || '').split('&')[0];
 }
 
 function setUp() {
     managetable = document.getElementById('managetable-api');
+<<<<<<< HEAD
     addbutton = document.getElementById('addbutton');
     console.log('setup...');
     // title
@@ -28,12 +45,32 @@ function setUp() {
         if (this.readyState == 4 && this.status == 200) {
             responseData = JSON.parse(this.responseText);
             authToken = responseData['token'];
+=======
+    console.log('setup...');
+    // change side links to onclick AJAX buttons
+    manageusers = document.getElementById('manageusers');
+    $('#manageusers').attr('href', '#');
+    manageproblems = document.getElementById('manageproblems');
+    $('#manageproblems').attr('href', '#');
+
+    $.ajax({
+        url: '/api/tokens',
+        type: 'post',
+        success: function(result) {
+            authToken = result['token'];
+>>>>>>> ajax admin question display
         }
-    }
-    xhttp.open('POST', '/api/tokens', true);
-    xhttp.send();
+    }).done(function() {
+        var mode = getParam('mode');
+        if (mode == 'user') {
+            displayUserTable();
+        } else if (mode == 'problem') {
+            displayProblemTable();
+        }
+    });
 }
 
+<<<<<<< HEAD
 function getUsers() {
     console.log('getting users...');
     var xhttp = new XMLHttpRequest();
@@ -44,47 +81,150 @@ function getUsers() {
             renderUserTable(userList);
             renderAddButton('user');
             console.log(userList);
+=======
+function displayUserTable() {
+    console.log('Getting users...')
+    $.ajax({
+        url: '/api/users',
+        type: 'get',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + authToken);
+        },
+        success: function(result) {
+            var userList = result.userList
+            console.log(userList);
+            renderUserTable(userList);
+            $('#content').removeClass('hidden');
+            $('#addbutton').attr('href', base_url + '/admin/adduser')
+                .html('Add User').hide().fadeIn();
+>>>>>>> ajax admin question display
         }
-    }
-    xhttp.open('GET', '/api/users', true);
-    xhttp.setRequestHeader("Authorization", "Bearer " + authToken);
-    xhttp.send();
+    }).done(function() {
+        console.log('Showing content...');
+        $('#pagecontent').hide().slideDown();
+    });
 }
 
-/* function editUser(id) {
-    console.log('Editing user...');
-    console.log(id);
-    usertable.hidden = true;
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            responseData = JSON.parse(this.responseText);
-            user = responseData;
-            console.log(user);
+function displayProblemTable() {
+    console.log('Getting problems...')
+    $.ajax({
+        url: '/api/problems',
+        type: 'get',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + authToken);
+        },
+        success: function(result) {
+            var problemList = result.problemList;
+            console.log(problemList);
+            renderProblemTable(problemList);
+            $('#content').removeClass('hidden');
+            $('#addbutton').attr('href', base_url + '/admin/submitquestion')
+                .html('Add Problem').hide().fadeIn();
         }
-    }
-    xhttp.open('GET', '/api/users/' + id, true);
-    xhttp.send();
-} */
+    }).done(function() {
+        console.log('Showing content...');
+        $('#pagecontent').hide().slideDown();
+    });
+}
 
 function deleteUser(id) {
     console.log(id);
     console.log('Deleting user ' + id + '...');
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            // responseData = JSON.parse(this.responseText);
-            // userList = responseData['userList'];
-            tr = document.getElementById('user' + id);
-            tr.remove();
+    $.ajax({
+        url: '/api/users/' + id,
+        type: 'delete',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + authToken);
+        },
+        success: function(result) {
+            $('#user' + id).remove();
         }
-    }
-    xhttp.open('DELETE', '/api/users/' + id, true);
-    xhttp.setRequestHeader("Authorization", "Bearer " + authToken);
-    xhttp.send();
+    });
 }
 
+function deleteProblem(urlTitle) {
+    console.log('Deleting problem ' + urlTitle + '...');
+    $.ajax({
+        url: '/api/problems/' + urlTitle,
+        type: 'delete',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + authToken);
+        },
+        success: function(result) {
+            id = result.id;
+            $('#problem' + id).remove();
+        }
+    });
+}
+
+function renderProblemTable(problemList) {
+    $('#pagetitle').html('Manage Problems');
+    // clear existing table
+    $('#managetable-api').empty();
+
+    thead = document.createElement('thead');
+    th = document.createElement('th');
+    th.innerHTML = 'Title';
+    thead.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'Date Added';
+    thead.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'Difficulty';
+    thead.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'Action';
+    th.colSpan = 3
+    thead.appendChild(th);
+    managetable.appendChild(thead);
+
+    tbody = document.createElement('tbody');
+    for (var i=0; i<problemList.length; i++) {
+        tr = document.createElement('tr');
+        tr.id = 'problem' + problemList[i].id;
+
+        td = document.createElement('td');
+        td.innerHTML = problemList[i].title;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerHTML = problemList[i].dateAdded;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerHTML = problemList[i].difficulty;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        button = document.createElement('button');
+        button.innerHTML = 'edit';
+        button.classList.add('edit');
+        button.value = problemList[i].urlTitle;
+        button.onclick = function(ev) { location.href = base_url + '/admin/editquestion/' + ev.target.value; };
+        td.appendChild(button);
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        button = document.createElement('button');
+        button.innerHTML = 'delete';
+        button.classList.add('delete');
+        button.value = problemList[i].urlTitle;
+        button.name = problemList[i].title;
+        button.onclick = function(ev) { 
+                var result = confirm("Are you sure you want to delete " + ev.target.name + "?");
+                if (result) {
+                    deleteProblem(ev.target.value);
+                }
+            }
+        td.appendChild(button);
+        tr.appendChild(td);
+
+        tbody.appendChild(tr);
+    }
+    managetable.appendChild(tbody);
+}
+
+<<<<<<< HEAD
 function getProblems() {
     console.log('getting problems...');
     var xhttp = new XMLHttpRequest();
@@ -204,6 +344,13 @@ function renderUserTable(userList) {
     while (managetable.firstChild) {
         managetable.firstChild.remove();
     }
+=======
+
+function renderUserTable(userList) {
+    $('#pagetitle').html('Manage Users');
+    // clear existing table
+    $('#managetable-api').empty();
+>>>>>>> ajax admin question display
 
     thead = document.createElement('thead');
     th = document.createElement('th');
@@ -265,10 +412,13 @@ function renderUserTable(userList) {
         tbody.appendChild(tr);
     }
     managetable.appendChild(tbody);
+<<<<<<< HEAD
 }
 
 function renderUserForm(user) {
     
+=======
+>>>>>>> ajax admin question display
 }
 
 
@@ -376,7 +526,11 @@ $(document).on("click", "#submit", function() {
         var packet = {
             "title": $("#problemTitle").val(),
             "diff": $("#difficulty").val(),
+<<<<<<< HEAD
             "time": $("#timeLimit").val(),
+=======
+            "time": $("#timelimit").val(),
+>>>>>>> ajax admin question display
             "question": editor.getValue(),
             "testcases": testcases
         }
@@ -384,7 +538,11 @@ $(document).on("click", "#submit", function() {
             url: '/admin/addquestion',
             data: JSON.stringify(packet),
             type: 'POST',
+<<<<<<< HEAD
             contentType: 'application/json',
+=======
+            contenttype: 'application/json',
+>>>>>>> ajax admin question display
             success: function(response) {
                 alert(response);
             },
