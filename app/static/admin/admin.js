@@ -472,7 +472,7 @@ $(document).on("click", "#edit", function() {
        });
 });
 
-$(document).on("click", ".delete", function() {
+/* $(document).on("click", ".delete", function() {
         if (confirm("Please confirm u want to delete this question")) {
             urlTitle = $(this).val();
             var packet = {
@@ -494,6 +494,4 @@ $(document).on("click", ".delete", function() {
             // do nothings
             return
         }
-});
-
-
+}); */

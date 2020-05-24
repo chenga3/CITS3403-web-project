@@ -76,5 +76,4 @@
         function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
     </script>
     {{ super() }}
-    <script src="{{ url_for('static', filename='admin/admin.js') }}"></script>
 {% endblock %}

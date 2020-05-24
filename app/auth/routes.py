@@ -17,6 +17,8 @@ def login():
             flash('Invalid username/email or password')
             return redirect(url_for('auth.login'))
         login_user(user, remember=form.remember_me.data)
+        token = user.get_token()
+        print(token)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('main.homepage')
@@ -26,6 +28,7 @@ def login():
 
 @bp.route('/logout')
 def logout():
+    current_user.revoke_token()
     logout_user()
     return redirect(url_for('main.homepage'))
 

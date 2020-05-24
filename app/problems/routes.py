@@ -5,6 +5,8 @@ from app.problems import bp
 from app.models import Problem, ProblemTestCases
 from app.helperFunctions import pandoc
 from app.problems.judge import judge, cleanUp, Question, testCase
+from app.api.auth import token_auth
+from app.api.errors import bad_request, error_response
 from redis import Redis
 import rq
 
@@ -22,6 +24,7 @@ def problem(title):
     return render_template('problems/problem.html', problem=problem, body=pandoc(problem.body))
 
 @bp.route('/judge', methods=['POST'])
+@token_auth.login_required
 @login_required
 def judgeSolution():
     if current_user.is_authenticated:
