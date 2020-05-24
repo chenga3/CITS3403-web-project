@@ -51,7 +51,7 @@ class RegistrationForm(FlaskForm):
 class EditProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    prefer_language= SelectField('Preferred Language',choices=[('cpp','C++'),('py','Python'),('both','Both')],validators=[DataRequired()])
+    prefer_language= SelectField('Preferred Language',choices=[('cpp','C++'),('py','Python')],validators=[DataRequired()])
     submit = SubmitField('Change Profile')
 
 class ResetPasswordForm(FlaskForm):
