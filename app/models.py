@@ -30,6 +30,22 @@ class User(UserMixin, db.Model):
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
             digest, size)
 
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'admin': self.admin,
+            'points': self.points,
+        }
+        return data
+
+    def from_dict(self, data, new_user=False):
+        for field in ['username', 'email', 'admin']:
+            if field in data:
+                setattr(self, field, data[field])
+        if new_user and 'password' in data:
+            self.set_password(data['password'])
 
     def get_token(self, expires_in=3600):
         now = datetime.utcnow()

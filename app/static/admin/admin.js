@@ -1,7 +1,4 @@
 // This js file is for admin functions in all admin pages
-<<<<<<< HEAD
-
-=======
 /*** AJAX for REST API ***/
 var usertable, user, base_url;
 var authToken = null;
@@ -32,8 +29,6 @@ function getUsers() {
     console.log('getting users...');
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        //console.log(this.readyState);
-        //console.log(this.status);
         if (this.readyState == 4 && this.status == 200) {
             responseData = JSON.parse(this.responseText);
             userList = responseData['userList'];
@@ -80,6 +75,23 @@ function deleteUser(id) {
 }
 
 function renderTable(userList) {
+    thead = document.createElement('thead');
+    th = document.createElement('th');
+    th.innerHTML = 'Username';
+    thead.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'Email';
+    thead.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'Role';
+    thead.appendChild(th);
+    th = document.createElement('th');
+    th.innerHTML = 'Action';
+    th.colSpan = 3
+    thead.appendChild(th);
+    usertable.appendChild(thead);
+
+    tbody = document.createElement('tbody');
     for (var i=0; i<userList.length; i++) {
         console.log(userList[i]);
         tr = document.createElement('tr');
@@ -120,8 +132,9 @@ function renderTable(userList) {
         td.appendChild(button);
         tr.appendChild(td);
 
-        usertable.appendChild(tr);
+        tbody.appendChild(tr);
     }
+    usertable.appendChild(tbody);
 }
 
 function renderUserForm(user) {
@@ -131,7 +144,6 @@ function renderUserForm(user) {
 
 
 /*** OTHER FUNCTIONS ***/
->>>>>>> c1d62354... token authentication
 //Adding a new user
 function addUser() {
     var username = document.getElementById("username").value.trim();

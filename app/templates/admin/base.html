@@ -18,5 +18,8 @@
         </div>
     {% block admincontent %}{% endblock %}
     </div>
-{% endblock %}{% block jsfiles %}
+{% endblock %}
+
+{% block jsfiles %}
+<script src="{{ url_for('static', filename='admin/admin.js') }}"></script>
 {% endblock %}

@@ -1,8 +1,8 @@
-"""user tokens
+"""user table up to date
 
-Revision ID: 48c3ed01cb03
-Revises: aeed569d1c02
-Create Date: 2020-05-23 20:42:04.569563
+Revision ID: e43cf11d19a6
+Revises: ce36c6cbccb4
+Create Date: 2020-05-24 12:17:53.417275
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '48c3ed01cb03'
-down_revision = 'aeed569d1c02'
+revision = 'e43cf11d19a6'
+down_revision = 'ce36c6cbccb4'
 branch_labels = None
 depends_on = None
 
