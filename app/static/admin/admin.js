@@ -24,11 +24,12 @@ function setUp() {
     managetable = document.getElementById('managetable-api');
     console.log('setup...');
     // change side links to onclick AJAX buttons
-    manageusers = document.getElementById('manageusers');
-    $('#manageusers').attr('href', '#');
-    manageproblems = document.getElementById('manageproblems');
-    $('#manageproblems').attr('href', '#');
-
+    var path = window.location.pathname;
+    if (path == '/admin/manage') {
+        $('#manageusers').attr('href', '#');
+        $('#manageproblems').attr('href', '#');
+    }
+    
     $.ajax({
         url: '/api/tokens',
         type: 'post',
