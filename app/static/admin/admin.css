@@ -18,6 +18,10 @@ body {
     font-family: Lato, sans-serif;
 }
 
+.admin-box  {
+    margin-bottom: 38em;
+}
+
 /* the side nav */
 .admin-box .sidebar {
     position: fixed; 
