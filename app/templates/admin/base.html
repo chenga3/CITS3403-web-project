@@ -13,7 +13,6 @@
             <ul>
                 <li class=adminoption><a id="manageusers" href="{{ url_for('admin.manage', mode='user') }}">Manage Users</a></li>
                 <li class=adminoption><a id="manageproblems" href="{{ url_for('admin.manage', mode='problem') }}">Manage Problems</a></li>
-                <!--<li class=adminoption><a id="assessresponses" href="{{ url_for('admin.assess') }}">Assess Responses</a></li>-->
             </ul>
         </div>
     {% block admincontent %}{% endblock %}
