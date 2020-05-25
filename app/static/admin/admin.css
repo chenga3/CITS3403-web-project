@@ -2,12 +2,12 @@
 
 @font-face {
     font-family: 'Lato';
-    src: url('./Lato/Lato-Bold.ttf') format('truetype')
+    src: url('../Lato/Lato-Bold.ttf') format('truetype')
 }
 
 @font-face {
     font-family: 'Latol';
-    src: url('./Lato/Lato-Light.ttf') format('truetype')
+    src: url('../Lato/Lato-Light.ttf') format('truetype')
 }
 
 /* initialize the body */

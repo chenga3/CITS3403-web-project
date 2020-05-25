@@ -2,7 +2,20 @@
 
 **Warning this app uses shell scripts and requires root access**
 
-YeetCode is a
+YeetCode is inspired LeetCode - The World's Leading Online Programming
+Learning Platform
+
+Our goal was to provide a platform for practicing and sharpening your skills, when
+preparing for technical interviews. 
+
+LeetCode provides an inclusive and nurturing environment. It caters to every programmer.
+Whether you are young competitive programming prodigy William Lin Or a student cramming for 
+your for the upcoming CITS2200 exam. LeetCode is platform for you.
+
+At YeetCode, our mission is to help you improve yourself and land your dream
+job. We have a sizable repository of interview resources for a wide variety of users.
+In the past few years, our users have landed jobs at top companies around the
+world.
 
 ## Getting Started
 

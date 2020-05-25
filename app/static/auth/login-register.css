@@ -1,6 +1,17 @@
 /* This file is used to style the login page */
+@font-face {
+    font-family: 'Lato';
+    src: url('../Lato/Lato-Bold.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'Latol';
+    src: url('../Lato/Lato-Light.ttf') format('truetype')
+}
+
 body {
     background-color: lightgrey;
+    font-family: Lato ;
 }
 
 /* define the input and button */
@@ -38,10 +49,9 @@ body {
 /* style the heading of the form */
 .login-form h1 {
     line-height: 30px;
-    font-family: 'Montserrat', sans-serif;;
     font-size: 35px;
     font-weight: normal;
-    color: #BABECC;
+    color: #61677C;
     text-shadow: 1px 1px 1px #FFF;
     text-align: center;
 }
@@ -58,7 +68,6 @@ body {
     border: 0;
     outline: none;
 
-    font-family: Helvetica, sans-serif;
     font-size: 14px;
     font-weight: bold;
 
@@ -95,7 +104,7 @@ body {
     float: right;
     cursor: pointer;
     font-weight: bold;
-    color: #AE1100;
+    color: #0f3f8d;
     box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
 }
 
@@ -112,19 +121,17 @@ body {
   }
 
 .register-form {
-    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
   }
   
 /* define the letter style*/
 .register-form input, button {
-    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
   }
   
 /* define the style of the header */
 .register-form .header {
-    color: #BABECC;
+    color: #61677C;
     text-shadow: 1px 1px 1px #FFF;
   }
   
@@ -181,6 +188,7 @@ body {
     display: block;
     width: 100%;
     color: #61677C;
+    color: #0f3f8d;
     font-weight: bold;
     box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
     transition: all 0.2s ease-in-out;
