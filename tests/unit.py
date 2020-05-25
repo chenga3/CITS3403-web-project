@@ -1,12 +1,39 @@
 import unittest
-from app import app, db
+from app import create_app, db
 from app.models import User
+from config import TestConfig
 
+# tests the user model and its methods
+class UserModelCase(unittest.TestCase):
+    def setUp(self):
+        self.app = create_app(TestConfig)
+        self.app_context = self.app.app_context()
+        self.app_context.push()
+        self.app = self.app.test_client()
+        db.create_all()
+        u = User(id=0, username='bob123', email='bob123@gmail.com', admin=False)
+        u.set_password('password1')
+        db.session.add(u)
+        db.session.commit()
+
+    def tearDown(self):
+        db.session.remove()
+        db.drop_all()
+
+    def test_password_hash(self):
+        u = User.query.get(0)
+        u.set_password("password2")
+        self.assertFalse(u.check_password("password1"))
+        self.assertTrue(u.check_password("password2"))
+
+# tests user registration with all validation errors
 class RegistrationCase(unittest.TestCase):
     def setUp(self):
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
-        app.config['WTF_CSRF_ENABLED'] = False
-        self.app = app.test_client()
+        self.app = create_app(TestConfig)
+        self.app_context = self.app.app_context()
+        self.app_context.push()
+        self.app.config['WTF_CSRF_ENABLED'] = False
+        self.app = self.app.test_client()
         db.create_all()
         u = User(username='alice', email='alice@gmail.com', admin=False)
         u.set_password('password')
@@ -60,11 +87,14 @@ class RegistrationCase(unittest.TestCase):
         response = self.register('bob', 'bob@gmail.com', 'password', '')
         self.assertIn(b'This field is required', response.data)
 
+# tests user login with all validation errors
 class LoginCase(unittest.TestCase):
     def setUp(self):
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
-        app.config['WTF_CSRF_ENABLED'] = False
-        self.app = app.test_client()
+        self.app = create_app(TestConfig)
+        self.app_context = self.app.app_context()
+        self.app_context.push()
+        self.app.config['WTF_CSRF_ENABLED'] = False
+        self.app = self.app.test_client()
         db.create_all()
         u = User(username='alice', email='alice@gmail.com', admin=False)
         u.set_password('password')
@@ -90,3 +120,6 @@ class LoginCase(unittest.TestCase):
     def test_invalid_password_login(self):
         response = self.login('alice', 'incorrect')
         self.assertIn(b'Incorrect password', response.data)
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

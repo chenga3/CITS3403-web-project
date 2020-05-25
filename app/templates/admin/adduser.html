@@ -48,6 +48,13 @@
                             {{ form.role.label }}<br>
                             {{ form.role }}
                         </div>
+                        <div>
+                            {{ form.prefer_language.label }}<br>
+                            {{ form.prefer_language }}
+                            {% for error in form.prefer_language.errors %}
+                                <span class="form-error">[{{ error }}]</span>
+                            {% endfor %}
+                        </div>
                         <button type="submit" class="button2" name="adduser" id="adduser">Add</button>
                 </form>
             </div>

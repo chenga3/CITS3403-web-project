@@ -18,6 +18,9 @@ class User(UserMixin, db.Model):
     token = db.Column(db.String(32), index=True, unique=True)
     token_expiration = db.Column(db.DateTime)
     problemsCompleted = db.relationship('ProblemsCompleted', backref="user")
+
+    def __repr__(self):
+        return '<User {}>'.format(self.username)
     
     # set password
     def set_password(self, password):

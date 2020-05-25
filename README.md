@@ -77,4 +77,17 @@ The hard work has been done in a script called 'yeetcode.sh'
 
 	flask run
 
+### Testing the app
 
+Run unit tests via the command `python -m tests.unit`
+
+To run system tests, ensure Geckodriver for Firefox is installed in the dir tests\, then change the app to run in 
+TestConfig by adjusting yeetcode.py:
+
+	app = create_app()
+
+to:
+
+	app = create_app(TestConfig)
+
+Then make sure the app is running in the background before running `python -m tests.system`
