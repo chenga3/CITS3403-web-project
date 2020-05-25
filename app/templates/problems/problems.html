@@ -11,7 +11,7 @@
             {% for problem in problems %}
                 <a class="questionBoxLink" href="{{ url_for('problems.problem', title=''.join(problem.title.split()).lower()) }}">
                 {% if problem.id in status %}
-                <div class="questionBox" style="{{ 'background-color: green;' if status[problem.id] else 'background-color: crimson;'}}">
+                <div class="{{ 'questionBoxSolved' if status[problem.id] else 'questionBoxNotSolved'}}">
                 {% else %}
             <div class="questionBox">
                 {% endif %}

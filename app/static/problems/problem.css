@@ -96,3 +96,31 @@ pre {
     color: #2d6cdf;
     border-color: #2d6cdf;
 }
+
+.questionBoxSolved {
+    background-color: green;
+    color: white;
+    padding: 0.4em;
+    padding-left: 1em;
+    border-radius: 4px;
+}
+
+.questionBoxLink:hover , .questionBoxLink:hover > .questionBoxSolved {
+    background-color: white;
+    color: #2d6cdf;
+    border-color: #2d6cdf;
+}
+
+.questionBoxNotSolved {
+    background-color: crimson;
+    color: white;
+    padding: 0.4em;
+    padding-left: 1em;
+    border-radius: 4px;
+}
+
+.questionBoxLink:hover , .questionBoxLink:hover > .questionBoxNotSolved {
+    background-color: white;
+    color: #2d6cdf;
+    border-color: #2d6cdf;
+}
