@@ -15,8 +15,11 @@ login = LoginManager()
 login.login_view = 'auth.login'
 
 # function to start the redis worker
-def start_rq_worker():
-    subprocess.run('rq worker yeetcode-judge', shell=True)
+# def start_rq_worker(conn):
+#     with rq.Connection(conn):
+#         worker = rq.Worker(map(rq.Queue, ['yeetcode-judge']))
+#         worker.work(logging_level='WARN')
+
 
 # create a instance of the flask app
 def create_app(config_class=Config):
@@ -29,11 +32,13 @@ def create_app(config_class=Config):
     migrate.init_app(app, db)
     login.init_app(app)
     #start worker
-    # t = threading.Thread(target=start_rq_worker)
+    
+    app.redis = redis.Redis.from_url('redis://')
+
+    # t = threading.Thread(target=start_rq_worker, args=(app.redis,))
     # t.start()
 
     #make redis queue
-    app.redis = redis.Redis.from_url('redis://')
     app.task_queue = rq.Queue('yeetcode-judge', connection=app.redis)
 
 

@@ -10,7 +10,6 @@
     src: url('./Lato/Lato-Light.ttf') format('truetype')
 }
 
-
 /* initialize the body */
 body {
     margin: 0;
@@ -166,7 +165,7 @@ body {
 
 /* style the label of inputs */
 .addform label{
-    font-family Lato;
+    font-family: Lato;
     margin-bottom: 3px;
     color: #534b4b;
     font-weight: bold;
