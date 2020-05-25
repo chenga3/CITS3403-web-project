@@ -347,3 +347,18 @@ a {
 .rankings th {
     font-size: 20pt;
 }
+
+#hello-small {
+    visibility: hidden;
+}
+
+@media only screen and (max-width:942px){
+#hello {
+    visibility: hidden;
+}
+
+#hello-small {
+    visibility: visible;
+}
+
+}
