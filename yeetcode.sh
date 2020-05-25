@@ -11,6 +11,10 @@ fi
 
 case $1 in
 	start*)
+		if (ps aux | grep "[w]orker.py") &> /dev/null || (ps aux | grep "[f]lask") &> /dev/null; then
+			echo "Already Running"
+			exit 1
+		fi
 		if ! (sudo systemctl is-active --quiet redis.service); then
 			if ! (sudo systemctl start redis.service); then
 				echo "Failed to start redis.service"
