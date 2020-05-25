@@ -21,6 +21,7 @@ body {
     margin: 0;
     padding: 0;
     background: #f0f0f0;
+    font-family: Lato, sans-serif;
 }
 
 /* header initial style */
@@ -164,7 +165,7 @@ header ul li a:hover {
 
 /* style the button of back to manage page */
 .button1 {
-    font-family: 'Latol';
+    font-family: Lato;
     background: #0f3f8d;
     padding: 10px;
     color: aliceblue;
@@ -238,7 +239,7 @@ header ul li a:hover {
 
 /* Style the button in the functional pages */
 .button2 {
-    font-family: Georgia;
+    font-family: Lato;
     background: #284047;
     padding: 10px;
     color: aliceblue;
@@ -260,7 +261,7 @@ header ul li a:hover {
 
 /* style the label of inputs */
 .addform label{
-    font-family:'Times New Roman';
+    font-family Lato;
     margin-bottom: 3px;
     color: #534b4b;
     font-weight: bold;

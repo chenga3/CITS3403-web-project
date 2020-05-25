@@ -1,5 +1,6 @@
-vhtml {
-  overflow:   scroll;
+html {
+  /* overflow:   auto; */
+  scrollbar-width: none;
 }
 ::-webkit-scrollbar {
     width: 0px;
@@ -8,6 +9,7 @@ vhtml {
 
 body {
     overflow: scroll;
+    scrollbar-width: none;
 }
 
 .container {
@@ -17,11 +19,13 @@ body {
 }
 
 .one {
-    width: 50%;
+    width: 48%;
     float: left;
     overflow-y: scroll;
     height: 80%;
+    padding-right: 0.5cm;
     -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .one::-webkit-scrollbar {
@@ -33,6 +37,7 @@ body {
   height: 80%;
   overflow-y: scroll;
   -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .two::-webkit-scrollbar {
