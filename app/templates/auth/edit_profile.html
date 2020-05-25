@@ -39,7 +39,7 @@
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </div>
-            <p class="probutton">{{ form.submit() }}</p>
+            <p class="probutton">{{ form.submit(class="button") }}</p>
             <p class="probutton"><a href="{{ url_for('auth.reset_password') }}">Reset Password</a></p>
         </form>
     </div>
