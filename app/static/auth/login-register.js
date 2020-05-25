@@ -1,14 +1,3 @@
-// This file is for checking whether there are any empty entry or different password
-
-// check the input is empty or not
-function isempty() {
-    if (document.getElementById("user").value.trim() == "" || document.getElementById("p0").value.trim() == ""){
-        alert("Any of inputs should not be empty");
-        return false;
-    }
-    return true;
-}
-
 // for register page checking input empty and same password
 function validate(){
     // regular expression for validation
