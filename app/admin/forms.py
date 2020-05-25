@@ -3,6 +3,7 @@ from wtforms import StringField, PasswordField, SelectField, SubmitField, TextAr
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 from app.models import User
 
+# form for adding a new user into the db
 class AddUserForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
@@ -19,7 +20,8 @@ class AddUserForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
-    
+
+# form for editing an exisiting user in the db
 class EditUserForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])

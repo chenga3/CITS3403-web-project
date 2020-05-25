@@ -6,6 +6,8 @@ from app.admin.forms import AddUserForm, EditUserForm
 from app.models import User, Problem, ProblemTestCases
 from functools import wraps
 
+# decorator for admin-only pages
+# checks if the current user has admin=True in their db entry
 def admin_required(view):
     @wraps(view)
     def wrapped_view(**kwargs):
@@ -15,12 +17,14 @@ def admin_required(view):
         return view(**kwargs)
     return wrapped_view
 
+# default admin page displaying a list of users/problems in AJAX
 @bp.route('/manage', methods=['GET', 'POST'])
 @login_required
 @admin_required
 def manage():
     return render_template('admin/manage.html', title="Admin")
 
+# page for adding a new user into the db
 @bp.route('/adduser', methods=['GET', 'POST'])
 @login_required
 @admin_required
@@ -36,6 +40,7 @@ def adduser():
         return redirect(url_for('admin.adduser'))
     return render_template('admin/adduser.html', form=form)
 
+# page for editing an existing user
 @bp.route('/<int:id>/edituser', methods=['GET', 'POST'])
 @login_required
 @admin_required
@@ -57,36 +62,20 @@ def edituser(id):
         flash("User successfully updated.")
     return render_template('admin/edituser.html', user=user, form=form)
 
-# @bp.route('/<int:id>/deleteuser', methods=['GET'])
-# @login_required
-# @admin_required
-# def deleteuser(id):
-#     user = User.query.get(id)
-#     if user is None:
-#         flash("User does not exist.")
-#         return redirect(url_for('admin.manage'))
-#     db.session.delete(user)
-#     db.session.commit()
-#     return redirect(url_for('admin.manage'))
-
-@bp.route('/questions', methods=['GET', 'POST'])
-@login_required
-@admin_required
-def questions():
-    problems = Problem.query.all()
-    return render_template('admin/question.html', problems=problems)
-
+# page for adding a new problem into the db
 @bp.route('/submitquestion', methods=['GET', 'POST'])
 @login_required
 @admin_required
 def submitquestion():
     return render_template('admin/submitquestion.html')
 
+# api-based function for adding a problem to the db
 @bp.route('/addquestion', methods=['POST'])  
 @login_required
 @admin_required
 def addquestion():
     data = request.get_json()
+    # input validation
     if data["question"] == "":
         return ("ERROR: Empty Question")
     try:
@@ -104,6 +93,7 @@ def addquestion():
     if problem is not None:
         return ("ERROR: Problem Name to Similar to Another Problem")
 
+    # add the problem
     p = Problem(\
         title=data["title"],\
         urlTitle=''.join((data["title"]).split()).lower(),\
@@ -112,6 +102,7 @@ def addquestion():
         timeLimit = float(data["time"]),\
     )
     db.session.add(p)
+    # add all its test cases
     tests = data["testcases"]
     for i in tests:
         if i["input"] == "" or i["output"] == "":
@@ -125,6 +116,7 @@ def addquestion():
     db.session.commit()
     return ("Succesfully Added Question")
 
+# page for editing a problem, displays the problem and its test cases
 @bp.route('/editquestion/<urltitle>', methods=['GET', 'POST'])
 @login_required
 @admin_required
@@ -133,6 +125,7 @@ def editquestion(urltitle):
     testcases = ProblemTestCases.query.filter_by(questionID=problem.id).all()
     return render_template('admin/editquestion.html', problem=problem, testcases = testcases)
 
+# api-based function for deleting a problem
 @bp.route('/question', methods=['DELETE'])
 def delete_question():
     data = request.get_json()
@@ -149,9 +142,11 @@ def delete_question():
     else:
         return ("SOMETHING WENT WRONG")
 
+# api-based function for updating a problem
 @bp.route('/question', methods=['PUT'])
 def updatequestion():
     data = request.get_json()
+    # input validation
     if data["question"] == "":
         return ("ERROR: Empty Question")
     try:
@@ -166,6 +161,7 @@ def updatequestion():
         print("trete")
         return ("ERROR: Problem Name to Similar to Another Problem")
 
+    # update entry in db
     problem = Problem.query.filter_by(urlTitle=data["oldurltitle"]).first()
     if Problem.query.filter_by(title=data["title"]) is None or problem.title == data["title"]:
         problem.title=data["title"]
@@ -190,9 +186,3 @@ def updatequestion():
         return ("Succesfully Updated Question")
     else:
         return ("Title Already Exists")
-
-@bp.route('/assess', methods=['GET', 'POST'])
-@login_required
-@admin_required
-def assess():
-    return render_template('admin/assess.html')

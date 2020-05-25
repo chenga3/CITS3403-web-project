@@ -15,6 +15,7 @@ def verify_token(token):
 def token_auth_error(status):
     return error_response(status)
 
+# for further privileged token auth
 @token_auth.get_user_roles
 def get_user_roles(user):
     if user.admin:
