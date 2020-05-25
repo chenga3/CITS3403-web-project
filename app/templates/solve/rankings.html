@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block cssfiles %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<link rel="stylesheet" href="{{ url_for('static', filename='admin/admin.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='auth/profile.css') }}">
 {% endblock %}
 {% block content %}
-<div class="admin-box">
-    <div class="content rank">
+<div class="ranking-box">
+    <div class="content rank"> 
         <h1>Leading board</h1>
         <table id ="usertable">
             <thead>

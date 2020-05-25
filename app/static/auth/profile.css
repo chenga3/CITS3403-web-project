@@ -43,7 +43,7 @@
 
 /* define the button */
 .probutton input,
-.probutton a{
+.probutton a {
     display: block;
     width: 100%;
     color: #61677C;
@@ -69,6 +69,7 @@
     text-align: center;
     font-family: 'Courier New';
 }
+
 .userprofile .userhead {
     font-weight: bold;
     margin-top: 20px;
@@ -89,4 +90,101 @@
     font-size: 20px;
     font-family: 'Franklin Gothic Medium';
     color: #4865e4;
+}
+
+/* elimate all the margin of the element */
+.ranking-box {
+    display: flex;
+    height: 900px;
+}
+
+.ranking-box * {
+    box-sizing: border-box;
+}
+
+/* initialize the body */
+.ranking-box body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    overflow-x: hidden;
+}
+
+/* the content part style */
+.ranking-box .content {
+    flex: 8;
+    height:100%;
+    padding: 40px 100px 100px;
+    overflow-y: scroll;
+}
+
+/* the content part style */
+.ranking-box .content th{
+    cursor: pointer;
+}
+
+/* the data table */
+.ranking-box .content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.1rem;
+}
+
+/* style the header and data of the table */
+.ranking-box .content th,
+.ranking-box .content td {
+    padding: 15px;
+    border-bottom: 1px solid #343837;
+}
+
+.ranking-box .rank h1{
+    margin-bottom: 20px;
+    font-family: Cambria;
+    font-weight: bold;
+    color: #4865e4;
+}
+
+.rank th,
+.rank td,
+.rank h1 {
+    text-align: center;
+}
+
+.rank th {
+    font-family: 'Lucida Sans';
+}
+
+.rank td {
+    font-family: 'Franklin Gothic Medium';
+}
+
+.rank td a {
+    color: #4865e4;
+}
+
+.rank th:hover {
+    background-color: white;
+    padding: 15px;
+}
+.headerSortDown:after,
+.headerSortUp:after {
+  content: ' ';
+  position: relative;
+  left: 12px;
+  border: 8px solid transparent;
+}
+
+.headerSortDown:after {
+  top: 15px;
+  border-top-color: #4865e4;
+}
+
+.headerSortUp:after {
+  bottom: 15px;
+  border-bottom-color: #4865e4;
+}
+
+.headerSortDown,
+.headerSortUp {
+  padding-right: 10px;
 }
