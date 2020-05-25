@@ -726,3 +726,204 @@ Traceback (most recent call last):
   File "/usr/lib/python3.8/socketserver.py", line 466, in server_bind
     self.socket.bind(self.server_address)
 OSError: [Errno 98] Address already in use
+ * Serving Flask app "yeetcode.py"
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+127.0.0.1 - - [25/May/2020 17:19:08] "[37mGET /homepage HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:19:08] "[37mGET /static/main.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:19:08] "[37mGET /static/main.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:19:08] "[37mGET /static/images/codeimage.jpg HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:19:08] "[37mGET /static/Lato/Lato-Bold.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:19:08] "[37mGET /static/Lato/Lato-Light.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:19:09] "[37mGET /static/favicon/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:19:13] "[37mGET /static/images/interviewimage.jpg HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:19:28] "[37mGET /problems HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:19:29] "[37mGET /rankings HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:19:29] "[33mGET /static/admin/Lato/Lato-Bold.ttf HTTP/1.1[0m" 404 -
+127.0.0.1 - - [25/May/2020 17:19:29] "[33mGET /static/admin/Lato/Lato-Light.ttf HTTP/1.1[0m" 404 -
+127.0.0.1 - - [25/May/2020 17:19:30] "[37mGET /admin/manage HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:19:30] "[33mGET /static/admin/Lato/Lato-Bold.ttf HTTP/1.1[0m" 404 -
+127.0.0.1 - - [25/May/2020 17:19:30] "[37mPOST /api/tokens HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:19:31] "[37mGET /homepage HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:19:37] "[37mGET /problems HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:19:38] "[37mGET /problem/aminusb HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:19:38] "[37mPOST /api/tokens HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:23:01] "[32mGET /logout HTTP/1.1[0m" 302 -
+127.0.0.1 - - [25/May/2020 17:23:01] "[37mGET /login HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:23:01] "[37mGET /static/auth/login-register.css HTTP/1.1[0m" 200 -
+[2020-05-25 17:23:03,714] ERROR in app: Exception on /problems [GET]
+Traceback (most recent call last):
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/app/problems/routes.py", line 17, in problems
+    problemscompleted = ProblemsCompleted.query.filter_by(userID=current_user.id)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'AnonymousUserMixin' object has no attribute 'id'
+127.0.0.1 - - [25/May/2020 17:23:03] "[35m[1mGET /problems HTTP/1.1[0m" 500 -
+[2020-05-25 17:23:20,343] ERROR in app: Exception on /problems [GET]
+Traceback (most recent call last):
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/app/problems/routes.py", line 17, in problems
+    problemscompleted = ProblemsCompleted.query.filter_by(userID=current_user.id)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'AnonymousUserMixin' object has no attribute 'id'
+127.0.0.1 - - [25/May/2020 17:23:20] "[35m[1mGET /problems HTTP/1.1[0m" 500 -
+ * Serving Flask app "yeetcode.py" (lazy loading)
+ * Environment: development
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 207-675-622
+127.0.0.1 - - [25/May/2020 17:23:52] "[35m[1mGET /problems HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/app/problems/routes.py", line 17, in problems
+    problemscompleted = ProblemsCompleted.query.filter_by(userID=current_user.id)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'AnonymousUserMixin' object has no attribute 'id'
+127.0.0.1 - - [25/May/2020 17:23:52] "[37mGET /problems?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:23:52] "[37mGET /problems?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:23:52] "[37mGET /problems?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:23:52] "[37mGET /problems?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:23:52] "[37mGET /problems?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:23:52] "[37mGET /problems?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/app/problems/routes.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 207-675-622
+ * Serving Flask app "yeetcode.py" (lazy loading)
+ * Environment: development
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 207-675-622
+127.0.0.1 - - [25/May/2020 17:26:06] "[35m[1mGET /problems HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/yeetcode.py", line 5, in <module>
+    app = create_app()
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/app/__init__.py", line 56, in create_app
+    from app.problems import bp as problems_bp
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/app/problems/__init__.py", line 5, in <module>
+    from app.problems import routes
+File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/app/problems/routes.py", line 17
+    status = {}
+    ^
+IndentationError: unexpected indent
+127.0.0.1 - - [25/May/2020 17:26:06] "[37mGET /problems?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:26:06] "[37mGET /problems?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:26:07] "[37mGET /problems?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:26:07] "[37mGET /problems?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:26:07] "[37mGET /problems?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:26:07] "[37mGET /problems?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Serving Flask app "yeetcode.py" (lazy loading)
+ * Environment: development
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 207-675-622
+127.0.0.1 - - [25/May/2020 17:26:27] "[35m[1mGET /problems HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/app/problems/routes.py", line 19, in problems
+    problemscompleted = ProblemsCompleted.query.filter_by(userID=current_user.id)
+  File "/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/venv/lib/python3.8/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: 'AnonymousUserMixin' object has no attribute 'id'
+127.0.0.1 - - [25/May/2020 17:26:27] "[37mGET /problems?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:26:27] "[37mGET /problems?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:26:27] "[37mGET /problems?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:26:27] "[37mGET /problems?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:26:27] "[37mGET /problems?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:26:27] "[37mGET /problems?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/home/brandon/OneDrive/Stuff/Documents/cits3403/CITS3403-Project-2/app/problems/routes.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 207-675-622
+ * Serving Flask app "yeetcode.py" (lazy loading)
+ * Environment: development
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 207-675-622
+127.0.0.1 - - [25/May/2020 17:28:44] "[37mGET /problems HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:28:44] "[37mGET /static/main.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:28:44] "[37mGET /static/problems/problem.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:28:44] "[37mGET /static/main.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:28:44] "[37mGET /static/favicon/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:28:44] "[37mGET /static/Lato/Lato-Bold.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:28:48] "[37mGET /login HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:28:48] "[37mGET /static/auth/login-register.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:28:52] "[32mPOST /login HTTP/1.1[0m" 302 -
+127.0.0.1 - - [25/May/2020 17:28:52] "[37mGET /homepage HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/May/2020 17:28:53] "[37mGET /problems HTTP/1.1[0m" 200 -

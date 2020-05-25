@@ -14,11 +14,12 @@ import rq
 @bp.route('/problems')
 def problems():
     problems = Problem.query.all()
-    problemscompleted = ProblemsCompleted.query.filter_by(userID=current_user.id)
     status = {}
-    for pc in problemscompleted:
-        status[pc.questionID] = pc.success
-    return render_template('problems/problems.html', title='Problems', 
+    if current_user.is_active:
+        problemscompleted = ProblemsCompleted.query.filter_by(userID=current_user.id)
+        for pc in problemscompleted:
+            status[pc.questionID] = pc.success
+    return render_template('problems/problems.html', title='Problems',
                             problems=problems, status=status)
 
 # Individual Problem page
@@ -54,7 +55,7 @@ def judgeSolution():
         while job.result == None:
             pass
         output = job.result
-        
+
         # get user
         user = User.query.filter_by(id=current_user.id).first()
         pc = ProblemsCompleted.query.filter_by(questionID=problem.id, userID=user.id).first()

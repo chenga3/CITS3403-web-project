@@ -2,6 +2,8 @@
 
 **Warning this app uses shell scripts and requires root access**
 
+YeetCode is a
+
 ## Getting Started
 
 ### Requirements
@@ -15,7 +17,7 @@
 
 ### Installing
 Install Python 3.8 or newer
-Install Python dependencies 
+Install Python dependencies
 	- pip install -r requirements.txt
 Install sqlite
 Install GCC
