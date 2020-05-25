@@ -15,7 +15,8 @@
 
 ### Installing
 Install Python 3.8 or newer
-Install flask: `pip install flask`
+Install Python dependencies 
+	- pip install -r requirements.txt
 Install sqlite
 Install GCC
 Install Redis Server
