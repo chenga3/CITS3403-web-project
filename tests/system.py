@@ -19,10 +19,11 @@ class SystemTest(unittest.TestCase):
             self.app = create_app(TestConfig)
             self.app_context = self.app.app_context()
             self.app_context.push()
+            db.create_all()
             users = User.query.all()
+            print(users)
             if users:
                 self.skipTest('Database is not empty')
-            db.create_all()
             db.session.query(User).delete()
             u = User(username='admin', email='admin@admin.com', admin=True)
             u.set_password('pw')
