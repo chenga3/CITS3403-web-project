@@ -11,10 +11,6 @@
 }
 
 
-/* elimate all the margin of the element */
-* {
-
-}
 
 /* initialize the body */
 body {
@@ -132,10 +128,6 @@ header ul li a:hover {
     text-align: center;
 }
 
-/* style the side nav bars when hover it */
-.admin-box .sidebar ul li a:hover {
-
-}
 
 /* the content part style */
 .admin-box .content {
@@ -261,7 +253,7 @@ header ul li a:hover {
 
 /* style the label of inputs */
 .addform label{
-    font-family Lato;
+    font-family: Lato;
     margin-bottom: 3px;
     color: #534b4b;
     font-weight: bold;
