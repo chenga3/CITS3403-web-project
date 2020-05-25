@@ -197,8 +197,10 @@ a {
 }
 
 #centercontent {
-    margin-left: 7%;
-    width: 85%;
+    /* margin-left: 7%; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
     text-align: center;
 }
 

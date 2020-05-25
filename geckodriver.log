@@ -1000,3 +1000,278 @@ JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: 
 
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1590402948645	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiledUAU73"
+1590402948811	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590402948947	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590402948947	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590402948948	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590402948948	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590402949985	Marionette	INFO	Listening on port 32777
+1590402950049	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590402956975	Marionette	INFO	Stopped listening on port 32777
+1590403192264	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileAYC544"
+1590403192428	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590403192567	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590403192567	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590403192567	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590403192567	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590403193573	Marionette	INFO	Listening on port 39979
+1590403193667	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590403200395	Marionette	INFO	Stopped listening on port 39979
+1590403318081	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiley1pNnF"
+1590403318246	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590403318381	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590403318381	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590403318381	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590403318381	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590403319416	Marionette	INFO	Listening on port 39865
+1590403319484	Marionette	WARN	TLS certificate errors will be ignored for this session
+1590403319909	Marionette	INFO	Stopped listening on port 39865
+1590403336227	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileMbp2xu"
+1590403336390	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590403336523	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590403336523	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590403336523	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590403336523	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590403337545	Marionette	INFO	Listening on port 35245
+1590403337633	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590403345008	Marionette	INFO	Stopped listening on port 35245
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1590403417239	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiler5KzEG"
+1590403417433	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590403417576	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590403417576	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590403417576	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590403417576	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590403418610	Marionette	INFO	Listening on port 38141
+1590403418643	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590403421930	Marionette	INFO	Stopped listening on port 38141
+1590403477767	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilek9TL66"
+1590403477933	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590403478072	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590403478072	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590403478072	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590403478072	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590403479110	Marionette	INFO	Listening on port 42367
+1590403479170	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590403482534	Marionette	INFO	Stopped listening on port 42367
+1590403492383	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile1pWNGL"
+1590403492547	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590403492690	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590403492690	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590403492690	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590403492690	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590403493673	Marionette	INFO	Listening on port 44955
+1590403493687	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590403496924	Marionette	INFO	Stopped listening on port 44955
+1590403569251	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiles82a39"
+1590403569416	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590403569557	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590403569557	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590403569558	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590403569558	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590403570594	Marionette	INFO	Listening on port 33093
+1590403570654	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590403573886	Marionette	INFO	Stopped listening on port 33093
+1590403642887	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilejUk1r7"
+1590403643051	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590403643189	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590403643190	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590403643190	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590403643190	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590403644221	Marionette	INFO	Listening on port 33931
+1590403644290	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590403647603	Marionette	INFO	Stopped listening on port 33931
+1590403686873	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile2q7QEx"
+1590403687035	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590403687168	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590403687168	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590403687168	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590403687168	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590403688189	Marionette	INFO	Listening on port 42899
+1590403688276	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590403692032	Marionette	INFO	Stopped listening on port 42899
+1590404897375	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile0df0mu"
+1590404897552	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590404897696	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590404897696	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590404897696	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590404897697	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590404898741	Marionette	INFO	Listening on port 36771
+1590404898778	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590404901943	Marionette	INFO	Stopped listening on port 36771
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1590405000305	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilehCHBOo"
+1590405000476	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590405000614	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590405000614	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590405000614	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590405000615	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590405001666	Marionette	INFO	Listening on port 43485
+1590405001710	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590405004945	Marionette	INFO	Stopped listening on port 43485
+1590405099553	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileddr73R"
+1590405099728	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590405099867	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590405099867	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590405099867	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590405099867	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590405100934	Marionette	INFO	Listening on port 34801
+1590405100959	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590405104213	Marionette	INFO	Stopped listening on port 34801
+1590405187170	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJ4ByDz"
+1590405187339	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590405187473	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590405187473	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590405187474	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590405187474	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590405188508	Marionette	INFO	Listening on port 41471
+1590405188574	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590405192809	Marionette	INFO	Stopped listening on port 41471
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1590405267292	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileBb6rbA"
+1590405267464	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590405267609	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590405267609	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590405267609	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590405267609	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590405268685	Marionette	INFO	Listening on port 44827
+1590405268695	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590405275322	Marionette	INFO	Stopped listening on port 44827
+1590405319684	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilenHVwF5"
+1590405319854	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590405319991	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590405319991	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590405319991	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590405319991	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590405321051	Marionette	INFO	Listening on port 42755
+1590405321091	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590405329569	Marionette	INFO	Stopped listening on port 42755
+1590405401167	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilemADJxY"
+1590405401336	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590405401475	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590405401475	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590405401475	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590405401475	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590405402521	Marionette	INFO	Listening on port 41165
+1590405402570	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590405411350	Marionette	INFO	Stopped listening on port 41165
+1590405473903	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile0d8EAF"
+1590405474073	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590405474210	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590405474210	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590405474210	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590405474210	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590405475274	Marionette	INFO	Listening on port 32879
+1590405475315	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590405479107	Marionette	INFO	Stopped listening on port 32879
+1590406010924	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilePf6BoA"
+1590406011098	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590406011238	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590406011238	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590406011238	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590406011238	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590406012270	Marionette	INFO	Listening on port 41145
+1590406012327	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590406032776	Marionette	INFO	Stopped listening on port 41145
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1590406109516	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilew48fS0"
+1590406109693	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590406109831	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590406109831	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590406109831	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590406109831	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590406110841	Marionette	INFO	Listening on port 39757
+1590406110919	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/login, line 1: ReferenceError: isempty is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+JavaScript error: http://localhost:5000/static/main.js, line 1: ReferenceError: ace is not defined
+1590406131622	Marionette	INFO	Stopped listening on port 39757

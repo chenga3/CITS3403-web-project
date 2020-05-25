@@ -3,7 +3,8 @@ from app.models import User, Problem, ProblemTestCases
 from config import TestConfig
 
 #create the app
-app = create_app()
+app = create_app(TestConfig)
+# app = create_app()
 
 @app.shell_context_processor
 def make_shell_context():

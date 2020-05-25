@@ -14,15 +14,9 @@ migrate = Migrate()
 login = LoginManager()
 login.login_view = 'auth.login'
 
-# function to start the redis worker
-# def start_rq_worker(conn):
-#     with rq.Connection(conn):
-#         worker = rq.Worker(map(rq.Queue, ['yeetcode-judge']))
-#         worker.work(logging_level='WARN')
-
 
 # create a instance of the flask app
-def create_app(config_class=Config):
+def create_app(config_class=TestConfig):
     # app
     app = Flask(__name__)
     app.config.from_object(config_class)

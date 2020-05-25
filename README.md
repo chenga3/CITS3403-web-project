@@ -70,7 +70,7 @@ The hard work has been done in a script called 'yeetcode.sh'
 
 	chmod +x worker.py
 	./worker.py
-	./worker.py & (to run in the backgroud)
+	./worker.py & (to run in the background)
 
 
 ##### Start the Flask app

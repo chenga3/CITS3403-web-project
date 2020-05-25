@@ -12,7 +12,7 @@ class SystemTest(unittest.TestCase):
     driver = None
 
     def setUp(self):
-        self.driver = webdriver.Firefox(executable_path=os.path.join(basedir,'geckodriver.exe'))
+        self.driver = webdriver.Firefox(executable_path=os.path.join(basedir,'geckodriver'))
         if not self.driver:
             self.skipTest('Could not create driver')
         else:
@@ -64,7 +64,8 @@ class SystemTest(unittest.TestCase):
         # click manage users button to display users via AJAX
         manageusers = self.driver.find_element_by_id('manageusers')
         manageusers.click()
-        time.sleep(3)
+        manageusers.click()
+        time.sleep(5)
         # check a table pops up
         thead = self.driver.find_element_by_tag_name('thead')
         self.assertIsNotNone(thead)
@@ -94,7 +95,7 @@ class SystemTest(unittest.TestCase):
         # navigate back to manage page
         button1 = self.driver.find_element_by_class_name('button1')
         button1.click()
-        time.sleep(2)
+        time.sleep(5)
         # check a table pops up
         thead = self.driver.find_element_by_tag_name('thead')
         self.assertIsNotNone(thead)
@@ -120,7 +121,7 @@ class SystemTest(unittest.TestCase):
         self.assertEqual(flash_msg, 'User successfully updated.')
         # confirm successful edit on manage page
         self.driver.find_element(By.CLASS_NAME, 'button1').click()
-        time.sleep(2)
+        time.sleep(5)
         table_row = self.driver.find_element_by_id('user' + str(u.id))
         self.assertIsNotNone(table_row)
         tds = table_row.find_elements_by_tag_name('td')
