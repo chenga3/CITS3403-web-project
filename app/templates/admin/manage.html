@@ -16,35 +16,3 @@
         </div>
     </div>
 {% endblock %}
-
-{% block jsfiles %}
-    <!-- js to achieve row delete and sorting-->
-    <script>
-        var index, table = document.getElementById('managetable-api');
-        for(var i =1;i < table.rows.length;i++){   
-        table.rows[i].cells[4].onclick = function()
-        {
-            //'this' refers to the button which is the child of a table row
-            index = this.parentElement.rowIndex;
-            table.deleteRow(index);
-        };
-    }
-
-    //sort table
-    $('th').click(function(){
-    var table = $(this).parents('table').eq(0)
-    var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
-    this.asc = !this.asc
-    if (!this.asc){rows = rows.reverse()}
-    for (var i = 0; i < rows.length; i++){table.append(rows[i])}
-    })
-    function comparer(index) {
-        return function(a, b) {
-            var valA = getCellValue(a, index), valB = getCellValue(b, index)
-            return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
-        }
-    }
-    function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
-    </script>
-    {{ super() }}
-{% endblock %}

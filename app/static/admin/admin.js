@@ -7,14 +7,32 @@ jQuery(function() {
     base_url = window.location.origin;
     setUp();
 
+    // retrieve and display list of users via AJAX
     $('#manageusers').click(function() {
         displayUserTable();
     });
 
+    // retrieve and display list of problems via AJAX
     $('#manageproblems').click(function() {
         displayProblemTable();
     });
-});
+
+    // sort the table
+    $('#managetable-api').on('click', 'th', function(){
+        var table = $(this).parents('table').eq(0)
+        var rows = table.find('tr').toArray().sort(comparer($(this).index()))
+        this.asc = !this.asc
+        if (!this.asc){rows = rows.reverse()}
+        for (var i = 0; i < rows.length; i++){table.append(rows[i])}
+        })
+        function comparer(index) {
+            return function(a, b) {
+                var valA = getCellValue(a, index), valB = getCellValue(b, index)
+                return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
+            }
+        }
+        function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
+    });
 
 function getParam(name) {
     return (location.search.split(name + '=')[1] || '').split('&')[0];

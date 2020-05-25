@@ -1,5 +1,5 @@
 from flask import Flask
-from config import Config
+from config import Config, TestConfig
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
@@ -13,6 +13,7 @@ db = SQLAlchemy()
 migrate = Migrate()
 login = LoginManager()
 login.login_view = 'auth.login'
+TESTING = False
 
 # function to start the redis worker
 # def start_rq_worker(conn):
@@ -26,6 +27,11 @@ def create_app(config_class=Config):
     # app
     app = Flask(__name__)
     app.config.from_object(config_class)
+
+    # toggle config variable to ensure TestConfig is used for tests
+    if config_class == TestConfig:
+        print('TestConfig mode')
+        TESTING = True
 
     # initalise the stuff from above
     db.init_app(app)

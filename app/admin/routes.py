@@ -32,7 +32,8 @@ def adduser():
     form = AddUserForm()
     if form.validate_on_submit():
         # create user and insert into database
-        user = User(username=form.username.data, email=form.email.data, admin=(True if form.role.data=='admin' else False))
+        user = User(username=form.username.data, email=form.email.data,
+            admin=(True if form.role.data=='admin' else False), prefLanguage=form.prefer_language.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -51,13 +52,14 @@ def edituser(id):
         flash("User does not exist.")
         return redirect(url_for('admin.manage'))
     # initialise form with correct default value for role selector
-    form = EditUserForm(user=user, role=('admin' if user.admin else 'user'))
+    form = EditUserForm(user=user, role=('admin' if user.admin else 'user'),
+        prefer_language=('py' if user.prefLanguage == 'py' else 'cpp'))
     if form.validate_on_submit():
         # update row entry in database
         user.username = form.username.data
         user.email = form.email.data
         user.admin = (True if form.role.data == 'admin' else False)
-        print(form.role.data)
+        user.prefLanguage = form.prefer_language.data
         db.session.commit()
         flash("User successfully updated.")
     return render_template('admin/edituser.html', user=user, form=form)
