@@ -10,7 +10,11 @@
             <div class=questionWrapper>
             {% for problem in problems %}
                 <a class="questionBoxLink" href="{{ url_for('problems.problem', title=''.join(problem.title.split()).lower()) }}">
-                <div class="questionBox">
+                {% if problem.id in status %}
+                <div class="questionBox" style="{{ 'background-color: green;' if status[problem.id] else 'background-color: crimson;'}}">
+                {% else %}
+            <div class="questionBox">
+                {% endif %}
                     <h2> {{ problem.title }} </h2>
                     {%if problem.difficulty == '0'%}
                     <p>Difficulty: Beginner</p>

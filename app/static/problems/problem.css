@@ -91,11 +91,6 @@ pre {
     border-radius: 4px;
 }
 
-.questionBoxLink {
-    background-color: #0f3f8d;
-    border-radius: 4px;
-}
-
 .questionBoxLink:hover , .questionBoxLink:hover > .questionBox {
     background-color: white;
     color: #2d6cdf;

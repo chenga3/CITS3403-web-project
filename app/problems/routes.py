@@ -14,7 +14,12 @@ import rq
 @bp.route('/problems')
 def problems():
     problems = Problem.query.all()
-    return render_template('problems/problems.html', title='Problems', problems=problems)
+    problemscompleted = ProblemsCompleted.query.filter_by(userID=current_user.id)
+    status = {}
+    for pc in problemscompleted:
+        status[pc.questionID] = pc.success
+    return render_template('problems/problems.html', title='Problems', 
+                            problems=problems, status=status)
 
 # Individual Problem page
 @bp.route('/problem/<title>')
