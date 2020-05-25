@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import os
 import redis
 from rq import Worker, Queue, Connection

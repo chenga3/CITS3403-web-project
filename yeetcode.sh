@@ -13,10 +13,11 @@ case $1 in
 	start*)
 		if ! (sudo systemctl is-active --quiet redis.service); then
 			if ! (sudo systemctl start redis.service); then
+				echo "Failed to start redis.service"
 				exit 1
 			fi
 		fi
-		if ! (./worker.py &) || !(flask run >> log.txt 2>&1 &); then
+		if ! (python3 worker.py &) || !(flask run >> log.txt 2>&1 &); then
 			exit 1
 		fi
 		echo $(grep Running log.txt | tail -1 | cut -d ' ' -f 3-5) ;;
@@ -24,10 +25,10 @@ case $1 in
 		
 		if ! kill $(ps aux | grep "[w]orker.py" | awk '{print $2}') &> /dev/null || !(killall flask); then
 			echo "Already Stopped (or Crashed)"
-			exit 1
 		fi
 		if (sudo systemctl is-active --quiet redis.service); then
 			if ! (sudo systemctl stop redis.service); then
+				echo "Failed to stop redis.service"
 				exit 1
 			fi
 		fi
