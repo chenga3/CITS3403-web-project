@@ -52,7 +52,7 @@ def judgeSolution():
         
         # get user
         user = User.query.filter_by(id=current_user.id).first()
-        pc = ProblemsCompleted.query.filter_by(questionID=problem.id, userID=user.id).first()
+        pc = ProblemsCompleted.query.filter_by(questionID=problem.id).first()
         if pc is not None:
             db.session.delete(pc)
         # update relavant stats

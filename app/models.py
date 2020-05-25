@@ -17,6 +17,7 @@ class User(UserMixin, db.Model):
     points = db.Column(db.Integer, default=0)
     token = db.Column(db.String(32), index=True, unique=True)
     token_expiration = db.Column(db.DateTime)
+    problemsCompleted = db.relationship('ProblemsCompleted', backref="user")
     
     # set password
     def set_password(self, password):
@@ -90,6 +91,7 @@ class Problem(db.Model):
     body= db.Column(db.Text())
     timeLimit = db.Column(db.Float)
     testCases = db.relationship('ProblemTestCases', backref="problem")
+    problemsCompleted = db.relationship('ProblemsCompleted', backref="problem")
 
     def __repr__(self):
         return '<Problem {}>'.format(self.title)
@@ -114,3 +116,9 @@ class ProblemTestCases(db.Model):
 
     def __repr__(self):
         return '<Problem {}>'.format(self.title)
+
+class ProblemsCompleted(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    questionID = db.Column(db.Integer, db.ForeignKey('problem.id'))
+    userID = db.Column(db.Integer, db.ForeignKey('user.id'))
+    success = db.Column(db.Boolean)

@@ -1,7 +1,5 @@
 # CITS3403-Web-Project 2
 
-WARNING Does use system calls and potentially invasive/harmful if someone wants to mess your stuff up
-
 ## Getting Started
 
 ### Requirements

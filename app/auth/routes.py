@@ -3,7 +3,7 @@ from app import db
 from app.auth import bp
 from app.auth.forms import LoginForm, RegistrationForm, EditProfileForm,ResetPasswordForm
 from flask_login import current_user, login_user, logout_user,login_required
-from app.models import User
+from app.models import User, Problem, ProblemsCompleted
 from werkzeug.urls import url_parse
 
 @bp.route('/login', methods=['GET', 'POST'])
@@ -52,7 +52,14 @@ def register():
 @login_required
 def profile(username,rank):
     user = User.query.filter_by(username=username).first_or_404()
-    return render_template('auth/profile.html', user=user, rank=rank, title='Profile')
+    problemscompleted = ProblemsCompleted.query.filter_by(userID=user.id)
+    problems = []
+    status = {}
+    for pc in problemscompleted:
+        status[pc.questionID] = pc.success
+        problems.append(Problem.query.filter_by(id=pc.questionID).first())
+    return render_template('auth/profile.html', user=user, rank=rank, 
+                            title='Profile', status=status, problems=problems)
 
 @bp.route('/edit_profile/<username>',methods=['GET','POST'])
 @login_required

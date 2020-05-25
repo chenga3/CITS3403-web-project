@@ -29,7 +29,29 @@
         <p>Preferred Language</p>
     </div>
     <div class="userdata">
-        {{ user.prefer_language }}
+        {{ "C++" if user.prefLanguage == "cpp" else "Python" }}
     </div>
+    <div class="userlabel">
+        <p>Problems Attempted</p>
+    </div>
+    <div class="userdata">
+        <table id="problemtable">
+            <tr>
+                <th>Problem</th>
+                <th>Status</th>
+            </tr>
+        {% for p in problems%}
+            <tr>
+                <td> <a href="{{ url_for('problems.problem', title=''.join(p.title.split()).lower())}}">{{p.title}}</a> </td>
+                {% if status[p.id] %}
+                <td style="color: green;">Solved</td>
+                {% else %}
+                <td style="color: crimson;">Not Solved</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+    <div style="padding: 1cm;"></div>
 </div>
 {% endblock %}
