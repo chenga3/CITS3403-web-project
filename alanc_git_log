@@ -1,0 +1,489 @@
+commit ac3eaa1ca609ebd26a689b91548d8f362566fce8
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Sun May 24 11:20:11 2020 +0800
+
+    fixed merge issues
+
+commit c6ffd58c4602cf35ae867314e20bbee0ef8ec98d
+Merge: 8ce5bc74 7be2e7c7
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Sun May 24 11:12:47 2020 +0800
+
+    merged master and alanc
+
+commit 7be2e7c7951c78c20cea0e15df5a5d217b88192a
+Merge: f53475c0 c1d62354
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Sat May 23 22:31:31 2020 +0800
+
+    python file
+
+commit f53475c09b02ed9126ed7faff525b5ddba04321b
+Merge: ab9df13f 1d92b7b3
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Sat May 23 22:26:13 2020 +0800
+
+    modified edit_profile and profile
+
+commit ab9df13f9d848b277e7205f4d57b27f790442ea3
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Sat May 23 22:23:16 2020 +0800
+
+    python file
+
+commit c1d62354662558148ccd777d461af7e6c776d14c
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Sat May 23 22:02:26 2020 +0800
+
+    token authentication
+
+commit 1d92b7b35957e4b0fa79d448dbe6471a9983d983
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Sat May 23 20:21:17 2020 +0800
+
+    modified profile page
+
+commit 1874a7018fb9e38e5da06bd95064bc6d50784d43
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Sat May 23 19:16:28 2020 +0800
+
+    ajax display users
+
+commit dc3fde1f2b1d6accb6b01df2c8ec17b3e2106b9f
+Merge: 1577a9d1 ec4b6dea
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Sat May 23 18:44:43 2020 +0800
+
+    Merge branch 'guohuan' of https://github.com/chenga3/CITS3403-web-project into guohuan
+    merge
+
+commit 1577a9d1f6105fce4bcbace50ad9dc7075a12e27
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Sat May 23 18:44:05 2020 +0800
+
+    delete file
+
+commit ec4b6deac5bca7866a31c6d5b9bb3ab8604fa000
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Sat May 23 18:37:30 2020 +0800
+
+    delete
+
+commit fc228ab2687714afda7262275b92484615bc904d
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Sat May 23 18:37:03 2020 +0800
+
+    delete
+
+commit 7a95374f43d190f636820d7e274edd3b871f347f
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Sat May 23 18:32:40 2020 +0800
+
+    added users profile page
+
+commit 6ed966558d0182a827623a5e5467d63c85a30969
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Sat May 23 17:23:15 2020 +0800
+
+    pyc file
+
+commit 133a9f6bd7c233f9fcf4adc5c1656de0b19f24fe
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Sat May 23 17:21:38 2020 +0800
+
+    change
+
+commit 8afacedf53a6aff9100c8a3249291554ce2413fc
+Merge: 93e33435 4369821c
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Sat May 23 15:08:31 2020 +0800
+
+    Merge branch 'master' into guohuan
+    merge back to guohuan branch
+
+commit 4369821ca9d20906b6a551b36c788d514230823f
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Sat May 23 15:08:00 2020 +0800
+
+    merge to master
+
+commit bcbaab0de55f28b61c0722aab4fe527bace1bfa8
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Sat May 23 11:39:38 2020 +0800
+
+    added rankings page
+
+commit 47cab120eb8a0d32c0b1f2b3b59029f18287e367
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Fri May 22 22:31:07 2020 +0800
+
+    seperate back to particular css file
+
+commit 8ce5bc74fbba4ded494f69cbfc52f608037cb187
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Fri May 22 16:33:37 2020 +0800
+
+    added system tests
+
+commit b3b4c0d28dfc2cc29d6043c7c268421dd2fd90ad
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Fri May 22 16:23:53 2020 +0800
+
+    merge into main.css and main.js
+
+commit da1a22432f9c7d5bd6ce5c625eb05f36b10e9375
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Fri May 22 11:14:52 2020 +0800
+
+    added preferred language to database
+
+commit b907d9cba86ae6d931323d2e58a383794da53521
+Merge: 021b01a9 03d77564
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Fri May 22 10:15:28 2020 +0800
+
+    Merge branch 'master' into alanc
+
+commit 021b01a97108ac1c93e161d92869978ed26ab37b
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Fri May 22 10:14:16 2020 +0800
+
+    separated profile styling to external sheet
+
+commit 03d775649323d1f93d923a87cf9f22635b38fb68
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Thu May 21 16:14:16 2020 +0800
+
+    fix user login bug
+
+commit 774c80f33818e72cdba3a42caace16e86570f8c9
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Thu May 21 11:15:53 2020 +0800
+
+    add debug mode
+
+commit f95be4b55f342d6e1489fd1762b893d0678331e5
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Thu May 21 11:12:16 2020 +0800
+
+    add profile
+
+commit 4fefe39c3ff7d484d8fee2e69d0e6ff9b5d3f1ac
+Author: Huan111 <lgh1007115150@qq.com>
+Date:   Thu May 21 11:10:08 2020 +0800
+
+     add profile page
+
+commit b32b5ca7b5be87cb000c42d72e736a40c39055f2
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Sun May 17 21:02:12 2020 +0800
+
+    Add sorting table function
+
+commit 37bb573747c63b4b004b1d7358f53dc515672525
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Sun May 17 20:57:48 2020 +0800
+
+    Add sorting table function
+
+commit 631bd181ba0ab4321889b2706981670d83cfafd3
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Sun May 17 20:53:28 2020 +0800
+
+    Add sorting table function
+
+commit e6fcefe7f52c71b6ba16a0ea033faea04efe493b
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Sun May 17 20:50:11 2020 +0800
+
+    Add sorting table function
+
+commit a10a6f73179d015e61bb9fcf71563b91c4e1612e
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Sun May 17 17:41:12 2020 +0800
+
+    fixed login and register style conflict
+
+commit d6e309798e254805a64c53726444eefea24dae16
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Sun May 17 17:39:58 2020 +0800
+
+    fixed login and register conflict
+
+commit 79ad078676b462638b6b9cd4f9ddd385309d2d52
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Sun May 17 17:38:10 2020 +0800
+
+    fixed login and register style conflict
+
+commit 7883fdb496be477124edc8de3cb81754ac4ae93a
+Merge: 26841237 32b716f7
+Author: chenga3 <39249792+chenga3@users.noreply.github.com>
+Date:   Fri May 15 13:28:44 2020 +0800
+
+    Merge pull request #3 from chenga3/alanc
+    
+    integrated questions and admin pages, added admin restrictions
+
+commit 32b716f7e446324d55579ff7f350c672f994025a
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Fri May 15 13:26:58 2020 +0800
+
+    integrated questions and admin pages, added admin restrictions
+
+commit 26841237b3d58525fd2b625646d9ada6badb5c11
+Author: Jeremy Vuong <jeremyvuong.dshs@gmail.com>
+Date:   Wed May 13 21:31:10 2020 +0800
+
+    fixed styling of navibar hyperlinks
+
+commit 15f81723c9b2850f9b0d2f6be14aa26c86ab0448
+Merge: 81713b19 5cb1f6ee
+Author: chenga3 <39249792+chenga3@users.noreply.github.com>
+Date:   Wed May 13 20:45:51 2020 +0800
+
+    Merge pull request #2 from chenga3/alanc
+
+commit 5cb1f6eed2d507f9c1db73a223ea0441141d7e40
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Wed May 13 20:43:30 2020 +0800
+
+    adjusted template layouts, minor styling changes
+
+commit 71a1f063cb96079e260e1ee1456d4cf1252918d7
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Wed May 13 17:45:34 2020 +0800
+
+    compiled prototype website
+
+commit b874445107bafbd0865a173a254afe29e8ea4668
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Wed May 13 17:45:34 2020 +0800
+
+    compiled prototype website
+
+commit 7247ed1201d33a8e144f4ab3150123434ab0895c
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Wed May 13 15:27:48 2020 +0800
+
+    added auth and User model tests
+
+commit b5eb36434db60455604f58eec27151c7946bd84a
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Wed May 6 18:29:33 2020 +0800
+
+    implemented add/edit/display users for admin
+
+commit 01b4bf748fe119ea87e4153a81a5505130d67a45
+Author: Jeremy Vuong <jeremyvuong.dshs@gmail.com>
+Date:   Mon May 4 17:41:53 2020 +0800
+
+    cherry-picked jeremys commit - changed index.html name to questions.html
+
+commit 24ab99e42efcc9d3eeca1dfbb59363fd3353f3fa
+Author: Jeremy Vuong <jeremyvuong.dshs@gmail.com>
+Date:   Mon May 4 17:37:22 2020 +0800
+
+    cherry-picked jeremys prototype main and question pages
+
+commit a491a19daa59332def5de4bb8b681673c3f21684
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Wed May 6 11:31:27 2020 +0800
+
+    refactored authentication code
+
+commit 10b547cae40084c4ee697c002b42dc137994946d
+Merge: 8cdecbad 9d948bf4
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Mon May 4 20:15:49 2020 +0800
+
+    resolved conflicts
+
+commit 8cdecbadcda5cf0423284886235f755a327305b2
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Mon May 4 20:07:03 2020 +0800
+
+    merged existing code with wtforms
+
+commit 5a2bbf5be228af636aebe6ed9c4078a081e86dac
+Author: brandon <bbarks15@gmail.com>
+Date:   Thu Apr 30 17:49:56 2020 +0800
+
+    merged brandons flask code
+
+commit f11be9bbdfd5413fa778ab204c143319862d53e1
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Thu Apr 30 20:38:54 2020 +0800
+
+    refined login/register
+
+commit 93e334354af380c644ad9fc07ccec7f0de46906c
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Sun May 3 12:29:53 2020 +0800
+
+    refined
+    
+    Added edit features and edit pages for question and user lists.
+    Added detailed comments and formatted
+    Modify the page style when windows get small.
+
+commit 9d948bf4b225cc62e5f7dab6fc816fa5bf43951f
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Thu Apr 30 20:38:54 2020 +0800
+
+    refined login/register
+
+commit 6312015d953d544c0bcfeaf82fee1ccf8a1860be
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Thu Apr 30 00:26:31 2020 +0800
+
+    Draft
+    
+    Draft of admin
+
+commit 6a560f0efc9abf7f315426abefb944029a9a6d5d
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Tue Apr 28 22:38:53 2020 +0800
+
+    Refined
+    
+    Added email validation and password validation in register page.
+
+commit 343ed0413eff5d64bf155eaf556d2915d1b8872c
+Author: chenga3 <39249792+chenga3@users.noreply.github.com>
+Date:   Sun Apr 26 11:00:11 2020 +0800
+
+    Update README.md
+
+commit 81fed3a124e9dc98b1abf32a4e8ea1287ba4911f
+Merge: 80ba5e68 5940b4fc
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Sun Apr 26 10:55:54 2020 +0800
+
+    Merge remote-tracking branch 'refs/remotes/origin/alanc' into alanc
+
+commit 80ba5e68a3e5a70ca79ae5179f36748c0673cd6a
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Sun Apr 26 10:55:18 2020 +0800
+
+    renamed folder and changed code accordingly
+
+commit 5940b4fc2f425f20733fe0d4df844b8263e7e6d4
+Author: chenga3 <39249792+chenga3@users.noreply.github.com>
+Date:   Sun Apr 26 10:47:18 2020 +0800
+
+    Update README.md
+
+commit 81c8eef00223e8532be7ee67b80cfdae0398bfe6
+Author: chenga3 <39249792+chenga3@users.noreply.github.com>
+Date:   Sun Apr 26 10:46:21 2020 +0800
+
+    Update README.md
+
+commit 12230104e4322c1466835e612cf733e01ae78103
+Author: chenga3 <39249792+chenga3@users.noreply.github.com>
+Date:   Sun Apr 26 10:44:56 2020 +0800
+
+    Update README.md
+
+commit 48c46b5d77e996348383c3d4e5d255b4d038cd79
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Thu Apr 23 23:11:26 2020 +0800
+
+    Refined
+    
+    Add login in register;
+    Shrink login options into 2 options
+    Remain information when users typing wrong
+    eliminate space as input element
+
+commit 592bc589e0e5c964974e8deca9a6083232972fa6
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Thu Apr 23 16:46:39 2020 +0800
+
+    incorporated guohuans changes, improved server-side form validation
+
+commit 8ca02a433d756115d85656086d14e5dce4936802
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Thu Apr 23 00:49:21 2020 +0800
+
+    Refined
+    
+    1. Adding email and confirm password options in login and register page
+    2. Adding javascript for detecting empty input and not same password input
+
+commit 5a43d7e8917861d6f89c69acc096fc28389dca50
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Wed Apr 22 18:03:27 2020 +0800
+
+    created intial flask files, login/register backend
+
+commit 4aeaacda964b3623c1b715256018c7ffeca4179a
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Tue Apr 21 15:06:33 2020 +0800
+
+    Login + Register(Refined)
+    
+    Login + Register(Refined)
+
+commit d07edf751ee49ed3aa813b75b90a135d87a35073
+Merge: 13283c96 81713b19
+Author: chenga3 <a.cheng13@student.unimelb.edu.au>
+Date:   Mon Apr 20 17:46:15 2020 +0800
+
+    Resolved markdown merge conflict
+
+commit b151d5fae44def41632076599871bd2f01067a01
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Mon Apr 20 17:08:44 2020 +0800
+
+    refined login page
+    
+    refined login page
+
+commit 81713b192073b120ae7dd1d8f2050230b72c2a16
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Mon Apr 20 14:00:43 2020 +0800
+
+    Update README.md
+
+commit d0662789be0f29945ba71dff2c5d0870b52dadb1
+Merge: e05b1243 16ed3a09
+Author: chenga3 <39249792+chenga3@users.noreply.github.com>
+Date:   Fri Apr 17 16:38:46 2020 +0800
+
+    Merge pull request #1 from chenga3/guohuan
+
+commit e05b124309fd028592b1098dda92f483c60a7364
+Author: bbarks15 <54128544+bbarks15@users.noreply.github.com>
+Date:   Fri Apr 10 16:29:04 2020 +0800
+
+    Update README.md
+    
+    Added the information from the google doc to the README
+
+commit 16ed3a092ac7821fdc50804885f86afc99132001
+Author: Huan111 <38745875+Huan111@users.noreply.github.com>
+Date:   Wed Apr 8 18:26:54 2020 +0800
+
+    Add files via upload
+    
+    the initial draft of the homepage
+
+commit a4c7ea3827a214d4ef1655b1aa14c6186fc4b59b
+Author: chenga3 <39249792+chenga3@users.noreply.github.com>
+Date:   Wed Apr 8 11:23:28 2020 +0800
+
+    Update README.md
+
+commit 13283c964d444667e97f53bc3c7d1bb29fab91a0
+Author: chenga3 <alan.cheng24@gmail.com>
+Date:   Mon Apr 6 15:48:12 2020 +0800
+
+    created quizset page, beginner quiz page, navigation bar and footer code
+
+commit e0913dadb565fbcc9f744fbdb6fd482c0d07bcd3
+Author: chenga3 <39249792+chenga3@users.noreply.github.com>
+Date:   Thu Mar 26 11:16:33 2020 +0800
+
+    Initial commit
